@@ -1,0 +1,32 @@
+{
+  "name": "teva/themesetup",
+  "description": "Themesetup description.",
+  "authors": [
+      {
+          "name": "teva",
+          "email": "chevris78@gmail.com"
+      }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Themesetup\\": "inc/"
+    }
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "wp-coding-standards/wpcs": "^2.3",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "automattic/phpcs-neutron-ruleset": "^3.3",
+    "wptrt/wpthemereview": "^0.2.1",
+    "php-parallel-lint/php-parallel-lint": "^1.2",
+    "szepeviktor/phpstan-wordpress": "^0.7.2"
+  },
+  "scripts": {
+    "lint": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+    "standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+    "standards:check-netron": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs -p ./inc --standard=NeutronStandard",
+    "standards:check-WPThemeReview": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs -p ./inc --standard=WPThemeReview",
+    "analyze": "@php ./vendor/bin/phpstan analyze"
+  }
+}
