@@ -1,0 +1,12 @@
+{
+  "phpcs.enable": true,
+  "phpcs.composerJsonPath": "composer.json",
+  "phpcs.standard": "wordpress",
+  "editor.renderWhitespace": "all",
+  "eslint.alwaysShowStatus": true,
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"html"
+	],
+}

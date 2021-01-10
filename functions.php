@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Rig functions and definitions
+ * Functions and definitions
  *
  * @package themesetup
  */
