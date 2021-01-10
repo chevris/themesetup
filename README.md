@@ -5,7 +5,7 @@
 * Production-ready theme : webpack.mix.export.js
 
 ## WORKFLOW
-* Rename
+* Rename : themesetup, Themesetup, THEMESETUP
 * Ajust phpcs.xml.dist at will
 * Run " composer dump-autoload "
 * Run " composer install "
