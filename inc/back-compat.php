@@ -14,7 +14,7 @@
  *
  * @return string Message to show to the user.
  */
-function themesetup_get_insufficient_requirements_message() {
+function themesetup_get_insufficient_requirements_message(): string { // phpcs:ignore NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions
 	global $wp_version;
 
 	$insufficient_wp  = version_compare( $wp_version, THEMESETUP_MINIMUM_WP_VERSION, '<' );
@@ -43,7 +43,7 @@ function themesetup_get_insufficient_requirements_message() {
  *
  * Switches to the default theme.
  */
-function themesetup_switch_theme() {
+function themesetup_switch_theme() { // phpcs:ignore NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions
 	switch_theme( WP_DEFAULT_THEME );
 	unset( $_GET['activated'] );
 
@@ -57,20 +57,20 @@ add_action( 'after_switch_theme', 'themesetup_switch_theme' );
  * Prints an update nag after an unsuccessful attempt to switch to the theme
  * when requirements are not met.
  */
-function themesetup_upgrade_notice() {
+function themesetup_upgrade_notice() { // phpcs:ignore NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions
 	printf( '<div class="error"><p>%s</p></div>', esc_html( themesetup_get_insufficient_requirements_message() ) );
 }
 
 /**
  * Prevents the Customizer from being loaded when requirements are not met.
  */
-function themesetup_customize() {
+function themesetup_customize() { // phpcs:ignore NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions
 	wp_die(
 		esc_html( themesetup_get_insufficient_requirements_message() ),
 		'',
-		array(
+		[
 			'back_link' => true,
-		)
+		]
 	);
 }
 add_action( 'load-customize.php', 'themesetup_customize' );
@@ -78,7 +78,7 @@ add_action( 'load-customize.php', 'themesetup_customize' );
 /**
  * Prevents the Theme Preview from being loaded when requirements are not met.
  */
-function themesetup_preview() {
+function themesetup_preview() { // phpcs:ignore NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions
 	if ( isset( $_GET['preview'] ) ) {
 		wp_die( esc_html( themesetup_get_insufficient_requirements_message() ) );
 	}

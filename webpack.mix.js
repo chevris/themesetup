@@ -64,7 +64,6 @@ mix.sourceMaps();
  *         mix.react( `${devPath}/js/[name].js`, 'js' );
  */
 mix.js( `${devPath}/js/index.js`, 'js' );
-mix.react( `${devPath}/js/subtitle.js`, 'js' );
 
 /*
  * Compile CSS.

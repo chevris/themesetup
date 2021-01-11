@@ -5,7 +5,12 @@
  * @package themesetup
  */
 
+declare( strict_types=1 );
+
 namespace Themesetup;
+
+use Themesetup\Theme;
+use Themesetup\Template_Tags;
 
 /**
  * Provides access to all available template tags of the theme.
@@ -14,7 +19,7 @@ namespace Themesetup;
  *
  * @return Template_Tags Template tags instance exposing template tag methods.
  */
-function themesetup() : Template_Tags {
+function themesetup(): Template_Tags {
 	static $theme = null;
 
 	if ( null === $theme ) {

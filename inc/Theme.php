@@ -5,9 +5,14 @@
  * @package themesetup
  */
 
+declare( strict_types=1 );
+
 namespace Themesetup;
 
 use InvalidArgumentException;
+use Themesetup\Template_Tags;
+use Themesetup\Component_Interface;
+use Themesetup\Templating_Component_Interface;
 
 /**
  * Main class for the theme.
@@ -21,7 +26,7 @@ class Theme {
 	 *
 	 * @var array
 	 */
-	protected $components = array();
+	protected $components = [];
 
 	/**
 	 * The template tags instance, providing access to all available template tags.
@@ -41,7 +46,7 @@ class Theme {
 	 *
 	 * @throws InvalidArgumentException Thrown if one of the $components does not implement Component_Interface.
 	 */
-	public function __construct( array $components = array() ) {
+	public function __construct( array $components = [] ) {
 		if ( empty( $components ) ) {
 			$components = $this->get_default_components();
 		}
@@ -66,9 +71,14 @@ class Theme {
 
 		// Instantiate the template tags instance for all theme templating components.
 		$this->template_tags = new Template_Tags(
+			/**
+			 * Filter all components ( they must implement component_interface ) to only return an array of
+			 * components that implement Templating_Component_Interface. Therefore, the callback function must
+			 * return an implementation of Templating_Component_Interface.
+			 */
 			array_filter(
 				$this->components,
-				function( Component_Interface $component ) {
+				function( Component_Interface $component ): Templating_Component_Interface {
 					return $component instanceof Templating_Component_Interface;
 				}
 			)
@@ -98,7 +108,7 @@ class Theme {
 	 *
 	 * @return Template_Tags Template tags instance.
 	 */
-	public function template_tags() : Template_Tags {
+	public function template_tags(): Template_Tags {
 		return $this->template_tags;
 	}
 
@@ -112,7 +122,7 @@ class Theme {
 	 *
 	 * @throws InvalidArgumentException Thrown when no theme component with the given slug exists.
 	 */
-	public function component( string $slug ) : Component_Interface {
+	public function component( string $slug ): Component_Interface {
 		if ( ! isset( $this->components[ $slug ] ) ) {
 			throw new InvalidArgumentException(
 				sprintf(
@@ -133,8 +143,8 @@ class Theme {
 	 *
 	 * @return array List of theme components to use by default.
 	 */
-	protected function get_default_components() : array {
-		$components = array();
+	protected function get_default_components(): array {
+		$components = [];
 
 		return $components;
 	}

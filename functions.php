@@ -5,8 +5,10 @@
  * @package themesetup
  */
 
-define( 'THEMESETUP_MINIMUM_WP_VERSION', '4.5' );
-define( 'THEMESETUP_MINIMUM_PHP_VERSION', '7.0' );
+declare( strict_types=1 );
+
+define( 'THEMESETUP_MINIMUM_WP_VERSION', '4.5' ); // phpcs:ignore NeutronStandard.Constants.DisallowDefine.Define
+define( 'THEMESETUP_MINIMUM_PHP_VERSION', '7.0' ); // phpcs:ignore NeutronStandard.Constants.DisallowDefine.Define
 
 // Bail if requirements are not met.
 if ( version_compare( $GLOBALS['wp_version'], THEMESETUP_MINIMUM_WP_VERSION, '<' ) || version_compare( phpversion(), THEMESETUP_MINIMUM_PHP_VERSION, '<' ) ) {
@@ -32,7 +34,7 @@ if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
 	 * @param string $class_name Class name to load.
 	 * @return bool True if the class was loaded, false otherwise.
 	 */
-	function _themesetup_autoload( $class_name ) {
+	function _themesetup_autoload( $class_name ): bool {
 		$namespace = 'Themesetup';
 
 		if ( strpos( $class_name, $namespace . '\\' ) !== 0 ) {
@@ -62,4 +64,4 @@ if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
 require get_template_directory() . '/inc/functions.php';
 
 // Initialize the theme.
-call_user_func( 'Themesetup\themesetup' );
+call_user_func( 'Themesetup\themesetup' ); // phpcs:ignore NeutronStandard.Functions.DisallowCallUserFunc.CallUserFunc

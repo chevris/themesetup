@@ -35,6 +35,7 @@
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/packages/*</exclude-pattern>
 
 	<!--
 	#############################################################################
@@ -42,10 +43,12 @@
 	#############################################################################
 	-->
 
-	<rule ref="WordPress"/>
+	<!-- <rule ref="WordPress"/>
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
-	<rule ref="WordPress-Extra" />
+	<rule ref="WordPress-Extra" /> -->
+
+	<rule ref="NeutronRuleset"/>
 
 	<!--
 	#############################################################################
