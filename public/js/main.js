@@ -86,14 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/index.js":
-/*!*******************************!*\
-  !*** ./resources/js/index.js ***!
-  \*******************************/
+/***/ "./resources/js/main.js":
+/*!******************************!*\
+  !*** ./resources/js/main.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3Jlc291cmNlcy9qcy9pbmRleC5qcy5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/index.js\n");
+eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3Jlc291cmNlcy9qcy9tYWluLmpzLmpzIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/main.js\n");
 
 /***/ }),
 
@@ -109,13 +109,13 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /***/ }),
 
 /***/ 0:
-/*!******************************************************************!*\
-  !*** multi ./resources/js/index.js ./resources/scss/global.scss ***!
-  \******************************************************************/
+/*!*****************************************************************!*\
+  !*** multi ./resources/js/main.js ./resources/scss/global.scss ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/js/index.js */"./resources/js/index.js");
+__webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/js/main.js */"./resources/js/main.js");
 module.exports = __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/global.scss */"./resources/scss/global.scss");
 
 

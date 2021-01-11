@@ -63,7 +63,7 @@ mix.sourceMaps();
  * syntax: mix.js( `${devPath}/js/[name].js`, 'js' );
  *         mix.react( `${devPath}/js/[name].js`, 'js' );
  */
-mix.js( `${devPath}/js/index.js`, 'js' );
+mix.js( `${devPath}/js/main.js`, 'js' );
 
 /*
  * Compile CSS.

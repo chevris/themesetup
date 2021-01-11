@@ -142,6 +142,7 @@ class Theme {
 		$components = [
 			new Base_Support\Component(),
 			new AMP\Component(),
+			new Scripts\Component(),
 		];
 
 		return $components;
