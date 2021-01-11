@@ -12,6 +12,13 @@
  * @package themesetup
  */
 
+declare( strict_types=1 );
+
+get_header();
+
 ?>
 
 <h1>hello world</h1>
+
+<?php
+get_footer();

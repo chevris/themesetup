@@ -71,14 +71,9 @@ class Theme {
 
 		// Instantiate the template tags instance for all theme templating components.
 		$this->template_tags = new Template_Tags(
-			/**
-			 * Filter all components ( they must implement component_interface ) to only return an array of
-			 * components that implement Templating_Component_Interface. Therefore, the callback function must
-			 * return an implementation of Templating_Component_Interface.
-			 */
 			array_filter(
 				$this->components,
-				function( Component_Interface $component ): Templating_Component_Interface {
+				function( Component_Interface $component ) {
 					return $component instanceof Templating_Component_Interface;
 				}
 			)
@@ -144,7 +139,10 @@ class Theme {
 	 * @return array List of theme components to use by default.
 	 */
 	protected function get_default_components(): array {
-		$components = [];
+		$components = [
+			new Base_Support\Component(),
+			new AMP\Component(),
+		];
 
 		return $components;
 	}
