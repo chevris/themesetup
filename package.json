@@ -28,6 +28,8 @@
     "rtlcss": "^3.0.0",
     "sass": "^1.32.2",
     "sass-loader": "^8.0.2",
+    "stylelint": "^13.8.0",
+    "stylelint-config-wordpress": "^17.0.0",
     "vue-template-compiler": "^2.6.12",
     "wp-pot-cli": "^1.5.0"
   },
@@ -68,6 +70,19 @@
       ]
     }
   },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
   "scripts": {
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -79,6 +94,10 @@
     "build:public": "npm run production",
     "build:rtl": "rtlcss public/css/global.css public/css/global-rtl.css",
     "build:wp-pot": "wp-pot --src './**/*.php' --dest-file 'languages/wp.pot' --domain 'themesetup'",
-    "build": "run-s \"build:*\""
+    "build": "run-s \"build:*\"",
+    "lint:scss": "stylelint **/*.scss",
+    "lint-fix:scss": "stylelint **/*.scss --fix",
+    "lint:js": "eslint resources/js",
+    "lint-fix:js": "eslint resources/js --fix"
   }
 }
