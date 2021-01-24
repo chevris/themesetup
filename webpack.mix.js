@@ -64,6 +64,9 @@ mix.sourceMaps();
  *         mix.react( `${devPath}/js/[name].js`, 'js' );
  */
 mix.js( `${devPath}/js/main.js`, 'js' );
+mix.js( `${devPath}/js/customizer-preview.js`, 'js' );
+mix.js( `${devPath}/js/customizer-pane.js`, 'js' );
+mix.react( `${devPath}/js/customizer-controls.js`, 'js' );
 
 /*
  * Compile CSS.
@@ -72,6 +75,9 @@ mix.js( `${devPath}/js/main.js`, 'js' );
 
 // Compile SASS/CSS.
 mix.sass( `${devPath}/scss/global.scss`, 'css' );
+mix.sass( `${devPath}/scss/customizer-preview.scss`, 'css' );
+mix.sass( `${devPath}/scss/customizer-pane.scss`, 'css' );
+mix.sass( `${devPath}/scss/customizer-controls.scss`, 'css' );
 
 /*
  * Copy some assets.

@@ -14,11 +14,24 @@
 
 declare( strict_types=1 );
 
+use function Themesetup\themesetup;
+
 get_header();
 
 ?>
 
 <h1 class="test">hello world</h1>
+
+<div class="partial-test">
+	<?php
+	$test = themesetup()->get_setting( 'custom_control_test_setting4' );
+	$decoded_test = json_decode( $test, true );
+	var_dump( $decoded_test );
+	?>
+</div>
+
+<?php var_dump( themesetup()->get_defaults() ); ?>
+
 
 <?php
 get_footer();

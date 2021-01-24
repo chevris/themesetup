@@ -33,18 +33,24 @@
     "vue-template-compiler": "^2.6.12",
     "wp-pot-cli": "^1.5.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2"
+  },
   "eslintConfig": {
     "env": {
       "browser": true,
       "es6": true
     },
-    "extends": "wordpress",
+    "extends": [
+      "wordpress"
+    ],
     "plugins": [
       "html",
       "react"
     ],
     "parserOptions": {
+      "ecmaVersion": 2018,
       "ecmaFeatures": {
         "experimentalObjectRestSpread": true,
         "jsx": true

@@ -18,7 +18,8 @@ use Themesetup\Templating_Component_Interface;
  * Exposes template tags:
  * * `themesetup()->get_version()`
  * * `themesetup()->get_asset_version( string $filepath )`
- * * `themesetup()->render_view( $view, $data )`
+ * * `themesetup()->get_cpt_objects()`
+ * * `themesetup()->get_excluded_cpt()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -52,7 +53,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		return [
 			'get_version' => [ $this, 'get_version' ],
 			'get_asset_version' => [ $this, 'get_asset_version' ],
-			'render_view' => [ $this, 'render_view' ],
+			'get_cpt_objects' => [ $this, 'get_cpt_objects' ],
+			'get_excluded_cpt' => [ $this, 'get_excluded_cpt' ],
 		];
 	}
 
@@ -156,34 +158,43 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Loads a view into a template..
+	 * Gets the theme custom post types.
 	 *
-	 * @param string $view The name of the view to be loaded from `views` folder, without extension.
-	 * @param array  $data An associative array of datas used in the view.
+	 * @return array Theme CPT objects.
 	 */
-	public function render_view( $view, $data = [] ) {
+	public function get_cpt_objects(): array {
+		static $cpt_objects = null;
 
-		// Bail if no view.
-		if ( empty( $view ) ) {
-			return;
+		if ( null === $cpt_objects ) {
+			$args = [
+				'public' => true,
+				'_builtin' => false,
+			];
+			$output = 'objects';
+			$operator = 'and';
+			$cpt_objects = get_post_types( $args, $output, $operator );
 		}
 
-		// Variables passed are accessible in $data. Since the view is executed in its own function, it gets its own scope.
-		$data = apply_filters( "themesetup_filter_view_data_{$view}", $data );
+		return $cpt_objects;
+	}
 
-		// Get the view ( Searches in the STYLESHEETPATH before TEMPLATEPATH so that child themes can overload one file ).
-		$path = trailingslashit( get_stylesheet_directory() ) . 'views/' . $view . '.php';
-		if ( is_file( $path ) ) {
-			include $path;
-			return;
+	/**
+	 * Get an array of post types to exclude.
+	 *
+	 * @return array Excluded post types.
+	 */
+	public static function get_excluded_cpt() {
+		static $excluded_cpt = null;
+
+		if ( null === $excluded_cpt ) {
+			$excluded_cpt = [
+				'elementor_library',
+				'manage_cpt_template',
+			];
+			$excluded_cpt = apply_filters( 'themesetup_filter_excluded_cpt', $excluded_cpt );
 		}
 
-		$path = trailingslashit( get_template_directory() ) . 'views/' . $view . '.php';
-		if ( is_file( $path ) ) {
-			include $path;
-			return;
-		}
-
+		return $excluded_cpt;
 	}
 
 }
