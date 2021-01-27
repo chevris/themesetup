@@ -1,6 +1,7 @@
 <?php
 /**
- * Themesetup\Customizer\Controls\Range_Control class
+ * Themesetup\Customizer\Controls\Range class
+ * Handles data passing from args to JS.
  *
  * @package themesetup
  */
@@ -8,24 +9,17 @@
 namespace Themesetup\Customizer\Controls;
 
 /**
- * Range_Control class.
+ * Range class
+ *
+ * @package Neve\Customizer\Controls\React
  */
-class Range_Control extends \WP_Customize_Control {
-
+class Range extends \WP_Customize_Control {
 	/**
-	 * Control type
+	 * Control type.
 	 *
 	 * @var string
 	 */
 	public $type = 'themesetup_range_control';
-
-	/**
-	 * Additional arguments passed to JS.
-	 *
-	 * @var array
-	 */
-	public $default = [];
-
 	/**
 	 * Additional arguments passed to JS.
 	 *
@@ -38,13 +32,6 @@ class Range_Control extends \WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['default']     = $this->default;
 		$this->json['input_attrs'] = $this->input_attrs;
 	}
-	/**
-	 * Empty Render Function to prevent errors.
-	 */
-	public function render_content() {
-	}
-
 }

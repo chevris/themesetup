@@ -22,6 +22,8 @@ get_header();
 
 <h1 class="test">hello world</h1>
 
+<?php var_dump( themesetup()->get_defaults() ); ?>
+
 <div class="partial-test">
 	<?php
 	$test = themesetup()->get_setting( 'custom_control_test_setting4' );
@@ -30,7 +32,19 @@ get_header();
 	?>
 </div>
 
-<?php var_dump( themesetup()->get_defaults() ); ?>
+<div class="partial-test-2">
+	<?php
+	$test2 = themesetup()->get_setting( 'custom_control_test_setting5' );
+	var_dump( $test2 );
+	?>
+</div>
+
+<div class="partial-example-1">
+	<?php
+	$example1 = themesetup()->get_setting( 'example_setting_1' );
+	var_dump( $example1 );
+	?>
+</div>
 
 
 <?php

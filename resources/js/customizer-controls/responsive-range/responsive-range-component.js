@@ -32,7 +32,7 @@ const ResponsiveRangeComponent = ({ control }) => {
 			setValue( responsiveConverted );
 		}
 
-		// Listen for new customizer values.
+		// Listen for new customizer values (like preset changes).
 		document.addEventListener( 'themesetup-changed-customizer-value', ( e ) => {
 			if ( ! e.detail ) {
 				return false;

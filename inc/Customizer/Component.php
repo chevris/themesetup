@@ -45,14 +45,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function initialize() {
 
-		// Set defaults after init to be able to retrieves post types.
-		add_action( 'wp_loaded', [ $this, 'init_defaults' ] );
-
 		add_action( 'customize_register', [ $this, 'action_modify_default_settings' ] );
 		add_action( 'customize_preview_init', [ $this, 'action_enqueue_customizer_preview_assets' ] );
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'action_enqueue_customizer_pane_assets' ] );
 
-		$this->load_settings_modules();
+		$register_settings = new Register_Settings();
+		$register_settings->initialize();
 	}
 
 	/**
@@ -197,31 +195,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 	}
 
-	/**
-	 * Loads settings modules.
-	 */
-	public function load_settings_modules() {
+	public static function get_defaults() {
 
-		$settings_modules = [
-			new Settings\Test(),
-		];
-		array_walk(
-			$settings_modules,
-			function( $module ) {
-				$module->initialize();
-			}
-		);
-
-	}
-
-	/**
-	 * Set the setting defaults array
-	 */
-	public function init_defaults() {
 		if ( is_null( self::$defaults ) ) {
 
 			$defaults = [
 				'custom_control_test_setting4' => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
+				'custom_control_test_setting5' => 70,
+				'example_setting_1' => 50,
+				'example_setting_2' => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
+				'example_setting_3' => 'option-2',
 			];
 
 			$all_cpt = themesetup()->get_cpt_objects();
@@ -237,6 +220,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			self::$defaults = apply_filters( 'themesetup_filter_defaults', $defaults );
 
 		}
+
+		return self::$defaults;
 	}
 
 	/**
@@ -246,14 +231,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string|null
 	 */
 	public function get_default( $setting ) {
-		$defaults = self::$defaults;
+		// $defaults = self::$defaults;
+		$defaults = self::get_defaults();
 		$value    = ( isset( $defaults[ $setting ] ) && '' !== $defaults[ $setting ] ) ? $defaults[ $setting ] : null;
 		return $value;
-	}
-
-	public function get_defaults() {
-		$defaults = self::$defaults;
-		return $defaults;
 	}
 
 	/**
@@ -263,7 +244,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return mixed
 	 */
 	public function get_setting( $setting ) {
-		$defaults = self::$defaults;
+		// $defaults = self::$defaults;
+		$defaults = self::get_defaults();
 		$value = get_theme_mod( $setting, null );
 
 		if ( is_null( $value ) || ( isset( $value ) && '' === $value ) ) {
