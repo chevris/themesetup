@@ -11,9 +11,18 @@
 
 declare( strict_types=1 );
 
+use function Themesetup\themesetup;
+
 ?>
 
 </div><!-- #page -->
+
+<div class="partial-example-1">
+	<?php
+	$example1 = themesetup()->get_setting( 'example_setting_1' );
+	var_dump( $example1 );
+	?>
+</div>
 
 <?php wp_footer(); ?>
 

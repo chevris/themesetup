@@ -200,8 +200,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( is_null( self::$defaults ) ) {
 
 			$defaults = [
-				'custom_control_test_setting4' => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
-				'custom_control_test_setting5' => 70,
 				'example_setting_1' => 50,
 				'example_setting_2' => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
 				'example_setting_3' => 'option-2',

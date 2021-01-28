@@ -10,6 +10,7 @@ declare( strict_types=1 );
 namespace Themesetup\Customizer;
 
 use Themesetup\Customizer\Controls\Range;
+use Themesetup\Customizer\Controls\Presets;
 use Themesetup\Customizer\Controls\Responsive_Range;
 
 /**
@@ -52,8 +53,6 @@ class Register_Settings {
 
 		add_action( 'customize_register', [ $this, 'action_customize_register' ] );
 
-		add_action( 'customize_register', [ $this, 'action_create_settings_array' ], 1 );
-		add_action( 'customize_register', [ $this, 'action_register_controls' ] );
 	}
 
 	/**
@@ -75,13 +74,14 @@ class Register_Settings {
 	 * Set settings array.
 	 */
 	public function create_settings_array() {
-		require_once get_template_directory() . '/inc/Customizer/Settings/test-settings.php';
+		require_once get_template_directory() . '/inc/Customizer/Settings/example-settings.php';
 	}
 
 	/**
 	 * Register control types.
 	 */
 	public function register_controls() {
+		$this->customizer->register_control_type( Presets::class );
 		$this->customizer->register_control_type( Range::class );
 		$this->customizer->register_control_type( Responsive_Range::class );
 	}

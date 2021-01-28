@@ -18,6 +18,7 @@ use Themesetup\Templating_Component_Interface;
  * Exposes template tags:
  * * `themesetup()->get_version()`
  * * `themesetup()->get_asset_version( string $filepath )`
+ * * `themesetup()->get_part()`
  * * `themesetup()->get_cpt_objects()`
  * * `themesetup()->get_excluded_cpt()`
  */
@@ -53,6 +54,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		return [
 			'get_version' => [ $this, 'get_version' ],
 			'get_asset_version' => [ $this, 'get_asset_version' ],
+			'get_part' => [ $this, 'get_part' ],
 			'get_cpt_objects' => [ $this, 'get_cpt_objects' ],
 			'get_excluded_cpt' => [ $this, 'get_excluded_cpt' ],
 		];
@@ -155,6 +157,23 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		return $this->get_version();
+	}
+
+	/**
+	 * Just a wrapper to get_template_part() to pass additional data.
+	 *
+	 * @param string $slug The slug name for the generic template.
+	 * @param string $name The name of the specialised template.
+	 * @param array  $args Additional arguments passed to the template.
+	 */
+	public function get_part( $slug, $name = null, $args = [] ) {
+
+		// Each array key is accessible in template with get_query_var([key]).
+		foreach ( (array) $args as $key => $value ) {
+			set_query_var( $key, $value );
+		}
+
+		return get_template_part( $slug, $name );
 	}
 
 	/**

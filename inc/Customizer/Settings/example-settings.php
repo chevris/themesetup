@@ -35,6 +35,31 @@ Register_Settings::add_sections(
 Register_Settings::add_settings(
 	[
 
+		'example_preset' => [
+			'setting_args' => [
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport'         => 'postMessage',
+			],
+			'control_args' => [
+				'label'    => esc_html__( 'example_preset', 'themesetup' ),
+				'section'  => 'example_section_1',
+				'priority' => 10,
+				'presets'  => [
+					[
+						'label' => 'Preset 1',
+						'image' => get_parent_theme_file_uri( '/public/img/Classic.jpg' ),
+						'setup' => '{"example_setting_1": 70,"example_setting_2": { "mobile": 1000, "tablet": 1500, "desktop": 2000 },"example_setting_3": "option-2"}',
+					],
+					[
+						'label' => 'Preset 2',
+						'image' => get_parent_theme_file_uri( '/public/img/Classic.jpg' ),
+						'setup' => '{"example_setting_1": 10,"example_setting_2": { "mobile": 10, "tablet": 80, "desktop": 700 },"example_setting_3": "option-1"}',
+					],
+				],
+			],
+			'custom_control' => 'Presets',
+		],
+
 		'example_setting_1' => [
 			'setting_args' => [
 				'default'           => themesetup()->get_default( 'example_setting_1' ),
