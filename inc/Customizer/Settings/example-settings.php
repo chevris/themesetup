@@ -21,6 +21,46 @@ Register_Settings::add_panels(
 
 Register_Settings::add_sections(
 	[
+		'example_expanded_section' => [
+			'section_args' => [
+				'title'    => esc_html__( 'Expanded Section', 'themesetup' ),
+				'priority' => 1,
+				'panel'    => 'example_panel',
+			],
+			'custom_section' => 'Expanded_Section',
+		],
+	]
+);
+
+Register_Settings::add_settings(
+	[
+		'example_expanded_setting' => [
+			'setting_args' => [
+				'default'           => 'option-1',
+				'sanitize_callback' => function ( $value ) {
+					$allowed_values = [ 'option-1', 'option-2' ];
+					if ( ! in_array( $value, $allowed_values, true ) ) {
+						return 'option-1';
+					}
+					return esc_html( $value );
+				},
+			],
+			'control_args' => [
+				'type'     => 'select',
+				'label'    => esc_html__( 'example_expanded_setting', 'themesetup' ),
+				'section'  => 'example_expanded_section',
+				'priority' => 10,
+				'choices'  => [
+					'option-1' => esc_html__( 'Option 1', 'themesetup' ),
+					'option-2' => esc_html__( 'Option 2', 'themesetup' ),
+				],
+			],
+		],
+	]
+);
+
+Register_Settings::add_sections(
+	[
 		'example_section_1' => [
 			'section_args' => [
 				'title'    => esc_html__( 'Example Section', 'themesetup' ),

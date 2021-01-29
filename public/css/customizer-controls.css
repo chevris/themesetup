@@ -1,4 +1,20 @@
 /* stylelint-disable */
+#customize-theme-controls .control-section-themesetup_expanded_section .accordion-section-title {
+  display: none;
+}
+#customize-theme-controls .control-section-themesetup_expanded_section .customize-section-back {
+  display: none;
+}
+#customize-theme-controls .customize-pane-child.control-section-themesetup_expanded_section {
+  position: relative;
+  visibility: visible;
+  height: auto;
+  margin-left: -100%;
+}
+#customize-theme-controls .customize-pane-child.control-section-themesetup_expanded_section h3 .customize-action {
+  display: none;
+}
+
 .themesetup-control-header {
   display: flex;
   align-items: center;
@@ -6,38 +22,4 @@
 }
 .themesetup-control-header .customize-control-title {
   margin: 0;
-}
-
-.themesetup-responsive-control-bar {
-  display: flex;
-  align-items: center;
-  margin-left: 14px;
-}
-.themesetup-responsive-control-bar .components-button-group {
-  display: flex;
-}
-.themesetup-responsive-control-bar button {
-  height: auto;
-  box-shadow: none !important;
-  padding: 3px 4px !important;
-  min-width: unset !important;
-}
-.themesetup-responsive-control-bar button svg,
-.themesetup-responsive-control-bar button .dashicon {
-  fill: #9c9c9c;
-  height: 15px;
-  width: 16px;
-  font-size: 15px;
-}
-
-.preview-tablet .themesetup-responsive-control-bar button.tablet .dashicon {
-  color: #86909b;
-}
-
-.preview-mobile .themesetup-responsive-control-bar button.mobile .dashicon {
-  color: #86909b;
-}
-
-.preview-desktop .themesetup-responsive-control-bar button.desktop .dashicon {
-  color: #86909b;
 }

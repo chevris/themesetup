@@ -11,6 +11,7 @@ namespace Themesetup\Customizer;
 
 use Themesetup\Customizer\Controls\Range;
 use Themesetup\Customizer\Controls\Presets;
+use Themesetup\Customizer\Controls\Expanded_Section;
 use Themesetup\Customizer\Controls\Responsive_Range;
 
 /**
@@ -81,6 +82,7 @@ class Register_Settings {
 	 * Register control types.
 	 */
 	public function register_controls() {
+		$this->customizer->register_section_type( Expanded_Section::class );
 		$this->customizer->register_control_type( Presets::class );
 		$this->customizer->register_control_type( Range::class );
 		$this->customizer->register_control_type( Responsive_Range::class );

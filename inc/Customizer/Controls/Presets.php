@@ -1,6 +1,6 @@
 <?php
 /**
- * Themesetup\Customizer\Controls\Range class
+ * Themesetup\Customizer\Controls\Presets class
  * Handles data passing from args to JS.
  *
  * @package themesetup
