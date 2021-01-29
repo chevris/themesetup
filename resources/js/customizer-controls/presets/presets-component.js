@@ -38,7 +38,7 @@ class PresetsComponent extends Component {
 	render() {
 		const presets = this.getPresets();
 		return (
-			<div className="themesetup-preset-selector">
+			<div className="themesetup-presets">
 				<div className="search">
 					<input
 						type="search"

@@ -59,6 +59,65 @@ Register_Settings::add_settings(
 	]
 );
 
+Register_Settings::add_settings(
+	[
+		'example_expanded_setting_2' => [
+			'setting_args' => [
+				'transport' => 'postMessage',
+			],
+			'control_args' => [
+				'label'    => 'Focus outer section',
+				'section'  => 'example_expanded_section',
+				'priority' => 10,
+				'input_attrs'  => [
+					'section' => 'example_outer_section',
+				],
+			],
+			'custom_control' => 'Focus_Button',
+		],
+	]
+);
+
+Register_Settings::add_sections(
+	[
+		'example_outer_section' => [
+			'section_args' => [
+				'title'    => esc_html__( 'Outer Section', 'themesetup' ),
+				'priority' => 0,
+				'type'     => 'outer',
+				'panel'    => 'example_panel',
+			],
+		],
+	]
+);
+
+Register_Settings::add_settings(
+	[
+		'example_outer_setting' => [
+			'setting_args' => [
+				'default'           => 'option-1',
+				'sanitize_callback' => function ( $value ) {
+					$allowed_values = [ 'option-1', 'option-2' ];
+					if ( ! in_array( $value, $allowed_values, true ) ) {
+						return 'option-1';
+					}
+					return esc_html( $value );
+				},
+			],
+			'control_args' => [
+				'type'     => 'select',
+				'label'    => esc_html__( 'example_outer_setting', 'themesetup' ),
+				'section'  => 'example_outer_section',
+				'priority' => 10,
+				'choices'  => [
+					'option-1' => esc_html__( 'Option 1', 'themesetup' ),
+					'option-2' => esc_html__( 'Option 2', 'themesetup' ),
+				],
+			],
+		],
+	]
+);
+
 Register_Settings::add_sections(
 	[
 		'example_section_1' => [

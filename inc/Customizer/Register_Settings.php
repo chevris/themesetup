@@ -11,6 +11,7 @@ namespace Themesetup\Customizer;
 
 use Themesetup\Customizer\Controls\Range;
 use Themesetup\Customizer\Controls\Presets;
+use Themesetup\Customizer\Controls\Focus_Button;
 use Themesetup\Customizer\Controls\Expanded_Section;
 use Themesetup\Customizer\Controls\Responsive_Range;
 
@@ -86,6 +87,7 @@ class Register_Settings {
 		$this->customizer->register_control_type( Presets::class );
 		$this->customizer->register_control_type( Range::class );
 		$this->customizer->register_control_type( Responsive_Range::class );
+		$this->customizer->register_control_type( Focus_Button::class );
 	}
 
 	/**
