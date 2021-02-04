@@ -144,7 +144,11 @@ class Theme {
 			new AMP\Component(),
 			new Sanitize\Component(),
 			new Customizer\Component(),
+			new Styles\Component(),
 			new Scripts\Component(),
+
+			new Content_Archive\Component(),
+			new Content_Singular\Component(),
 		];
 
 		return $components;

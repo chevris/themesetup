@@ -10,6 +10,7 @@ declare( strict_types=1 );
 namespace Themesetup\Customizer;
 
 use Themesetup\Customizer\Controls\Range;
+use Themesetup\Customizer\Controls\Toggle;
 use Themesetup\Customizer\Controls\Presets;
 use Themesetup\Customizer\Controls\Focus_Button;
 use Themesetup\Customizer\Controls\Expanded_Section;
@@ -77,6 +78,8 @@ class Register_Settings {
 	 */
 	public function create_settings_array() {
 		require_once get_template_directory() . '/inc/Customizer/Settings/example-settings.php';
+
+		require_once get_template_directory() . '/inc/Customizer/Settings/global-settings.php';
 	}
 
 	/**
@@ -85,6 +88,7 @@ class Register_Settings {
 	public function register_controls() {
 		$this->customizer->register_section_type( Expanded_Section::class );
 		$this->customizer->register_control_type( Presets::class );
+		$this->customizer->register_control_type( Toggle::class );
 		$this->customizer->register_control_type( Range::class );
 		$this->customizer->register_control_type( Responsive_Range::class );
 		$this->customizer->register_control_type( Focus_Button::class );

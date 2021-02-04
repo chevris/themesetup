@@ -40,3 +40,13 @@ use function Themesetup\themesetup;
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'themesetup' ); ?></a>
 
+	<?php
+	do_action( 'themesetup_before_header' );
+
+	do_action( 'themesetup_header' );
+
+	do_action( 'themesetup_after_header' );
+	?>
+
+	<div id="content" class="site-content">
+

@@ -15,6 +15,16 @@ use function Themesetup\themesetup;
 
 ?>
 
+	</div><!-- #content -->
+
+	<?php
+	do_action( 'themesetup_before_footer' );
+
+	do_action( 'themesetup_footer' );
+
+	do_action( 'themesetup_after_footer' );
+	?>
+
 </div><!-- #page -->
 
 <div class="partial-example-1">

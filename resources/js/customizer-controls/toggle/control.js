@@ -6,13 +6,13 @@ const { render } = wp.element;
 /**
  * Internal dependencies
  */
-import RangeComponent from './range-component.js';
+import ToggleComponent from './toggle-component.js';
 
-export const RangeControl = wp.customize.ThemesetupControl.extend({
+export const ToggleControl = wp.customize.ThemesetupControl.extend({
 	renderContent: function renderContent() {
 		const control = this;
 		render(
-			<RangeComponent control={ control } />,
+			<ToggleComponent control={ control } />,
 			control.container[ 0 ]
 		);
 	}

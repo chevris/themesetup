@@ -17,6 +17,7 @@ use Themesetup\Templating_Component_Interface;
  *
  * Exposes template tags:
  * * `themesetup()->sanitize_responsive_range()`
+ * * `themesetup()->sanitize_checkbox()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -44,6 +45,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function template_tags(): array {
 		return [
 			'sanitize_responsive_range' => [ $this, 'sanitize_responsive_range' ],
+			'sanitize_checkbox' => [ $this, 'sanitize_checkbox' ],
 		];
 	}
 
@@ -62,6 +64,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$range_value['tablet']  = is_numeric( $range_value['tablet'] ) ? floatval( $range_value['tablet'] ) : '';
 		$range_value['mobile']  = is_numeric( $range_value['mobile'] ) ? floatval( $range_value['mobile'] ) : '';
 		return wp_json_encode( $range_value );
+	}
+
+	/**
+	 * Sanitize checkbox output.
+	 *
+	 * @param boolean $value value to be sanitized.
+	 * @return boolean
+	 */
+	public function sanitize_checkbox( $value ) {
+		return isset( $value ) && true === (bool) $value;
 	}
 
 	/**

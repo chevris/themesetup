@@ -203,6 +203,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'example_setting_1' => 50,
 				'example_setting_2' => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
 				'example_setting_3' => 'option-2',
+
+				'themesetup_preload_style' => true,
 			];
 
 			$all_cpt = themesetup()->get_cpt_objects();

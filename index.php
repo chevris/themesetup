@@ -16,9 +16,6 @@ declare( strict_types=1 );
 
 get_header();
 
-?>
+do_action( 'themesetup_content_archive' );
 
-<h1 class="test">hello world</h1>
-
-<?php
 get_footer();
