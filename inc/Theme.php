@@ -147,6 +147,7 @@ class Theme {
 			new Icons\Component(),
 			new Sanitize\Component(),
 			new Customizer\Component(),
+			new Template_Context\Component(),
 			new Styles\Component(),
 			new Scripts\Component(),
 

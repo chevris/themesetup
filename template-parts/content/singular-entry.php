@@ -5,6 +5,8 @@
  * @package themesetup
  */
 
+use function Themesetup\themesetup;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -40,4 +42,6 @@
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php
-comments_template();
+if ( themesetup()->comments_is_enabled() ) {
+	comments_template();
+}

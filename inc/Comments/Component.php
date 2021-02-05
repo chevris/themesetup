@@ -82,7 +82,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'themesetup-comments' => [
 				'file'             => 'in-body/comments.css',
 				'preload_callback' => function() {
-					return is_singular() && post_type_supports( get_post_type(), 'comments' ) && ( comments_open() || get_comments_number() );
+					return themesetup()->comments_is_enabled();
 				},
 			],
 		];
