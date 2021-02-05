@@ -33,6 +33,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'themesetup_content_archive', [ $this, 'action_display_content_archive' ] );
+		add_filter( 'themesetup_css_files', [ $this, 'filter_css_files_archive_loop' ] );
 		add_action( 'themesetup_archive_loop', [ $this, 'action_display_archive_loop' ] );
 	}
 
@@ -52,6 +53,31 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function action_display_content_archive() {
 		get_template_part( 'template-parts/content/content-archive', get_post_type() );
+	}
+
+	/**
+	 * Filters default CSS files.
+	 *
+	 * @param array $css_files Associative array of CSS files, as $handle => $data pairs.
+	 * @return array Associative array of $handle => $data pairs.
+	 */
+	public function filter_css_files_archive_loop( $css_files ): array {
+
+		// CSS files to add.
+		$archive_loop_css_file = [
+			'themesetup-archive-loop' => [
+				'file'             => 'in-body/archive-loop.css',
+				'preload_callback' => function () {
+					return ! is_singular() && ! is_404();
+				},
+			],
+		];
+
+		// Enqueue and preload css files only if they exist.
+		$css_files = array_merge( $archive_loop_css_file, $css_files );
+
+		return $css_files;
+
 	}
 
 	/**

@@ -227,12 +227,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file'   => 'global.css',
 				'global' => true,
 			],
-			'themesetup-archive-loop' => [
-				'file'             => 'in-body/archive-loop.css',
-				'preload_callback' => function () {
-					return ! is_singular() && ! is_404();
-				},
-			],
 		];
 
 		/**

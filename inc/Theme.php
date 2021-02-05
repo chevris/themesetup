@@ -142,6 +142,9 @@ class Theme {
 		$components = [
 			new Base_Support\Component(),
 			new AMP\Component(),
+			new PWA\Component(),
+			new Comments\Component(),
+			new Icons\Component(),
 			new Sanitize\Component(),
 			new Customizer\Component(),
 			new Styles\Component(),
