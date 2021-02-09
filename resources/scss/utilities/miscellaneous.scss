@@ -1,0 +1,26 @@
+/*--------------------------------------------------------------
+# Miscellaneous
+--------------------------------------------------------------*/
+
+/* Disable scroll */
+.scroll-disabled {
+	overflow-x: hidden !important;
+	overflow-y: hidden !important;
+}
+
+/* no js */
+.no-js .hide-no-js {
+	display: none !important;
+}
+
+/* Overlay */
+.overlay-mask {
+	background-color: var(--cl-overlay, rgba(0, 0, 0, 0.5));
+	bottom: 0;
+	content: "";
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 999998;
+}

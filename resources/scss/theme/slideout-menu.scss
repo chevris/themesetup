@@ -1,0 +1,64 @@
+#slideout-menu-js {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index: 999999;
+	overflow: auto;
+
+	/* Hidden in the left */
+	right: auto;
+	left: -200%;
+	transition: left 0.2s;
+}
+
+/* Open from the left */
+.slideout-offcanvas-opened #slideout-menu-js {
+	left: 0;
+}
+
+body.admin-bar #slideout-menu-js {
+	top: 46px;
+
+	@include media(admin-bar) {
+		top: 32px;
+	}
+}
+
+/**
+ * Common style for amp and js slide-out menu
+ */
+.slideout-menu {
+	width: 100vw; /* 90vw; */
+	max-width: 100vw; /* 90vw; */
+
+	@include media (tablet) {
+		width: 33vw;
+		max-width: 400px;
+	}
+}
+
+/**
+ * Slide-out menu toggle
+ */
+
+.slideout-menu-toggle {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	color: inherit;
+
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline-offset: 0;
+	}
+
+	svg {
+		margin-right: 0.25rem;
+	}
+}

@@ -145,12 +145,17 @@ class Theme {
 			new PWA\Component(),
 			new Comments\Component(),
 			new Icons\Component(),
+			new Nav_Menus\Component(),
+			new Custom_Logo\Component(),
 			new Sanitize\Component(),
 			new Customizer\Component(),
-			new Template_Context\Component(),
 			new Styles\Component(),
 			new Scripts\Component(),
 
+			new Template_Context\Component(),
+			new Slideout_Menu\Component(),
+
+			new Header\Component(),
 			new Content_Archive\Component(),
 			new Content_Singular\Component(),
 		];

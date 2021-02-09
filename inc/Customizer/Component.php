@@ -76,7 +76,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_modify_default_settings( WP_Customize_Manager $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-		$wp_customize->get_control( 'header_text' )->label         = __( 'Display Site Title', 'themesetup' );
 
 		if ( isset( $wp_customize->selective_refresh ) ) {
 			$wp_customize->selective_refresh->add_partial(

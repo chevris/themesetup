@@ -42,6 +42,6 @@ use function Themesetup\themesetup;
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php
-if ( themesetup()->comments_is_enabled() ) {
+if ( themesetup()->has_comments() ) {
 	comments_template();
 }

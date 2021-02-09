@@ -27,6 +27,9 @@ use function Themesetup\themesetup;
 
 </div><!-- #page -->
 
+<?php do_action( 'themesetup_after_page' ); ?>
+
+
 <div class="partial-example-1">
 	<?php
 	$example1 = themesetup()->get_setting( 'example_setting_1' );

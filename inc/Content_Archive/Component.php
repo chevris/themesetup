@@ -85,13 +85,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function action_display_archive_loop() {
 
-		// @todo: function that retrieves archive loop data.
-		$context = [
-			'layout' => 'classic',
-		];
+		$layout = themesetup()->get_context( 'archive_loop', 'layout' );
 
 		$archive_loop_classes = [];
-		$archive_loop_classes[] = $context['layout'];
+		$archive_loop_classes[] = $layout;
 		$archive_loop_classes = implode( ' ', $archive_loop_classes );
 
 		themesetup()->print_styles( 'themesetup-archive-loop' );

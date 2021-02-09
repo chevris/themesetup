@@ -1,11 +1,11 @@
 <?php
 /**
- * Themesetup\Content_Singular\Component class
+ * Themesetup\Slideout_Menu\Component class
  *
  * @package themesetup
  */
 
-namespace Themesetup\Content_Singular;
+namespace Themesetup\Slideout_Menu;
 
 use Themesetup\Component_Interface;
 use Themesetup\Templating_Component_Interface;
@@ -24,14 +24,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string Component slug.
 	 */
 	public function get_slug(): string {
-		return 'content_singular';
+		return 'slideout_menu';
 	}
 
 	/**
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'themesetup_content_singular', [ $this, 'action_display_content_singular' ] );
+		add_action( 'themesetup_before_page', [ $this, 'action_display_slideout_menu' ] );
 	}
 
 	/**
@@ -48,8 +48,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Display content singular template.
 	 */
-	public function action_display_content_singular() {
-		get_template_part( 'template-parts/content/content-singular', get_post_type() );
+	public function action_display_slideout_menu() {
+
+		get_template_part( 'template-parts/off-canvas/slideout-menu' );
+
 	}
 
 }

@@ -1,0 +1,307 @@
+/*--------------------------------------------------------------
+All menus
+--------------------------------------------------------------*/
+
+.menu,
+.menu ul,
+.menu li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Hide every buttons and sub menus */
+.menu button {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+Horizontal menu
+--------------------------------------------------------------*/
+
+.horizontal-menu {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: stretch;
+	justify-content: center;
+}
+
+/* 1rst level items */
+.horizontal-menu > li {
+	display: flex;
+	align-items: center;
+	margin-right: 0.25rem;
+	line-height: 1.25;
+
+	> a {
+		font-size: 1em;
+		padding: 0.25rem 0.5rem;
+	}
+
+	&:first-child > a {
+		padding-left: 0;
+	}
+}
+
+/* Hide every sub menus */
+.horizontal-menu .sub-menu {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+Dropdown horizontal menu
+--------------------------------------------------------------*/
+
+/* All items */
+.horizontal-menu.is-dropdown li {
+	position: relative;
+}
+
+/* Dropdown toggle of 1rst level items */
+.horizontal-menu.is-dropdown > li.menu-item-has-children {
+
+	> .dropdown-toggle {
+		display: flex;
+		align-items: center;
+	}
+
+	> a {
+		padding-right: 0;
+	}
+}
+
+/* Sub menus */
+.horizontal-menu.is-dropdown .sub-menu {
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.2s;
+	left: -9999px;
+	z-index: 99999;
+
+	> li {
+		display: block;
+		background-color: #fff;
+	}
+
+	a {
+		color: #111;
+		display: block;
+		font-size: 0.9em;
+		line-height: var(--lh-heading, 1.2);
+		padding: 0.75rem calc(24px + 1rem) 0.75rem 1rem;
+	}
+}
+
+/* 1rst level sub menus */
+.horizontal-menu.is-dropdown > li > .sub-menu {
+	padding-top: 12px;
+
+	&:before { /* Triangle */
+		border-style: solid;
+		border-width: 0 8px 8px 8px;
+		border-color: transparent transparent #fff transparent;
+		content: "";
+		display: inline-block;
+		height: 0;
+		left: 10px;
+		position: absolute;
+		top: 4px;
+		width: 0;
+	}
+}
+
+/* Dropdown toggle in sub menus */
+.horizontal-menu.is-dropdown .sub-menu > li.menu-item-has-children .dropdown-toggle {
+	display: block;
+	position: absolute;
+	transform: rotate(-90deg);
+	top: 0;
+	bottom: 0;
+	right: 0.1rem;
+	padding: 0.7rem;
+	color: #111;
+}
+
+/* Show sub menus */
+.horizontal-menu.is-dropdown .menu-item-has-children:hover > .sub-menu,
+.horizontal-menu.is-dropdown .menu-item-has-children:focus > .sub-menu {
+	display: block;
+	float: none;
+	margin-top: 0;
+	opacity: 1;
+	position: absolute;
+	left: 0;
+	right: auto;
+	top: 100%;
+	bottom: auto;
+	height: auto;
+	transform: none;
+	width: 12.5rem;
+}
+
+.horizontal-menu.is-dropdown .sub-menu .menu-item-has-children:hover > .sub-menu,
+.horizontal-menu.is-dropdown .sub-menu .menu-item-has-children:focus > .sub-menu {
+	left: 100%;
+	top: 0;
+}
+
+.horizontal-menu.is-dropdown .menu-item-has-children:focus-within > .sub-menu { /*:focus-within needs its own selector so other similar selectors don’t get ignored if a browser doesn’t recognize it */
+	display: block;
+	float: none;
+	margin-top: 0;
+	opacity: 1;
+	position: absolute;
+	left: 0;
+	right: auto;
+	top: 100%;
+	bottom: auto;
+	height: auto;
+	transform: none;
+	width: 12.5rem;
+}
+
+.horizontal-menu.is-dropdown .sub-menu .menu-item-has-children:focus-within > .sub-menu {
+	left: 100%;
+	top: 0;
+}
+
+/*--------------------------------------------------------------
+Vertical menu
+--------------------------------------------------------------*/
+
+.vertical-menu {
+
+	a {
+		display: inline-block;
+		width: 100%;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+/* 1rst level items */
+.vertical-menu > li {
+
+	> header > a,
+	> section > header > a,
+	> amp-accordion > section > header > a {
+		padding: 0.25rem 0;
+		font-weight: 700;
+	}
+
+	> header > a:hover,
+	> section > header > a:hover {
+		opacity: 0.75;
+	}
+}
+
+/* Sub menus */
+.vertical-menu ul {
+	margin-left: 1rem;
+}
+
+/*--------------------------------------------------------------
+Dropdown vertical menu
+--------------------------------------------------------------*/
+
+.vertical-menu.is-dropdown header {
+	position: relative;
+	padding-right: 20px;
+	background-color: transparent;
+	border: 0;
+}
+
+/* dropdown toggle */
+.vertical-menu.is-dropdown .dropdown-toggle {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+
+	svg {
+		transition: transform 0.15s linear;
+	}
+}
+
+.vertical-menu.is-dropdown [expanded] > header > .dropdown-toggle svg {
+	transform: rotate(180deg);
+}
+
+/* sub menu */
+.vertical-menu.is-dropdown .menu-item-has-children {
+
+	ul {
+		display: none;
+	}
+
+	[expanded] > ul {
+		display: block;
+	}
+}
+
+/*--------------------------------------------------------------
+Social menu
+--------------------------------------------------------------*/
+
+/* Label */
+.social-nav.hide-label .social-menu-label {
+	display: none;
+}
+
+.social-menu {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	overflow: visible;
+
+	/* Label */
+	.social-menu-label {
+		font-size: var(--fs-sm, 0.8em);
+		font-family: var(--ff-heading);
+		line-height: var(--lh-heading, 1.2);
+	}
+
+	li {
+
+		&:not(:last-child) {
+			margin-right: 1em;
+		}
+
+		a {
+			display: block;
+			color: inherit;
+			border-bottom: 1px solid transparent;
+			margin-bottom: -1px;
+			transition: opacity var(--trans-link, 110ms) ease-in-out;
+
+			&:hover,
+			&:active {
+				opacity: 0.7;
+			}
+
+			&:focus {
+				opacity: 1;
+				border-bottom: 1px solid currentColor;
+			}
+
+			svg {
+				display: block;
+				width: 1em;
+				height: 1em;
+
+				/* Prevent icons from jumping in Safari using hardware acceleration. */
+				transform: translateZ(0);
+
+				&#ui-icon-link {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}
