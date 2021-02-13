@@ -140,6 +140,7 @@ class Theme {
 	 */
 	protected function get_default_components(): array {
 		$components = [
+			new Localization\Component(),
 			new Base_Support\Component(),
 			new AMP\Component(),
 			new PWA\Component(),

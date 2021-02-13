@@ -31,7 +31,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'themesetup_content_singular', [ $this, 'action_display_content_singular' ] );
+		add_action( 'themesetup_singular_content', [ $this, 'action_display_singular_content' ] );
 	}
 
 	/**
@@ -48,8 +48,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Display content singular template.
 	 */
-	public function action_display_content_singular() {
-		get_template_part( 'template-parts/content/content-singular', get_post_type() );
+	public function action_display_singular_content() {
+		get_template_part( 'template-parts/content/singular_content', get_post_type() );
 	}
 
 }

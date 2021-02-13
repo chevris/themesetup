@@ -11,6 +11,6 @@ declare( strict_types=1 );
 
 get_header();
 
-do_action( 'themesetup_content_singular' );
+do_action( 'themesetup_singular_content' );
 
 get_footer();

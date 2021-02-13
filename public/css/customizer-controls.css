@@ -24,6 +24,21 @@
   margin: 0;
 }
 
+.themesetup-title-control {
+  background: #f9f9f9;
+  margin-left: -24px;
+  margin-right: -24px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 20px;
+}
+.themesetup-title-control .customize-control-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
 .themesetup-focus-button button {
   border: 1px solid #fff;
   background: #fff;

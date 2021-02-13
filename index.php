@@ -16,6 +16,6 @@ declare( strict_types=1 );
 
 get_header();
 
-do_action( 'themesetup_content_archive' );
+do_action( 'themesetup_archive_content' );
 
 get_footer();

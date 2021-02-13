@@ -111,21 +111,19 @@ Horizontal menu
   flex-flow: row wrap;
   align-items: stretch;
   justify-content: center;
+  text-align: center;
 }
 
 /* 1rst level items */
 .horizontal-menu > li {
   display: flex;
   align-items: center;
-  margin-right: 0.25rem;
   line-height: 1.25;
+  text-transform: uppercase;
 }
 .horizontal-menu > li > a {
   font-size: 1em;
-  padding: 0.25rem 0.5rem;
-}
-.horizontal-menu > li:first-child > a {
-  padding-left: 0;
+  padding: 10px 12px;
 }
 
 /* Hide every sub menus */

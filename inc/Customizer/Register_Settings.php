@@ -10,6 +10,7 @@ declare( strict_types=1 );
 namespace Themesetup\Customizer;
 
 use Themesetup\Customizer\Controls\Range;
+use Themesetup\Customizer\Controls\Title;
 use Themesetup\Customizer\Controls\Toggle;
 use Themesetup\Customizer\Controls\Presets;
 use Themesetup\Customizer\Controls\Focus_Button;
@@ -86,6 +87,7 @@ class Register_Settings {
 	 * Register control types.
 	 */
 	public function register_controls() {
+		$this->customizer->register_control_type( Title::class );
 		$this->customizer->register_section_type( Expanded_Section::class );
 		$this->customizer->register_control_type( Presets::class );
 		$this->customizer->register_control_type( Toggle::class );

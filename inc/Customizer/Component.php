@@ -203,6 +203,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'example_setting_2' => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
 				'example_setting_3' => 'option-2',
 
+				// Global - Reading Settings
+				'themesetup_date_format_time_ago_activate' => false,
+
+				// Global - Performance
 				'themesetup_preload_style' => true,
 			];
 

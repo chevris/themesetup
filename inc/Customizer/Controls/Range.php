@@ -18,6 +18,7 @@ class Range extends \WP_Customize_Control {
 	 * @var string
 	 */
 	public $type = 'themesetup_range_control';
+
 	/**
 	 * Additional arguments passed to JS.
 	 *
