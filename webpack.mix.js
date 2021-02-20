@@ -76,6 +76,8 @@ mix.react( `${devPath}/js/customizer-controls.js`, 'js' );
 // Compile SASS/CSS.
 mix.sass( `${devPath}/scss/global.scss`, 'css' );
 mix.sass( `${devPath}/scss/in-body/header.scss`, 'css/in-body' );
+mix.sass( `${devPath}/scss/in-body/singular-entry-title.scss`, 'css/in-body' );
+mix.sass( `${devPath}/scss/in-body/archive-content-title.scss`, 'css/in-body' );
 mix.sass( `${devPath}/scss/in-body/archive-loop.scss`, 'css/in-body' );
 mix.sass( `${devPath}/scss/in-body/comments.scss`, 'css/in-body' );
 mix.sass( `${devPath}/scss/customizer-preview.scss`, 'css' );

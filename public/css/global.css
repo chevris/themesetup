@@ -6,6 +6,15 @@
  * Required Variables
  */
 /*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/*--------------------------------------------------------------
 Accessibility
 --------------------------------------------------------------*/
 /* Disable smooth scrolling for users that have opted in to reduced motion in their browser settings. */

@@ -19,8 +19,9 @@ use Themesetup\Templating_Component_Interface;
  *
  * Exposes template tags:
  * * `themesetup()->get_default()`
- * * `themesetup()->get_defaults()`
  * * `themesetup()->get_setting()`
+ * * `themesetup()->get_control_details()`
+ * * `themesetup()->get_defaults()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -63,8 +64,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function template_tags(): array {
 		return [
 			'get_default' => [ $this, 'get_default' ],
-			'get_defaults' => [ $this, 'get_defaults' ],
 			'get_setting' => [ $this, 'get_setting' ],
+			'get_control_details' => [ $this, 'get_control_details' ],
+			'get_defaults' => [ $this, 'get_defaults' ],
 		];
 	}
 
@@ -194,39 +196,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 	}
 
-	public static function get_defaults() {
-
-		if ( is_null( self::$defaults ) ) {
-
-			$defaults = [
-				'example_setting_1' => 50,
-				'example_setting_2' => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
-				'example_setting_3' => 'option-2',
-
-				// Global - Reading Settings
-				'themesetup_date_format_time_ago_activate' => false,
-
-				// Global - Performance
-				'themesetup_preload_style' => true,
-			];
-
-			$all_cpt = themesetup()->get_cpt_objects();
-			$excluded_cpt = themesetup()->get_excluded_cpt();
-
-			foreach ( $all_cpt as $cpt ) {
-				$cpt_name = $cpt->name;
-				if ( ! in_array( $cpt_name, $excluded_cpt, true ) ) {
-					$defaults[ $cpt_name . '_test_setting' ] = 'test';
-				}
-			}
-
-			self::$defaults = apply_filters( 'themesetup_filter_defaults', $defaults );
-
-		}
-
-		return self::$defaults;
-	}
-
 	/**
 	 * Gets default for a setting
 	 *
@@ -261,5 +230,74 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Gets the control details.
+	 *
+	 * @param array $args The details parameters.
+	 * @return string The control details.
+	 */
+	public function get_control_details( array $args ): string {
+
+		$output = '';
+
+		if ( isset( $args['before'] ) ) {
+			$output .= $args['before'];
+		}
+
+		if ( isset( $args['details'] ) ) {
+			$details_label = esc_html__( 'Details', 'themesetup' );
+			if ( isset( $args['label'] ) ) {
+				$details_label = $args['label'];
+			}
+			$output .= '<details><summary style="color:#00a0d2">' . $details_label . '</summary>';
+			$output .= $args['details'];
+			$output .= '</details>';
+		}
+
+		return $output;
+	}
+
+	public static function get_defaults() {
+
+		if ( is_null( self::$defaults ) ) {
+
+			$defaults = [
+				'example_setting_1' => 50,
+				'example_setting_2' => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
+				'example_setting_3' => 'option-2',
+
+				// Global - Reading Settings
+				'themesetup_date_format_time_ago_activate' => false,
+
+				// Global - Categories
+				'themesetup_yoast_primary_category_display' => true,
+				'themesetup_yoast_primary_category_not_single' => false,
+
+				// Global - Reading Time
+				'themesetup_reading_time_words' => 200,
+				'themesetup_reading_time_text_before' => '',
+				'themesetup_reading_time_text_after' => esc_html__( 'min read', 'themesetup' ),
+
+				// Global - Performance
+				'themesetup_preload_style' => true,
+			];
+
+			$all_cpt = themesetup()->get_cpt_objects();
+			$excluded_cpt = themesetup()->get_excluded_cpt();
+
+			foreach ( $all_cpt as $cpt ) {
+				$cpt_name = $cpt->name;
+				if ( ! in_array( $cpt_name, $excluded_cpt, true ) ) {
+					$defaults[ $cpt_name . '_test_setting' ] = 'test';
+				}
+			}
+
+			self::$defaults = apply_filters( 'themesetup_filter_defaults', $defaults );
+
+		}
+
+		return self::$defaults;
 	}
 }

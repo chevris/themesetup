@@ -37,22 +37,19 @@ Register_Settings::add_sections(
 
 Register_Settings::add_settings(
 	[
+		// Date Format.
 		'themesetup_date_format_title' => [
 			'setting_args' => [
 				'transport' => 'postMessage',
 			],
 			'control_args' => [
-				'label'    => 'Date Format',
+				'label'    => esc_html( 'Date Format', 'themesetup' ),
 				'section'  => 'themesetup_global_reading_section',
 				'priority' => 10,
 			],
 			'custom_control' => 'Title',
 		],
-	]
-);
 
-Register_Settings::add_settings(
-	[
 		'themesetup_date_format_time_ago_activate' => [
 			'setting_args' => [
 				'default'           => themesetup()->get_default( 'themesetup_date_format_time_ago_activate' ),
@@ -63,7 +60,7 @@ Register_Settings::add_settings(
 				'type'     => 'checkbox',
 				'label'    => esc_html__( 'Use time ago date format', 'themesetup' ),
 				'section'  => 'themesetup_global_reading_section',
-				'priority' => 11,
+				'priority' => 10,
 			],
 		],
 
@@ -77,10 +74,115 @@ Register_Settings::add_settings(
 				'type'     => 'number',
 				'label'    => esc_html__( 'Only use for (in days):', 'themesetup' ),
 				'section'  => 'themesetup_global_reading_section',
-				'priority' => 11,
+				'priority' => 10,
 				'active_callback' => function() {
 					return themesetup()->get_setting( 'themesetup_date_format_time_ago_activate' ) === true;
 				},
+			],
+		],
+
+		// Categories.
+		'themesetup_categories_title' => [
+			'setting_args' => [
+				'transport' => 'postMessage',
+			],
+			'control_args' => [
+				'label'    => esc_html( 'Categories', 'themesetup' ),
+				'section'  => 'themesetup_global_reading_section',
+				'priority' => 20,
+			],
+			'custom_control' => 'Title',
+		],
+
+		'themesetup_yoast_primary_category_display' => [
+			'setting_args' => [
+				'default'           => themesetup()->get_default( 'themesetup_yoast_primary_category_display' ),
+				'sanitize_callback' => [ themesetup(), 'sanitize_checkbox' ],
+				'transport'         => 'refresh',
+			],
+			'control_args' => [
+				'type'     => 'checkbox',
+				'label'    => esc_html__( 'Display the Yoast primary category (Yoast plugin required).', 'themesetup' ),
+				'description' => themesetup()->get_control_details(
+					[
+						'label'   => esc_html__( 'Details', 'themesetup' ),
+						'details' => __( '<p>If Yoast plugin is active, the most important category can be selected for each post. If selected, only this category will be displayed and used in the breadcrumb.</p>', 'themesetup' ),
+					]
+				),
+				'section'  => 'themesetup_global_reading_section',
+				'priority' => 20,
+			],
+		],
+
+		'themesetup_yoast_primary_category_not_single' => [
+			'setting_args' => [
+				'default'           => themesetup()->get_default( 'themesetup_yoast_primary_category_not_single' ),
+				'sanitize_callback' => [ themesetup(), 'sanitize_checkbox' ],
+				'transport'         => 'refresh',
+			],
+			'control_args' => [
+				'type'     => 'checkbox',
+				'label'    => esc_html__( 'Display all categories on individual blog posts only.', 'themesetup' ),
+				'section'  => 'themesetup_global_reading_section',
+				'priority' => 20,
+				'active_callback' => function() {
+					return themesetup()->get_setting( 'themesetup_yoast_primary_category_display' ) === true;
+				},
+			],
+		],
+
+		// Reading Time.
+		'themesetup_reading_time_title' => [
+			'setting_args' => [
+				'transport' => 'postMessage',
+			],
+			'control_args' => [
+				'label'    => esc_html( 'Reading Time', 'themesetup' ),
+				'section'  => 'themesetup_global_reading_section',
+				'priority' => 30,
+			],
+			'custom_control' => 'Title',
+		],
+
+		'themesetup_reading_time_words' => [
+			'setting_args' => [
+				'default'           => themesetup()->get_default( 'themesetup_reading_time_words' ),
+				'sanitize_callback' => 'absint',
+				'transport'         => 'refresh',
+			],
+			'control_args' => [
+				'type'     => 'number',
+				'label'    => esc_html__( 'Words to read per minute', 'themesetup' ),
+				'section'  => 'themesetup_global_reading_section',
+				'priority' => 30,
+			],
+		],
+
+		'themesetup_reading_time_text_before' => [
+			'setting_args' => [
+				'default'           => themesetup()->get_default( 'themesetup_reading_time_text_before' ),
+				'sanitize_callback' => 'wp_filter_nohtml_kses',
+				'transport'         => 'refresh',
+			],
+			'control_args' => [
+				'type'     => 'text',
+				'label'    => esc_html__( 'Text before the number of minute read', 'themesetup' ),
+				'section'  => 'themesetup_global_reading_section',
+				'priority' => 30,
+			],
+		],
+
+		'themesetup_reading_time_text_after' => [
+			'setting_args' => [
+				'default'           => themesetup()->get_default( 'themesetup_reading_time_text_after' ),
+				'sanitize_callback' => 'wp_filter_nohtml_kses',
+				'transport'         => 'refresh',
+			],
+			'control_args' => [
+				'type'     => 'text',
+				'label'    => esc_html__( 'Text after the number of minute read', 'themesetup' ),
+				'section'  => 'themesetup_global_reading_section',
+				'priority' => 30,
 			],
 		],
 	]

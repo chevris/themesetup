@@ -16,6 +16,7 @@ use Themesetup\Templating_Component_Interface;
  * Class for adding sanitize functions.
  *
  * Exposes template tags:
+ * * `themesetup()->sanitize_avatars()`
  * * `themesetup()->sanitize_responsive_range()`
  * * `themesetup()->sanitize_checkbox()`
  */
@@ -44,9 +45,33 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function template_tags(): array {
 		return [
+			'sanitize_avatars' => [ $this, 'sanitize_avatars' ],
 			'sanitize_responsive_range' => [ $this, 'sanitize_responsive_range' ],
 			'sanitize_checkbox' => [ $this, 'sanitize_checkbox' ],
 		];
+	}
+
+	/**
+	 * Sanitize avatar tags ( used with wp_kses() ).
+	 *
+	 * @return array $avatar_args
+	 */
+	public function sanitize_avatars() {
+
+		$avatar_args = [
+			'img'      => [
+				'class'  => true,
+				'src'    => true,
+				'alt'    => true,
+				'width'  => true,
+				'height' => true,
+				'data-*' => true,
+				'srcset' => true,
+			],
+			'noscript' => array(),
+		];
+
+		return $avatar_args;
 	}
 
 	/**

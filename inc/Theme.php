@@ -142,19 +142,22 @@ class Theme {
 		$components = [
 			new Localization\Component(),
 			new Base_Support\Component(),
+			new Entry_Template_Tags\Component(),
 			new AMP\Component(),
 			new PWA\Component(),
 			new Comments\Component(),
 			new Icons\Component(),
 			new Nav_Menus\Component(),
 			new Custom_Logo\Component(),
-			new Sanitize\Component(),
+			new Medias\Component(),
 			new Customizer\Component(),
 			new Styles\Component(),
 			new Scripts\Component(),
 
 			new Template_Context\Component(),
+			new Sanitize\Component(),
 			new Slideout_Menu\Component(),
+			new Yoast\Component(),
 
 			new Header\Component(),
 			new Content_Archive\Component(),

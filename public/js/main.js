@@ -104,7 +104,7 @@ eval("/**\n * File main.js.\n */\nif ('loading' === document.readyState) {\n  //
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9jdXN0b21pemVyLWNvbnRyb2xzLnNjc3M/N2U2NyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIuL3Jlc291cmNlcy9zY3NzL2N1c3RvbWl6ZXItY29udHJvbHMuc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHJlbW92ZWQgYnkgZXh0cmFjdC10ZXh0LXdlYnBhY2stcGx1Z2luIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/scss/customizer-controls.scss\n");
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9jdXN0b21pemVyLWNvbnRyb2xzLnNjc3M/N2ViYiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIuL3Jlc291cmNlcy9zY3NzL2N1c3RvbWl6ZXItY29udHJvbHMuc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHJlbW92ZWQgYnkgZXh0cmFjdC10ZXh0LXdlYnBhY2stcGx1Z2luIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/scss/customizer-controls.scss\n");
 
 /***/ }),
 
@@ -115,7 +115,7 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9jdXN0b21pemVyLXBhbmUuc2Nzcz9hMDRmIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3Njc3MvY3VzdG9taXplci1wYW5lLnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/scss/customizer-pane.scss\n");
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9jdXN0b21pemVyLXBhbmUuc2Nzcz8yOWM2Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3Njc3MvY3VzdG9taXplci1wYW5lLnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/scss/customizer-pane.scss\n");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9jdXN0b21pemVyLXByZXZpZXcuc2Nzcz8xMDY4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3Njc3MvY3VzdG9taXplci1wcmV2aWV3LnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/scss/customizer-preview.scss\n");
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9jdXN0b21pemVyLXByZXZpZXcuc2Nzcz9jNDMxIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3Njc3MvY3VzdG9taXplci1wcmV2aWV3LnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/scss/customizer-preview.scss\n");
 
 /***/ }),
 
@@ -141,6 +141,17 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 
 /***/ }),
 
+/***/ "./resources/scss/in-body/archive-content-title.scss":
+/*!***********************************************************!*\
+  !*** ./resources/scss/in-body/archive-content-title.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L2FyY2hpdmUtY29udGVudC10aXRsZS5zY3NzPzExODgiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L2FyY2hpdmUtY29udGVudC10aXRsZS5zY3NzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gcmVtb3ZlZCBieSBleHRyYWN0LXRleHQtd2VicGFjay1wbHVnaW4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/scss/in-body/archive-content-title.scss\n");
+
+/***/ }),
+
 /***/ "./resources/scss/in-body/archive-loop.scss":
 /*!**************************************************!*\
   !*** ./resources/scss/in-body/archive-loop.scss ***!
@@ -148,7 +159,7 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L2FyY2hpdmUtbG9vcC5zY3NzP2RhYmUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L2FyY2hpdmUtbG9vcC5zY3NzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gcmVtb3ZlZCBieSBleHRyYWN0LXRleHQtd2VicGFjay1wbHVnaW4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/scss/in-body/archive-loop.scss\n");
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L2FyY2hpdmUtbG9vcC5zY3NzP2JkZmQiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L2FyY2hpdmUtbG9vcC5zY3NzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gcmVtb3ZlZCBieSBleHRyYWN0LXRleHQtd2VicGFjay1wbHVnaW4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/scss/in-body/archive-loop.scss\n");
 
 /***/ }),
 
@@ -159,7 +170,7 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L2NvbW1lbnRzLnNjc3M/N2IwMiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIuL3Jlc291cmNlcy9zY3NzL2luLWJvZHkvY29tbWVudHMuc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHJlbW92ZWQgYnkgZXh0cmFjdC10ZXh0LXdlYnBhY2stcGx1Z2luIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/scss/in-body/comments.scss\n");
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L2NvbW1lbnRzLnNjc3M/ZDRhZiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIuL3Jlc291cmNlcy9zY3NzL2luLWJvZHkvY29tbWVudHMuc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHJlbW92ZWQgYnkgZXh0cmFjdC10ZXh0LXdlYnBhY2stcGx1Z2luIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/scss/in-body/comments.scss\n");
 
 /***/ }),
 
@@ -174,16 +185,29 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 
 /***/ }),
 
+/***/ "./resources/scss/in-body/singular-entry-title.scss":
+/*!**********************************************************!*\
+  !*** ./resources/scss/in-body/singular-entry-title.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9pbi1ib2R5L3Npbmd1bGFyLWVudHJ5LXRpdGxlLnNjc3M/Yjc1NSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIuL3Jlc291cmNlcy9zY3NzL2luLWJvZHkvc2luZ3VsYXItZW50cnktdGl0bGUuc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHJlbW92ZWQgYnkgZXh0cmFjdC10ZXh0LXdlYnBhY2stcGx1Z2luIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/scss/in-body/singular-entry-title.scss\n");
+
+/***/ }),
+
 /***/ 0:
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/main.js ./resources/scss/global.scss ./resources/scss/in-body/header.scss ./resources/scss/in-body/archive-loop.scss ./resources/scss/in-body/comments.scss ./resources/scss/customizer-preview.scss ./resources/scss/customizer-pane.scss ./resources/scss/customizer-controls.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/main.js ./resources/scss/global.scss ./resources/scss/in-body/header.scss ./resources/scss/in-body/singular-entry-title.scss ./resources/scss/in-body/archive-content-title.scss ./resources/scss/in-body/archive-loop.scss ./resources/scss/in-body/comments.scss ./resources/scss/customizer-preview.scss ./resources/scss/customizer-pane.scss ./resources/scss/customizer-controls.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/js/main.js */"./resources/js/main.js");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/global.scss */"./resources/scss/global.scss");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/in-body/header.scss */"./resources/scss/in-body/header.scss");
+__webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/in-body/singular-entry-title.scss */"./resources/scss/in-body/singular-entry-title.scss");
+__webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/in-body/archive-content-title.scss */"./resources/scss/in-body/archive-content-title.scss");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/in-body/archive-loop.scss */"./resources/scss/in-body/archive-loop.scss");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/in-body/comments.scss */"./resources/scss/in-body/comments.scss");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/customizer-preview.scss */"./resources/scss/customizer-preview.scss");

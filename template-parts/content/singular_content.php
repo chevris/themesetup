@@ -12,7 +12,7 @@ while ( have_posts() ) {
 	the_post();
 	?>
 
-	<?php do_action( 'themesetup_singular_content_title' ); ?>
+	<?php do_action( 'themesetup_singular_entry_title' ); ?>
 
 	<section id="primary" class="content-area">
 

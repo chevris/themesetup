@@ -32,7 +32,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_filter( 'themesetup_css_files', [ $this, 'filter_css_files_archive' ] );
 		add_action( 'themesetup_archive_content_title', [ $this, 'action_display_archive_content_title' ] );
 		add_filter( 'get_the_archive_title', [ $this, 'filter_the_archive_content_title' ] );
-		add_filter( 'get_the_date', [ $this, 'filter_date_to_allow_time_ago_format' ], 10, 3 );
 		add_action( 'themesetup_archive_content', [ $this, 'action_display_archive_content' ] );
 		add_action( 'themesetup_archive_loop', [ $this, 'action_display_archive_loop' ] );
 	}
@@ -57,7 +56,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function filter_css_files_archive( $css_files ): array {
 
 		// CSS files to add.
-		$archive_css_file = [
+		$archive_css_files = [
+			'themesetup-archive-content-title' => [
+				'file'             => 'in-body/archive-content-title.css',
+				'preload_callback' => function () {
+					return themesetup()->has_archive_content_title();
+				},
+			],
 			'themesetup-archive-loop' => [
 				'file'             => 'in-body/archive-loop.css',
 				'preload_callback' => function () {
@@ -67,17 +72,20 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		];
 
 		// Enqueue and preload css files only if they exist.
-		$css_files = array_merge( $archive_css_file, $css_files );
+		$css_files = array_merge( $archive_css_files, $css_files );
 
 		return $css_files;
 
 	}
 
 	/**
-	 * Display content archive template.
+	 * Display archive content title template.
 	 */
 	public function action_display_archive_content_title() {
-		get_template_part( 'template-parts/content/archive_content_title', get_post_type() );
+
+		if ( themesetup()->has_archive_content_title() ) {
+			get_template_part( 'template-parts/content/archive_content_title', get_post_type() );
+		}
 	}
 
 	/**
@@ -131,42 +139,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Filters the date to allow 'time ago' format if enabled in the Customizer.
-	 *
-	 * @param string      $the_date The formatted date.
-	 * @param string      $format PHP date format.
-	 * @param int|WP_Post $post The post object or ID.
-	 *
-	 * @return string The formatted date.
-	 */
-	public function filter_date_to_allow_time_ago_format( $the_date, $format, $post ) {
-
-		// Whether the 'time ago' format is enabled.
-		$time_ago_enabled = get_theme_mod( 'themesetup_date_format_time_ago_activate', false );
-
-		// Filters only if $time_ago_enabled is enabled and not using a machine-readable format (for datetime).
-		if ( true === $time_ago_enabled && 'Y-m-d\TH:i:sP' !== $format ) {
-
-			$current_time     = current_time( 'timestamp' ); // Retrieve the time.
-			$post_time        = strtotime( $post->post_date ); // parse the date string into a Unix timestamp.
-			$limit            = get_theme_mod( 'themesetup_date_format_time_ago_days_number', 14 ); // Limit in days.
-			$limit_in_seconds = $limit * 86400; // Transform from days to seconds.
-			$time_elapsed     = $current_time - $post_time; // Time since publication.
-
-			if ( $limit_in_seconds >= $time_elapsed ) {
-				$the_date = sprintf(
-					/* translators: %s: Time ago date format */
-					esc_html__( '%s ago', 'themesetup' ),
-					human_time_diff( $post_time, $current_time ) // The difference between two timestamps is returned in a human readable format.
-				);
-			}
-		}
-
-		return $the_date;
-
-	}
-
-	/**
 	 * Display content archive template.
 	 */
 	public function action_display_archive_content() {
@@ -178,7 +150,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function action_display_archive_loop() {
 
-		$layout = themesetup()->get_context( 'archive_loop', 'layout' );
+		$layout = themesetup()->get_context( 'archive', 'loop', 'layout' );
 
 		$archive_loop_classes = [];
 		$archive_loop_classes[] = $layout;
@@ -194,7 +166,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				$post_count++;
 				the_post();
 
-				get_template_part( 'template-parts/content/archive_entry_classic', get_post_type() );
+				get_template_part( 'template-parts/content/archive_entry_' . $layout, get_post_type() );
 
 			}
 			?>
