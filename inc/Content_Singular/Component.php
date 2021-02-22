@@ -15,7 +15,7 @@ use function Themesetup\themesetup;
  * Class for managing archive content.
  *
  * Exposes template tags:
- * * `themesetup()->the_template_tags_function()`
+ * * `themesetup()->singular_entry_title_layout()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -45,7 +45,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *               adding support for further arguments in the future.
 	 */
 	public function template_tags(): array {
-		return [];
+		return [
+			'singular_entry_title_layout' => [ $this, 'singular_entry_title_layout' ],
+		];
 	}
 
 	/**
@@ -88,6 +90,49 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function action_display_singular_content() {
 		get_template_part( 'template-parts/content/singular_content', get_post_type() );
+	}
+
+	/**
+	 * Determines whether comments should be displayed.
+	 */
+	public function singular_entry_title_layout() {
+
+		$layout = themesetup()->get_context( 'singular', 'title', 'layout' );
+
+		if ( 'behind' === $layout ) {
+			?>
+			<div class="feat-img-behind">
+				<?php themesetup()->post_thumbnail( 'themesetup-featured-image', 'cover' ); ?>
+				<div class="entry-title-content">
+					<?php get_template_part( 'template-parts/content/singular_entry_title_content', get_post_type() ); ?>
+				</div>
+			</div><!-- .feat-img-behind -->
+			<?php
+		} elseif ( 'above' === $layout ) {
+			?>
+			<div class="feat-img-above">
+				<?php themesetup()->post_thumbnail( 'themesetup-featured-image', 'responsive' ); ?>
+				<div class="entry-title-content">
+					<?php get_template_part( 'template-parts/content/singular_entry_title_content', get_post_type() ); ?>
+				</div>
+			</div><!-- .feat-img-above -->
+			<?php
+		} elseif ( 'below' === $layout ) {
+			?>
+			<div class="feat-img-below">
+				<div class="entry-title-content">
+					<?php get_template_part( 'template-parts/content/singular_entry_title_content', get_post_type() ); ?>
+				</div>
+				<?php themesetup()->post_thumbnail( 'themesetup-featured-image', 'responsive' ); ?>
+			</div><!-- .feat-img-below -->
+			<?php
+		} else {
+			?>
+			<div class="entry-title-content">
+				<?php get_template_part( 'template-parts/content/singular_entry_title_content', get_post_type() ); ?>
+			</div>
+			<?php
+		}
 	}
 
 }

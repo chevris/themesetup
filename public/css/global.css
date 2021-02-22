@@ -14,6 +14,10 @@ img {
   max-width: 100%;
 }
 
+figure {
+  margin: 0;
+}
+
 /*--------------------------------------------------------------
 Accessibility
 --------------------------------------------------------------*/
@@ -127,8 +131,6 @@ Horizontal menu
 .horizontal-menu > li {
   display: flex;
   align-items: center;
-  line-height: 1.25;
-  text-transform: uppercase;
 }
 .horizontal-menu > li > a {
   font-size: 1em;

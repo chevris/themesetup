@@ -33,7 +33,7 @@ use function Themesetup\themesetup;
 <div class="partial-example-1">
 	<?php
 	$example1 = themesetup()->get_setting( 'example_setting_1' );
-	var_dump( $example1 );
+	echo $example1;
 	?>
 </div>
 

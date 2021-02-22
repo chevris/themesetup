@@ -34,9 +34,6 @@ class Component implements Component_Interface {
 		add_action( 'after_setup_theme', [ $this, 'action_add_post_thumbnail_support' ] );
 		add_filter( 'wp_get_attachment_image_attributes', [ $this, 'filter_post_thumbnail_sizes_attr' ], 10, 3 );
 
-		// Content images.
-		add_filter( 'wp_calculate_image_sizes', [ $this, 'filter_content_image_sizes_attr' ], 10, 2 );
-
 		// Header image.
 		add_filter( 'get_header_image_tag', [ $this, 'filter_header_image_tag' ], 10, 3 );
 	}
@@ -44,13 +41,16 @@ class Component implements Component_Interface {
 	/**
 	 * Adds custom image sizes.
 	 */
-	public function action_add_image_sizes() {}
+	public function action_add_image_sizes() {
+		add_image_size( 'themesetup-featured-image', 1200, 9999 );
+	}
 
 	/**
-	 * Adds support for post thumbnails.
+	 * Adds support for post thumbnails on posts and pages.
 	 */
 	public function action_add_post_thumbnail_support() {
 		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size( 1568, 9999 ); // Set 'post-thumbnail' default size, called when no size passed to the_post_thumbnail().
 	}
 
 	/**
@@ -69,24 +69,6 @@ class Component implements Component_Interface {
 
 		return $attr;
 
-	}
-
-	/**
-	 * Adds custom image sizes attribute to enhance responsive image functionality for content images.
-	 *
-	 * @param string $sizes A source size value for use in a 'sizes' attribute.
-	 * @param array  $size  Image size. Accepts an array of width and height
-	 *                      values in pixels (in that order).
-	 * @return string A source size value for use in a content image 'sizes' attribute.
-	 */
-	public function filter_content_image_sizes_attr( string $sizes, array $size ): string {
-		$width = $size[0];
-
-		if ( 740 <= $width ) {
-			$sizes = '100vw';
-		}
-
-		return $sizes;
 	}
 
 	/**

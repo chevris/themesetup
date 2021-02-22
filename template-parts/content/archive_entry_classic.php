@@ -17,6 +17,11 @@ $article_classes = implode( ' ', $article_classes );
 <article id="post-<?php the_ID(); ?>" <?php post_class( $article_classes ); ?>>
 
 	<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+
 	<?php themesetup()->comments_count(); ?>
+
+	<div class="entry-summary">
+		<?php themesetup()->the_summary(); ?>
+	</div>
 
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -36,14 +36,15 @@ Register_Settings::add_settings(
 	[
 		'example_expanded_setting' => [
 			'setting_args' => [
-				'default'           => 'option-1',
+				'default'           => 'none',
 				'sanitize_callback' => function ( $value ) {
-					$allowed_values = [ 'option-1', 'option-2' ];
+					$allowed_values = [ 'none', 'above', 'below', 'behind' ];
 					if ( ! in_array( $value, $allowed_values, true ) ) {
-						return 'option-1';
+						return 'none';
 					}
 					return esc_html( $value );
 				},
+				'transport'         => 'postMessage',
 			],
 			'control_args' => [
 				'type'     => 'select',
@@ -51,9 +52,17 @@ Register_Settings::add_settings(
 				'section'  => 'example_expanded_section',
 				'priority' => 10,
 				'choices'  => [
-					'option-1' => esc_html__( 'Option 1', 'themesetup' ),
-					'option-2' => esc_html__( 'Option 2', 'themesetup' ),
+					'none' => esc_html__( 'None', 'themesetup' ),
+					'above' => esc_html__( 'Above', 'themesetup' ),
+					'below' => esc_html__( 'Below', 'themesetup' ),
+					'behind' => esc_html__( 'Behind', 'themesetup' ),
 				],
+			],
+			'partial_args' => [
+				'selector'        => '.singular-entry-title',
+				'render_callback' => function() {
+					themesetup()->singular_entry_title_layout();
+				},
 			],
 		],
 	]

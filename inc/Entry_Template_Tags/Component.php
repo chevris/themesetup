@@ -16,6 +16,7 @@ use function Themesetup\themesetup;
  * Class for managing post template tags.
  *
  * Exposes template tags:
+ * * `themesetup()->post_thumbnail()`
  * * `themesetup()->get_posted_by()`
  * * `themesetup()->posted_by()`
  * * `themesetup()->get_posted_on()`
@@ -27,6 +28,9 @@ use function Themesetup\themesetup;
  * * `themesetup()->get_post_read_time()`
  * * `themesetup()->post_read_time()`
  * * `themesetup()->metas()`
+ * * `themesetup()->trim_down_text()`
+ * * `themesetup()->the_summary()`
+ * * `themesetup()->edit_post()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -55,6 +59,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function template_tags(): array {
 		return [
+			'post_thumbnail' => [ $this, 'post_thumbnail' ],
 			'get_posted_by' => [ $this, 'get_posted_by' ],
 			'posted_by' => [ $this, 'posted_by' ],
 			'get_posted_on' => [ $this, 'get_posted_on' ],
@@ -66,6 +71,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'get_post_read_time' => [ $this, 'get_post_read_time' ],
 			'post_read_time' => [ $this, 'post_read_time' ],
 			'metas' => [ $this, 'metas' ],
+			'trim_down_text' => [ $this, 'trim_down_text' ],
+			'the_summary' => [ $this, 'the_summary' ],
+			'edit_post' => [ $this, 'edit_post' ],
 		];
 	}
 
@@ -102,6 +110,117 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		return $the_date;
+
+	}
+
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in a figure tag and in an anchor element on non singular pages.
+	 *
+	 * @param string|array $size Optional. Image size to use. Accepts any valid image size, or an array
+	 *                                     of width and height values in pixels (in that order).
+	 *                                     Default 'post-thumbnail' (1568 x 0 infinite height).
+	 * @param string $layout Optional. Additionnal class for img container. Default empty.
+	 * @param string $class Optional. Additionnal class for img container. Default empty.
+	 */
+	public function post_thumbnail( $size = 'themesetup-featured-image', $layout = '', $class = '' ) {
+
+		// Audio or video attachments can have featured images, so they need to be specifically checked.
+		$support_slug = get_post_type();
+		if ( 'attachment' === $support_slug ) {
+			if ( wp_attachment_is( 'audio' ) ) {
+				$support_slug .= ':audio';
+			} elseif ( wp_attachment_is( 'video' ) ) {
+				$support_slug .= ':video';
+			}
+		}
+
+		if ( post_password_required() || ! post_type_supports( $support_slug, 'thumbnail' ) || ! has_post_thumbnail() ) {
+			return;
+		}
+
+		if ( is_singular() ) {
+			?>
+			<figure class="post-thumbnail<?php echo esc_attr( $class ? ' ' . $class : '' ); ?>">
+
+				<?php
+				// If using cover, add the object-fit attribute for AMP.
+				if ( 'cover' === $layout ) {
+					the_post_thumbnail(
+						$size,
+						[
+							'object-fit' => 'cover',
+							'alt' => the_title_attribute(
+								[
+									'echo' => false,
+								]
+							),
+						]
+					);
+
+				} else {
+
+					if ( 'responsive' === $layout ) {
+						the_post_thumbnail(
+							$size,
+							[
+								'layout' => 'responsive',
+								'alt' => the_title_attribute(
+									[
+										'echo' => false,
+									]
+								),
+							]
+						);
+					} else {
+						the_post_thumbnail(
+							$size,
+							[
+								'alt'   => the_title_attribute(
+									[
+										'echo' => false,
+									]
+								),
+							]
+						);
+					}
+
+					$caption = get_the_excerpt( get_post_thumbnail_id() );
+					// Check the existance of the caption separately, so filters -- like ones that add ads -- don't interfere.
+					$caption_exists = get_post( get_post_thumbnail_id() )->post_excerpt;
+
+					if ( $caption_exists ) {
+						?>
+						<figcaption><?php echo wp_kses_post( $caption ); ?></figcaption>
+						<?php
+					}
+				}
+
+				?>
+
+			</figure><!-- .post-thumbnail -->
+			<?php
+		} else {
+			?>
+			<figure class="post-thumbnail<?php echo esc_attr( $class ? ' ' . $class : '' ); ?>">
+				<a class="post-thumbnail-link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+					<?php
+					the_post_thumbnail(
+						$size,
+						[
+							'alt' => the_title_attribute(
+								[
+									'echo' => false,
+								]
+							),
+						]
+					);
+					?>
+				</a><!-- .post-thumbnail-link -->
+			</figure><!-- .post-thumbnail -->
+			<?php
+		}
 
 	}
 
@@ -602,6 +721,87 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$metas_string
 		); // phpcs:ignore WP.Security.EscapeOutput -- WPCS: XSS ok
 
+	}
+
+	/**
+	 * Trim down a text without breaking a word.
+	 *
+	 * @param string  $string Content to trim.
+	 * @param integer $limit Number of characters to limit.
+	 * @param string  $after Chars to append after trimed string.
+	 *
+	 * @return string Trimmed part of the string.
+	 */
+	public function trim_down_text( $string, $limit, $after = '...' ): string {
+
+		// If the string is already shorter than the limit, return it.
+		if ( strlen( $string ) <= $limit ) {
+			return $string;
+		}
+
+		// Find the first space after the desired length.
+		$breakpoint = strpos( $string, ' ', $limit );
+
+		// Make sure $breakpoint isn't returning false, and is less than length of the string.
+		if ( false !== $breakpoint && $breakpoint < strlen( $string ) - 1 ) {
+			$string = substr( $string, 0, $breakpoint ) . $after;
+		}
+
+		return $string;
+	}
+
+	/**
+	 * Prints a post's summary.
+	 *
+	 * @param integer $limit Max number of characters.
+	 * @param string  $post_ID Post ID.
+	 */
+	public function the_summary( $limit = 250, $post_ID = null ) {
+
+		// If an excerpt is manually added, use it.
+		if ( has_excerpt( $post_ID ) ) {
+
+			$excerpt = get_the_excerpt( $post_ID );
+
+			// Otherwise use a trimmed-down version of the content.
+		} else {
+			$content = get_the_content( $post_ID );
+			$content = strip_shortcodes( $content );
+			$content = apply_filters( 'the_content', $content );
+			$excerpt = str_replace( ']]>', ']]&gt;', $content );
+
+			if ( ! empty( $excerpt ) ) {
+				$excerpt = wp_strip_all_tags( $excerpt );
+				$excerpt = preg_replace( '/\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i', '', $excerpt );
+				$excerpt = themesetup()->trim_down_text( $excerpt, $limit );
+			} else {
+				return '';
+			}
+		}
+
+		echo wp_kses_post( wpautop( $excerpt ) );
+	}
+
+	/**
+	 * Prints HTML for edit post link.
+	 */
+	public function edit_post() {
+		edit_post_link(
+			sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post; only visible to screen readers. */
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'themesetup' ),
+					[
+						'span' => [
+							'class' => [],
+						],
+					]
+				),
+				get_the_title()
+			),
+			'<span class="edit-link">' . themesetup()->get_svg( 'ui', 'edit', 16 ),
+			'</span>'
+		);
 	}
 
 }
