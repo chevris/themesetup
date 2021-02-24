@@ -48,6 +48,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function initialize() {
 		add_filter( 'get_the_date', [ $this, 'filter_date_to_allow_time_ago_format' ], 10, 3 );
+		add_filter( 'excerpt_more', [ $this, 'filter_excerpt_more' ] );
+		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ] );
 	}
 
 	/**
@@ -111,6 +113,39 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		return $the_date;
 
+	}
+
+	/**
+	 * Filter the excerpt length.
+	 *
+	 * @param int $length Excerpt length.
+	 * @return int filtered length.
+	 */
+	public function filter_excerpt_length( $length ) {
+		if ( is_admin() ) {
+			return $length;
+		}
+
+		// Get custom values from context.
+		$custom_length = themesetup()->get_context( 'archive', 'summary_lenght' );
+
+		if ( $custom_length ) {
+			$length = intval( $custom_length );
+		}
+
+		return $length;
+	}
+
+	/**
+	 * Use ... instead of ugly [...] for excerpt more.
+	 *
+	 * @param string $more The excerpt more text.
+	 */
+	public function filter_excerpt_more( $more ) {
+		if ( is_admin() ) {
+			return $more;
+		}
+		return '...';
 	}
 
 	/**
@@ -466,9 +501,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @param bool $has_icon Whether to show icon before categories.
 	 * @param bool $has_prefix Whether to show $prefix before categories.
-	 * @param string $prefix What should appear before categoris. Has no effects if $has_prefix is false.
+	 * @param string $prefix What should appear before categories. Has no effects if $has_prefix is false.
+	 * @param bool $has_sep Whether to show $sep between categories.
+	 * @param string $sep The sep can be comma, slash, pipe or dot. Has no effects if $has_sep is false.
 	 */
-	public function get_categories( $has_icon = false, $has_prefix = false, $prefix = '' ) {
+	public function get_categories( $has_icon = false, $has_prefix = false, $prefix = '', $has_sep = false, $sep = 'comma' ) {
 
 		// What should appear before categories. Defaults to 'Posted in' if empty.
 		if ( '' === $prefix ) {
@@ -496,21 +533,33 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			}
 		}
 
-		$span = '';
-
-		if ( ! $categories_list ) {
-			/* translators: used between list items; followed by a space. */
-			$span = get_the_category_list( '<span class="sep">' . esc_html__( ',', 'themesetup' ) . '&nbsp;</span>' );
-		} else {
-			$span = sprintf(
-				'%1$s<span class="cat-links">%2$s%3$s</span>',
-				$has_icon ? wp_kses( themesetup()->get_svg( 'ui', 'folder', 20 ), themesetup()->sanitize_svgs() ) : '',
-				$has_prefix ? '<span>' . esc_html( $prefix ) . '</span>' : '',
-				$categories_list
-			);
+		switch ( $sep ) {
+			case 'slash':
+				/* translators: used between list items; surrounded by a space. */
+				$separator = '<span class="sep">&nbsp;' . esc_html__( '/', 'themesetup' ) . '&nbsp;</span>';
+				break;
+			case 'pipe':
+				/* translators: used between list items; surrounded by a space. */
+				$separator = '<span class="sep">&nbsp;' . esc_html__( '|', 'themesetup' ) . '&nbsp;</span>';
+				break;
+			case 'dot':
+				$separator = ' &middot; ';
+				$separator = '<span class="sep">&nbsp;&middot;&nbsp;</span>';
+				break;
+			default:
+				/* translators: used between list items; followed by a space. */
+				$separator = '<span class="sep">' . esc_html__( ',', 'themesetup' ) . '&nbsp;</span>';
+				break;
 		}
 
-		return $span;
+		$output = sprintf(
+			'%1$s<span class="cat-links">%2$s%3$s</span>',
+			$has_icon ? wp_kses( themesetup()->get_svg( 'ui', 'folder', 20 ), themesetup()->sanitize_svgs() ) : '',
+			$has_prefix ? '<span>' . esc_html( $prefix ) . '&nbsp;</span>' : '',
+			empty( $categories_list ) ? get_the_category_list( $has_sep ? $separator : '' ) : $categories_list
+		);
+
+		return $output;
 	}
 
 	/**
@@ -519,10 +568,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param bool $has_icon Whether to show icon before categories.
 	 * @param bool $has_prefix Whether to show $prefix before categoris.
 	 * @param string $prefix What should appear before categoris. Has no effects if $has_prefix is false.
+	 * @param bool $has_sep Whether to show $sep between categories.
+	 * @param string $sep The sep can be comma, slash, pipe or dot. Has no effects if $has_sep is false.
 	 */
-	public function categories( $has_icon = false, $has_prefix = false, $prefix = '' ) {
+	public function categories( $has_icon = false, $has_prefix = false, $prefix = '', $has_sep = false, $sep = 'comma' ) {
 
-		$categories = themesetup()->get_categories( $has_icon, $has_prefix, $prefix );
+		$categories = themesetup()->get_categories( $has_icon, $has_prefix, $prefix, $has_sep, $sep );
 
 		echo $categories; // phpcs:ignore WordPress.Security.EscapeOutput
 	}
@@ -660,7 +711,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$date_defaults = [ 'has_icon' => false, 'has_prefix' => false, 'prefix' => '' ];
 		$date_args = wp_parse_args( $date_args, $date_defaults );
 
-		$categories_defaults = [ 'has_icon' => false, 'has_prefix' => false, 'prefix' => '' ];
+		$categories_defaults = [ 'has_icon' => false, 'has_prefix' => false, 'prefix' => '', 'has_sep' => true, 'sep' => 'comma' ];
 		$categories_args = wp_parse_args( $categories_args, $categories_defaults );
 
 		$comments_defaults = [ 'has_icon' => false ];
@@ -689,7 +740,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 				case 'categories':
 					if ( 'post' === get_post_type() ) {
-						$meta_string = themesetup()->get_categories( $categories_args['has_icon'], $categories_args['has_prefix'], $categories_args['prefix'] );
+						$meta_string = themesetup()->get_categories( $categories_args['has_icon'], $categories_args['has_prefix'], $categories_args['prefix'], $categories_args['has_sep'], $categories_args['sep'] );
 					}
 					break;
 

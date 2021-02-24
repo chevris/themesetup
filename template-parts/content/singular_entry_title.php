@@ -12,6 +12,6 @@ themesetup()->print_styles( 'themesetup-singular-entry-title' );
 
 <section class="singular-entry-title">
 
-	<?php themesetup()->singular_entry_title_layout(); ?>
+	<?php themesetup()->display_singular_entry_title_layout(); ?>
 
 </section>

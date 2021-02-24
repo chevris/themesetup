@@ -185,6 +185,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'loop' => [
 				'layout' => 'classic',
 			],
+			'summary_lenght' => '',
 		];
 		$has_comments = false;
 
@@ -208,21 +209,23 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			 * Archives : post and cpt archives, search results.
 			 */
 		} elseif ( is_archive() || is_search() || is_home() ) {
-			if ( is_home() && is_front_page() ) {
+
+			if ( is_home() ) {
 				$archive_type = 'post_archive';
-			} elseif ( is_home() && ! is_front_page() ) {
-				$archive_type    = 'post_archive';
-				$post_id         = get_option( 'page_for_posts' );
-			} elseif ( is_search() ) {
-				$archive_type = 'search_archive';
+				if ( ! is_front_page() ) {
+					$post_id = get_option( 'page_for_posts' );
+				}
 			} elseif ( is_category() || is_tag() ) {
 				$archive_type = 'post_archive';
+			} elseif ( is_search() ) {
+				$archive_type = 'search_archive';
 			} else {
 				$post_type  = get_post_type();
 				$archive_type = $post_type . '_archive';
 			}
 
 			$archive['title']['enabled'] = true;
+			$archive['summary_lenght'] = 50;
 
 		} elseif ( is_404() ) {
 			$archive_type = '404';

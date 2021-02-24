@@ -15,7 +15,7 @@ use function Themesetup\themesetup;
  * Class for managing archive content.
  *
  * Exposes template tags:
- * * `themesetup()->singular_entry_title_layout()`
+ * * `themesetup()->display_singular_entry_title_layout()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -46,7 +46,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function template_tags(): array {
 		return [
-			'singular_entry_title_layout' => [ $this, 'singular_entry_title_layout' ],
+			'display_singular_entry_title_layout' => [ $this, 'display_singular_entry_title_layout' ],
 		];
 	}
 
@@ -95,7 +95,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Determines whether comments should be displayed.
 	 */
-	public function singular_entry_title_layout() {
+	public function display_singular_entry_title_layout() {
 
 		$layout = themesetup()->get_context( 'singular', 'title', 'layout' );
 
