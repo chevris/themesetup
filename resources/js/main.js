@@ -35,6 +35,7 @@ function initScripts() {
 	});
 
 	initSlideoutMenu();
+	initSlideoutSidebar();
 	initDropdownVerticalMenu();
 }
 
@@ -65,10 +66,49 @@ function initSlideoutMenu() {
 		togglers[ i ].addEventListener(
 			'click',
 			function() {
-				if ( document.body.classList.contains( 'slideout-offcanvas-opened' ) ) {
-					closeMenu( 'slideout-offcanvas-opened', headerToggleButton, 'mask-slideout' );
+				if ( document.body.classList.contains( 'slideoutmenu-offcanvas-opened' ) ) {
+					closeMenu( 'slideoutmenu-offcanvas-opened', headerToggleButton, 'mask-slideoutmenu' );
 				} else {
-					openMenu( 'slideout-offcanvas-opened', menuCloseButton, 'mask-slideout' );
+					openMenu( 'slideoutmenu-offcanvas-opened', menuCloseButton, 'mask-slideoutmenu' );
+				}
+			},
+			false
+		);
+	}
+
+}
+
+/**
+ * Handles slide-out sidebar.
+ */
+function initSlideoutSidebar() {
+
+	const togglers = document.getElementsByClassName( 'slideout-sidebar-toggle' );
+	const siteContent = document.getElementById( 'content' );
+	const slideoutSidebar = document.getElementById( 'slideout-sidebar-js' );
+
+	// No point if no toggler.
+	if ( ! togglers.length ) {
+		return;
+	}
+
+	const sidebarCloseButton = slideoutSidebar.getElementsByClassName( 'slideout-sidebar-toggle' )[ 0 ];
+	const contentToggleButton = siteContent.getElementsByClassName( 'slideout-sidebar-toggle' )[ 0 ];
+
+	/**
+	 * Open / close mobile off-canvas menu.
+	 *
+	 * @note: The opening class must be [slug]-offcanvas-opened and
+	 * the overlay id must be mask-[slug]
+	 */
+	for ( let i = 0; i < togglers.length; i++ ) {
+		togglers[ i ].addEventListener(
+			'click',
+			function() {
+				if ( document.body.classList.contains( 'slideoutsidebar-offcanvas-opened' ) ) {
+					closeMenu( 'slideoutsidebar-offcanvas-opened', contentToggleButton, 'mask-slideoutsidebar' );
+				} else {
+					openMenu( 'slideoutsidebar-offcanvas-opened', sidebarCloseButton, 'mask-slideoutsidebar' );
 				}
 			},
 			false

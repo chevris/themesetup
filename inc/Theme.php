@@ -162,6 +162,7 @@ class Theme {
 			new Header\Component(),
 			new Content_Archive\Component(),
 			new Content_Singular\Component(),
+			new Sidebar\Component(),
 		];
 
 		return $components;

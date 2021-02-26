@@ -100,6 +100,39 @@ Accessibility
   outline: 0;
 }
 
+@media only screen and (min-width: 1024px) {
+  .has-sidebar.has-sidebar--below .content-area {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-gap: 1rem;
+    justify-content: center;
+  }
+  .has-sidebar.has-sidebar--below .widget-area {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.has-sidebar.has-sidebar--toggle .widget-area {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  .has-sidebar.has-sidebar--toggle .content-area {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-gap: 1rem;
+    justify-content: center;
+  }
+  .has-sidebar.has-sidebar--toggle .slideout-sidebar-toggle {
+    display: none;
+  }
+  .has-sidebar.has-sidebar--toggle .widget-area {
+    display: block;
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
 /*--------------------------------------------------------------
 All menus
 --------------------------------------------------------------*/
@@ -404,7 +437,7 @@ Social menu
 }
 
 /* Open from the left */
-.slideout-offcanvas-opened #slideout-menu-js {
+.slideoutmenu-offcanvas-opened #slideout-menu-js {
   left: 0;
 }
 
@@ -421,6 +454,7 @@ body.admin-bar #slideout-menu-js {
  * Common style for amp and js slide-out menu
  */
 .slideout-menu {
+  background-color: #fff;
   width: 100vw;
   /* 90vw; */
   max-width: 100vw;
@@ -451,6 +485,64 @@ body.admin-bar #slideout-menu-js {
   outline-offset: 0;
 }
 .slideout-menu-toggle svg {
+  margin-right: 0.25rem;
+}
+
+#slideout-sidebar-js {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 999999;
+  overflow: auto;
+  /* Hidden in the left */
+  right: auto;
+  left: -200%;
+  transition: left 0.2s;
+}
+
+/* Open from the left */
+.slideoutsidebar-offcanvas-opened #slideout-sidebar-js {
+  left: 0;
+}
+
+body.admin-bar #slideout-sidebar-js {
+  top: 46px;
+}
+@media only screen and (min-width: 783px) {
+  body.admin-bar #slideout-sidebar-js {
+    top: 32px;
+  }
+}
+
+/**
+ * Common style for amp and js slide-out menu
+ */
+.slideout-sidebar {
+  background-color: #fff;
+  width: 100vw;
+  /* 90vw; */
+  max-width: 100vw;
+  /* 90vw; */
+}
+
+/**
+ * Slide-out sidebar toggle
+ */
+.slideout-sidebar-toggle {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: inherit;
+}
+.slideout-sidebar-toggle:hover, .slideout-sidebar-toggle:focus {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+.slideout-sidebar-toggle:focus {
+  outline-offset: 0;
+}
+.slideout-sidebar-toggle svg {
   margin-right: 0.25rem;
 }
 

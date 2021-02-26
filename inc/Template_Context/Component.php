@@ -18,6 +18,8 @@ use Themesetup\Templating_Component_Interface;
  * * `themesetup()->has_header()`
  * * `themesetup()->has_singular_entry_title()`
  * * `themesetup()->has_archive_content_title()`
+ * * `themesetup()->has_sidebar()`
+ * * `themesetup()->get_sidebar_layout()`
  * * `themesetup()->has_comments()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
@@ -56,6 +58,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'has_header' => [ $this, 'has_header' ],
 			'has_singular_entry_title' => [ $this, 'has_singular_entry_title' ],
 			'has_archive_content_title' => [ $this, 'has_archive_content_title' ],
+			'has_sidebar' => [ $this, 'has_sidebar' ],
+			'get_sidebar_layout' => [ $this, 'get_sidebar_layout' ],
 			'has_comments' => [ $this, 'has_comments' ],
 		];
 	}
@@ -150,6 +154,34 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
+	 * Determines whether sidebar should be displayed.
+	 *
+	 * @return boolean True if sidebar should be displayed.
+	 */
+	public function has_sidebar() {
+
+		if ( is_null( self::$context ) ) {
+			self::set_context();
+		}
+		return (bool) ! is_attachment() && self::$context['sidebar']['enabled'];
+
+	}
+
+	/**
+	 * Gets the sidebar layout.
+	 *
+	 * @return string below | toggle...
+	 */
+	public function get_sidebar_layout() {
+
+		if ( is_null( self::$context ) ) {
+			self::set_context();
+		}
+		return self::$context['sidebar']['layout'];
+
+	}
+
+	/**
 	 * Determines whether comments should be displayed.
 	 *
 	 * @return boolean True if comments should be displayed.
@@ -186,6 +218,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'layout' => 'classic',
 			],
 			'summary_lenght' => '',
+		];
+		$sidebar = [
+			'enabled' => false,
+			'layout' => 'below',
+			'id' => 'sidebar-1',
 		];
 		$has_comments = false;
 
@@ -231,10 +268,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$archive_type = '404';
 		}
 
+		$sidebar['enabled'] = true;
+		$sidebar['layout'] = 'toggle';
+
 		$context_arr = [
 			'header' => $header,
 			'singular' => $singular,
 			'archive' => $archive,
+			'sidebar' => $sidebar,
 			'has_comments' => $has_comments,
 		];
 

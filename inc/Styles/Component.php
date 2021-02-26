@@ -227,6 +227,12 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file'   => 'global.css',
 				'global' => true,
 			],
+			'themesetup-widgets' => [
+				'file'             => 'in-body/widgets.css',
+				'preload_callback' => function() {
+					return themesetup()->has_sidebar();
+				},
+			],
 		];
 
 		/**

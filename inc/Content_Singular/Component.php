@@ -93,7 +93,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Determines whether comments should be displayed.
+	 * Display singular entry title.
 	 */
 	public function display_singular_entry_title_layout() {
 

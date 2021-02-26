@@ -13,6 +13,12 @@ use function Themesetup\themesetup;
 
 <section id="primary" class="content-area">
 
+	<?php
+	if ( themesetup()->has_sidebar() && 'toggle' === themesetup()->get_sidebar_layout() ) {
+		get_template_part( 'template-parts/off-canvas/slideout-sidebar-toggle' );
+	}
+	?>
+
 	<main id="main" class="site-main" role="main">
 
 		<?php
@@ -29,6 +35,8 @@ use function Themesetup\themesetup;
 		?>
 
 	</main><!-- .site-main -->
+
+	<?php get_sidebar(); ?>
 
 </section><!-- .content-area -->
 

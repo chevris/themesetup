@@ -3,7 +3,10 @@
 @import "base/elements.scss";
 @import "base/a11y.scss";
 
+@import "theme/layout.scss";
 @import "theme/navigation/menus.scss";
-@import "theme/slideout-menu.scss";
+@import "theme/off-canvas/slideout-menu.scss";
+@import "theme/off-canvas/slideout-sidebar.scss";
+
 
 @import "utilities/miscellaneous.scss";

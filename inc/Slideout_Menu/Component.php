@@ -46,7 +46,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Display content singular template.
+	 * Display the slide-out menu template.
 	 */
 	public function action_display_slideout_menu() {
 
