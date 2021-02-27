@@ -18,58 +18,58 @@ if ( 'loading' === document.readyState ) {
 function initScripts() {
 
 	/**
-	 * Add listener to the menu overlays, so they can be closed on click.
+	 * Add listener to the overlay masks, so they can be removed and close drawers.
 	 *
-	 * @note: Opened menus must have a class : [slug]-offcanvas-opened and
+	 * @note: Opened drawer must have a class : [slug]-drawer-opened and
 	 * the overlay id must be mask-[slug]
 	 */
 	document.addEventListener( 'click', function( e ) {
 		if ( e.target && 'overlay-mask' === e.target.className ) {
 			const maskId = e.target.id;
-			const menu = maskId.split( '-' );
+			const drawer = maskId.split( '-' );
 
-			document.body.classList.remove( menu[ 1 ] + '-offcanvas-opened' );
+			document.body.classList.remove( drawer[ 1 ] + '-drawer-opened' );
 			document.body.classList.remove( 'scroll-disabled' );
 			removeOverlay( maskId );
 		}
 	});
 
-	initSlideoutMenu();
-	initSlideoutSidebar();
+	initDrawerHeader();
+	initDrawerSidebar();
 	initDropdownVerticalMenu();
 }
 
 /**
- * Handles slide-out menu.
+ * Handles header drawer.
  */
-function initSlideoutMenu() {
+function initDrawerHeader() {
 
-	const togglers = document.getElementsByClassName( 'slideout-menu-toggle' );
+	const togglers = document.getElementsByClassName( 'drawer-header-toggle' );
 	const siteHeader = document.getElementById( 'masthead' );
-	const slideoutMenu = document.getElementById( 'slideout-menu-js' );
+	const drawerHeader = document.getElementById( 'drawer-header-js' );
 
 	// No point if no toggler.
 	if ( ! togglers.length ) {
 		return;
 	}
 
-	const menuCloseButton = slideoutMenu.getElementsByClassName( 'slideout-menu-toggle' )[ 0 ];
-	const headerToggleButton = siteHeader.getElementsByClassName( 'slideout-menu-toggle' )[ 0 ];
+	const drawerCloseButton = drawerHeader.getElementsByClassName( 'drawer-header-toggle' )[ 0 ];
+	const headerToggleButton = siteHeader.getElementsByClassName( 'drawer-header-toggle' )[ 0 ];
 
 	/**
-	 * Open / close mobile off-canvas menu.
+	 * Open / close header drawer.
 	 *
-	 * @note: The opening class must be [slug]-offcanvas-opened and
+	 * @note: Opened drawer must have a class : [slug]-drawer-opened and
 	 * the overlay id must be mask-[slug]
 	 */
 	for ( let i = 0; i < togglers.length; i++ ) {
 		togglers[ i ].addEventListener(
 			'click',
 			function() {
-				if ( document.body.classList.contains( 'slideoutmenu-offcanvas-opened' ) ) {
-					closeMenu( 'slideoutmenu-offcanvas-opened', headerToggleButton, 'mask-slideoutmenu' );
+				if ( document.body.classList.contains( 'header-drawer-opened' ) ) {
+					closeMenu( 'header-drawer-opened', headerToggleButton, 'mask-header' );
 				} else {
-					openMenu( 'slideoutmenu-offcanvas-opened', menuCloseButton, 'mask-slideoutmenu' );
+					openMenu( 'header-drawer-opened', drawerCloseButton, 'mask-header' );
 				}
 			},
 			false
@@ -79,36 +79,36 @@ function initSlideoutMenu() {
 }
 
 /**
- * Handles slide-out sidebar.
+ * Handles sidebar drawer.
  */
-function initSlideoutSidebar() {
+function initDrawerSidebar() {
 
-	const togglers = document.getElementsByClassName( 'slideout-sidebar-toggle' );
+	const togglers = document.getElementsByClassName( 'drawer-sidebar-toggle' );
 	const siteContent = document.getElementById( 'content' );
-	const slideoutSidebar = document.getElementById( 'slideout-sidebar-js' );
+	const drawerHeader = document.getElementById( 'drawer-sidebar-js' );
 
 	// No point if no toggler.
 	if ( ! togglers.length ) {
 		return;
 	}
 
-	const sidebarCloseButton = slideoutSidebar.getElementsByClassName( 'slideout-sidebar-toggle' )[ 0 ];
-	const contentToggleButton = siteContent.getElementsByClassName( 'slideout-sidebar-toggle' )[ 0 ];
+	const drawerCloseButton = drawerHeader.getElementsByClassName( 'drawer-sidebar-toggle' )[ 0 ];
+	const sidebarToggleButton = siteContent.getElementsByClassName( 'drawer-sidebar-toggle' )[ 0 ];
 
 	/**
-	 * Open / close mobile off-canvas menu.
+	 * Open / close sidebar drawer.
 	 *
-	 * @note: The opening class must be [slug]-offcanvas-opened and
+	 * @note: Opened drawer must have a class : [slug]-drawer-opened and
 	 * the overlay id must be mask-[slug]
 	 */
 	for ( let i = 0; i < togglers.length; i++ ) {
 		togglers[ i ].addEventListener(
 			'click',
 			function() {
-				if ( document.body.classList.contains( 'slideoutsidebar-offcanvas-opened' ) ) {
-					closeMenu( 'slideoutsidebar-offcanvas-opened', contentToggleButton, 'mask-slideoutsidebar' );
+				if ( document.body.classList.contains( 'sidebar-drawer-opened' ) ) {
+					closeMenu( 'sidebar-drawer-opened', sidebarToggleButton, 'mask-sidebar' );
 				} else {
-					openMenu( 'slideoutsidebar-offcanvas-opened', sidebarCloseButton, 'mask-slideoutsidebar' );
+					openMenu( 'sidebar-drawer-opened', drawerCloseButton, 'mask-sidebar' );
 				}
 			},
 			false

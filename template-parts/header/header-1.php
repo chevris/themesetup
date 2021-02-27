@@ -24,13 +24,10 @@ use function Themesetup\themesetup;
 		</nav>
 	<?php endif; ?>
 
-	<button class="slideout-menu-toggle"
-		<?php if ( themesetup()->is_amp() ) { ?>
-			on="tap:slideout-menu-amp.toggle"
-		<?php } ?>
-	>
-		<?php echo wp_kses( themesetup()->get_svg( 'ui', 'menu', 20 ), themesetup()->sanitize_svgs() ); ?>
-		<span><?php esc_html_e( 'Menu', 'themesetup' ); ?></span>
-	</button>
+	<?php
+	if ( themesetup()->has_header_drawer() ) {
+		get_template_part( 'template-parts/header/drawer-toggle-open' );
+	}
+	?>
 
 </div><!-- .header-1 -->

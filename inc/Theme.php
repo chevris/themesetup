@@ -156,7 +156,6 @@ class Theme {
 
 			new Template_Context\Component(),
 			new Sanitize\Component(),
-			new Slideout_Menu\Component(),
 			new Yoast\Component(),
 
 			new Header\Component(),

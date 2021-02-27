@@ -105,7 +105,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_display_slideout_sidebar() {
 
 		if ( themesetup()->has_sidebar() && 'toggle' === themesetup()->get_sidebar_layout() ) {
-			get_template_part( 'template-parts/off-canvas/slideout-sidebar' );
+			get_template_part( 'template-parts/content/drawer-sidebar' );
 		}
 
 	}

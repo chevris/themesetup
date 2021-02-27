@@ -29,14 +29,6 @@ use function Themesetup\themesetup;
 
 <?php do_action( 'themesetup_after_page' ); ?>
 
-
-<div class="partial-example-1">
-	<?php
-	$example1 = themesetup()->get_setting( 'example_setting_1' );
-	echo $example1;
-	?>
-</div>
-
 <?php wp_footer(); ?>
 
 </body>

@@ -35,6 +35,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_filter( 'themesetup_css_files', [ $this, 'filter_css_files_header' ] );
 		add_filter( 'body_class', [ $this, 'filter_body_classes' ] );
 		add_action( 'themesetup_header', [ $this, 'action_display_header' ] );
+		add_action( 'themesetup_before_page', [ $this, 'action_display_drawer_header' ] );
 	}
 
 	/**
@@ -107,6 +108,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			<?php get_template_part( 'template-parts/header/' . $layout ); ?>
 		</header>
 		<?php
+	}
+
+	/**
+	 * Display the header drawer template.
+	 */
+	public function action_display_drawer_header() {
+
+		if ( themesetup()->has_header() && themesetup()->has_header_drawer() ) {
+			get_template_part( 'template-parts/header/drawer' );
+		}
+
 	}
 
 }

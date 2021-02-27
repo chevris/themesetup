@@ -20,7 +20,7 @@ while ( have_posts() ) {
 
 		<?php
 		if ( themesetup()->has_sidebar() && 'toggle' === themesetup()->get_sidebar_layout() ) {
-			get_template_part( 'template-parts/off-canvas/slideout-sidebar-toggle' );
+			get_template_part( 'template-parts/content/drawer-sidebar-toggle-open' );
 		}
 		?>
 

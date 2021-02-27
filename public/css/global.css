@@ -123,7 +123,7 @@ Accessibility
     grid-gap: 1rem;
     justify-content: center;
   }
-  .has-sidebar.has-sidebar--toggle .slideout-sidebar-toggle {
+  .has-sidebar.has-sidebar--toggle .drawer-sidebar-toggle {
     display: none;
   }
   .has-sidebar.has-sidebar--toggle .widget-area {
@@ -424,7 +424,7 @@ Social menu
   transform: rotate(-45deg);
 }
 
-#slideout-menu-js {
+.drawer-header-js {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -437,15 +437,15 @@ Social menu
 }
 
 /* Open from the left */
-.slideoutmenu-offcanvas-opened #slideout-menu-js {
+.header-drawer-opened .drawer-header-js {
   left: 0;
 }
 
-body.admin-bar #slideout-menu-js {
+body.admin-bar .drawer-header-js {
   top: 46px;
 }
 @media only screen and (min-width: 783px) {
-  body.admin-bar #slideout-menu-js {
+  body.admin-bar .drawer-header-js {
     top: 32px;
   }
 }
@@ -453,7 +453,7 @@ body.admin-bar #slideout-menu-js {
 /**
  * Common style for amp and js slide-out menu
  */
-.slideout-menu {
+.drawer-header {
   background-color: #fff;
   width: 100vw;
   /* 90vw; */
@@ -461,34 +461,34 @@ body.admin-bar #slideout-menu-js {
   /* 90vw; */
 }
 @media only screen and (min-width: 592px) {
-  .slideout-menu {
+  .drawer-header {
     width: 33vw;
     max-width: 400px;
   }
 }
 
 /**
- * Slide-out menu toggle
+ * Drawer header toggle
  */
-.slideout-menu-toggle {
+.drawer-header-toggle {
   display: flex;
   align-items: center;
   background-color: transparent;
   color: inherit;
 }
-.slideout-menu-toggle:hover, .slideout-menu-toggle:focus {
+.drawer-header-toggle:hover, .drawer-header-toggle:focus {
   background-color: transparent;
   color: inherit;
   text-decoration: none;
 }
-.slideout-menu-toggle:focus {
+.drawer-header-toggle:focus {
   outline-offset: 0;
 }
-.slideout-menu-toggle svg {
+.drawer-header-toggle svg {
   margin-right: 0.25rem;
 }
 
-#slideout-sidebar-js {
+.drawer-sidebar-js {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -501,15 +501,15 @@ body.admin-bar #slideout-menu-js {
 }
 
 /* Open from the left */
-.slideoutsidebar-offcanvas-opened #slideout-sidebar-js {
+.sidebar-drawer-opened .drawer-sidebar-js {
   left: 0;
 }
 
-body.admin-bar #slideout-sidebar-js {
+body.admin-bar .drawer-sidebar-js {
   top: 46px;
 }
 @media only screen and (min-width: 783px) {
-  body.admin-bar #slideout-sidebar-js {
+  body.admin-bar .drawer-sidebar-js {
     top: 32px;
   }
 }
@@ -517,7 +517,7 @@ body.admin-bar #slideout-sidebar-js {
 /**
  * Common style for amp and js slide-out menu
  */
-.slideout-sidebar {
+.drawer-sidebar {
   background-color: #fff;
   width: 100vw;
   /* 90vw; */
@@ -526,23 +526,23 @@ body.admin-bar #slideout-sidebar-js {
 }
 
 /**
- * Slide-out sidebar toggle
+ * Drawer sidebar toggle
  */
-.slideout-sidebar-toggle {
+.drawer-sidebar-toggle {
   display: flex;
   align-items: center;
   background-color: transparent;
   color: inherit;
 }
-.slideout-sidebar-toggle:hover, .slideout-sidebar-toggle:focus {
+.drawer-sidebar-toggle:hover, .drawer-sidebar-toggle:focus {
   background-color: transparent;
   color: inherit;
   text-decoration: none;
 }
-.slideout-sidebar-toggle:focus {
+.drawer-sidebar-toggle:focus {
   outline-offset: 0;
 }
-.slideout-sidebar-toggle svg {
+.drawer-sidebar-toggle svg {
   margin-right: 0.25rem;
 }
 

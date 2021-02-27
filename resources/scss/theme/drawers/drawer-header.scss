@@ -1,4 +1,4 @@
-#slideout-menu-js {
+.drawer-header-js {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -12,11 +12,11 @@
 }
 
 /* Open from the left */
-.slideoutmenu-offcanvas-opened #slideout-menu-js {
+.header-drawer-opened .drawer-header-js {
 	left: 0;
 }
 
-body.admin-bar #slideout-menu-js {
+body.admin-bar .drawer-header-js {
 	top: 46px;
 
 	@include media(admin-bar) {
@@ -27,7 +27,7 @@ body.admin-bar #slideout-menu-js {
 /**
  * Common style for amp and js slide-out menu
  */
-.slideout-menu {
+.drawer-header {
 	background-color: #fff;
 	width: 100vw; /* 90vw; */
 	max-width: 100vw; /* 90vw; */
@@ -39,10 +39,9 @@ body.admin-bar #slideout-menu-js {
 }
 
 /**
- * Slide-out menu toggle
+ * Drawer header toggle
  */
-
-.slideout-menu-toggle {
+.drawer-header-toggle {
 	display: flex;
 	align-items: center;
 	background-color: transparent;

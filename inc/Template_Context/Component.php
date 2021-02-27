@@ -16,6 +16,7 @@ use Themesetup\Templating_Component_Interface;
  * Exposes template tags:
  * * `themesetup()->get_context()`
  * * `themesetup()->has_header()`
+ * * `themesetup()->has_header_drawer()`
  * * `themesetup()->has_singular_entry_title()`
  * * `themesetup()->has_archive_content_title()`
  * * `themesetup()->has_sidebar()`
@@ -56,6 +57,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		return [
 			'get_context' => [ $this, 'get_context' ],
 			'has_header' => [ $this, 'has_header' ],
+			'has_header_drawer' => [ $this, 'has_header_drawer' ],
 			'has_singular_entry_title' => [ $this, 'has_singular_entry_title' ],
 			'has_archive_content_title' => [ $this, 'has_archive_content_title' ],
 			'has_sidebar' => [ $this, 'has_sidebar' ],
@@ -122,6 +124,20 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			self::set_context();
 		}
 		return (bool) self::$context['header']['enabled'];
+
+	}
+
+	/**
+	 * Determines whether header drawer should be displayed.
+	 *
+	 * @return boolean True if header drawer should be displayed.
+	 */
+	public function has_header_drawer() {
+
+		if ( is_null( self::$context ) ) {
+			self::set_context();
+		}
+		return (bool) self::$context['header']['drawer']['enabled'];
 
 	}
 
@@ -203,6 +219,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$header = [
 			'enabled' => true,
 			'layout' => 'header-1',
+			'drawer' => [
+				'enabled' => true,
+			],
 		];
 		$singular = [
 			'title' => [
