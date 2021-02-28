@@ -16,17 +16,20 @@ use function Themesetup\themesetup;
  * Class for managing navigation menus.
  *
  * Exposes template tags:
- * * `themesetup()->is_primary_nav_menu_active()`
- * * `themesetup()->display_primary_nav_menu( array $args = [] )`
- * * `themesetup()->is_secondary_nav_menu_active()`
- * * `themesetup()->display_secondary_nav_menu( array $args = [] )`
- * * `themesetup()->is_social_nav_menu_active()`
- * * `themesetup()->display_social_nav_menu( array $args = [] )`
+ * * `themesetup()->is_header_primary_nav_menu_active()`
+ * * `themesetup()->display_header_primary_nav_menu( array $args = [] )`
+ * * `themesetup()->is_header_secondary_nav_menu_active()`
+ * * `themesetup()->display_header_secondary_nav_menu( array $args = [] )`
+ * * `themesetup()->is_header_drawer_nav_menu_active()`
+ * * `themesetup()->display_header_drawer_nav_menu( array $args = [] )`
+ * * `themesetup()->is_header_social_nav_menu_active()`
+ * * `themesetup()->display_header_social_nav_menu( array $args = [] )`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
-	const PRIMARY_NAV_MENU_SLUG   = 'primary';
-	const SECONDARY_NAV_MENU_SLUG = 'secondary';
+	const HEADER_PRIMARY_NAV_SLUG   = 'header-primary';
+	const HEADER_SECONDARY_NAV_SLUG = 'header-secondary';
+	const HEADER_DRAWER_NAV_SLUG   = 'header-drawer';
 
 	/**
 	 * Gets the unique identifier for the theme component.
@@ -58,12 +61,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function template_tags(): array {
 		return [
-			'is_primary_nav_menu_active'   => [ $this, 'is_primary_nav_menu_active' ],
-			'display_primary_nav_menu'     => [ $this, 'display_primary_nav_menu' ],
-			'is_secondary_nav_menu_active' => [ $this, 'is_secondary_nav_menu_active' ],
-			'display_secondary_nav_menu'   => [ $this, 'display_secondary_nav_menu' ],
-			'is_social_nav_menu_active'    => [ $this, 'is_social_nav_menu_active' ],
-			'display_social_nav_menu'      => [ $this, 'display_social_nav_menu' ],
+			'is_header_primary_nav_menu_active'   => [ $this, 'is_header_primary_nav_menu_active' ],
+			'display_header_primary_nav_menu'     => [ $this, 'display_header_primary_nav_menu' ],
+			'is_header_secondary_nav_menu_active' => [ $this, 'is_header_secondary_nav_menu_active' ],
+			'display_header_secondary_nav_menu'   => [ $this, 'display_header_secondary_nav_menu' ],
+			'is_header_drawer_nav_menu_active'    => [ $this, 'is_header_drawer_nav_menu_active' ],
+			'display_header_drawer_nav_menu'      => [ $this, 'display_header_drawer_nav_menu' ],
+			'is_header_social_nav_menu_active'    => [ $this, 'is_header_social_nav_menu_active' ],
+			'display_header_social_nav_menu'      => [ $this, 'display_header_social_nav_menu' ],
 		];
 	}
 
@@ -73,9 +78,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_register_nav_menus() {
 		register_nav_menus(
 			[
-				static::PRIMARY_NAV_MENU_SLUG   => esc_html_x( 'Primary', 'nav menu', 'themesetup' ),
-				static::SECONDARY_NAV_MENU_SLUG => esc_html_x( 'Secondary', 'nav menu', 'themesetup' ),
-				Social_Nav_Menu::SLUG           => esc_html_x( 'Social', 'nav menu', 'themesetup' ),
+				static::HEADER_PRIMARY_NAV_SLUG   => esc_html_x( 'Header Primary Navigation', 'nav menu', 'themesetup' ),
+				static::HEADER_SECONDARY_NAV_SLUG => esc_html_x( 'Header Secondary Navigation', 'nav menu', 'themesetup' ),
+				static::HEADER_DRAWER_NAV_SLUG   => esc_html_x( 'Header Drawer Navigation', 'nav menu', 'themesetup' ),
+				Social_Nav_Menu::SLUG           => esc_html_x( 'Header Social Navigation', 'nav menu', 'themesetup' ),
 			]
 		);
 	}
@@ -135,19 +141,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the primary navigation menu is active, false otherwise.
 	 */
-	public function is_primary_nav_menu_active(): bool {
-		return (bool) has_nav_menu( static::PRIMARY_NAV_MENU_SLUG );
+	public function is_header_primary_nav_menu_active(): bool {
+		return (bool) has_nav_menu( static::HEADER_PRIMARY_NAV_SLUG );
 	}
 
 	/**
-	 * Displays the primary navigation menu.
+	 * Displays the header primary navigation menu.
 	 *
 	 * @param string $direction The menu direction.
 	 * @param boolean $dropdown Whether it is dropdown menu
 	 * @param array  $args Optional. Array of arguments. See `wp_nav_menu()` documentation for a list of supported
 	 *                    arguments.
 	 */
-	public function display_primary_nav_menu( $direction = 'horizontal', $dropdown = true, array $args = [] ) {
+	public function display_header_primary_nav_menu( $direction = 'horizontal', $dropdown = true, array $args = [] ) {
 
 		// No container for the ul by default, handled by templates.
 		if ( ! isset( $args['container'] ) ) {
@@ -173,7 +179,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$args['show_toggles'] = true;
 		}
 
-		$args['theme_location'] = static::PRIMARY_NAV_MENU_SLUG;
+		$args['theme_location'] = static::HEADER_PRIMARY_NAV_SLUG;
 
 		wp_nav_menu( $args );
 	}
@@ -183,19 +189,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the secondary navigation menu is active, false otherwise.
 	 */
-	public function is_secondary_nav_menu_active(): bool {
-		return (bool) has_nav_menu( static::SECONDARY_NAV_MENU_SLUG );
+	public function is_header_secondary_nav_menu_active(): bool {
+		return (bool) has_nav_menu( static::HEADER_SECONDARY_NAV_SLUG );
 	}
 
 	/**
-	 * Displays the secondary navigation menu.
+	 * Displays the header secondary navigation menu.
 	 *
 	 * @param string $direction The menu direction.
 	 * @param boolean $dropdown Whether it is dropdown menu
 	 * @param array  $args Optional. Array of arguments. See `wp_nav_menu()` documentation for a list of supported
 	 *                    arguments.
 	 */
-	public function display_secondary_nav_menu( $direction = 'horizontal', $dropdown = true, array $args = [] ) {
+	public function display_header_secondary_nav_menu( $direction = 'horizontal', $dropdown = true, array $args = [] ) {
 
 		// No container for the ul by default, handled by templates.
 		if ( ! isset( $args['container'] ) ) {
@@ -221,7 +227,55 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$args['show_toggles'] = true;
 		}
 
-		$args['theme_location'] = static::SECONDARY_NAV_MENU_SLUG;
+		$args['theme_location'] = static::HEADER_SECONDARY_NAV_SLUG;
+
+		wp_nav_menu( $args );
+	}
+
+	/**
+	 * Checks whether the header drawer navigation menu is active.
+	 *
+	 * @return bool True if the header drawer navigation menu is active, false otherwise.
+	 */
+	public function is_header_drawer_nav_menu_active(): bool {
+		return (bool) has_nav_menu( static::HEADER_DRAWER_NAV_SLUG );
+	}
+
+	/**
+	 * Displays the header drawer navigation menu.
+	 *
+	 * @param string $direction The menu direction.
+	 * @param boolean $dropdown Whether it is dropdown menu
+	 * @param array  $args Optional. Array of arguments. See `wp_nav_menu()` documentation for a list of supported
+	 *                    arguments.
+	 */
+	public function display_header_drawer_nav_menu( $direction = 'horizontal', $dropdown = true, array $args = [] ) {
+
+		// No container for the ul by default, handled by templates.
+		if ( ! isset( $args['container'] ) ) {
+			$args['container'] = false;
+		}
+
+		if ( ! isset( $args['menu_class'] ) ) {
+			if ( $dropdown ) {
+				$args['menu_class'] = 'menu ' . $direction . '-menu is-dropdown';
+			} else {
+				$args['menu_class'] = 'menu ' . $direction . '-menu';
+			}
+		}
+
+		if ( ! isset( $args['items_wrap'] ) ) {
+			$args['items_wrap'] = '<ul id="%1$s" class="%2$s">%3$s</ul>';
+		}
+
+		if ( 'vertical' === $direction ) {
+			$args['walker']       = new Walker_Vertical_Nav_Menu();
+			$args['show_toggles'] = false; // No needs to add toggles since it's handled by the walker class.
+		} else {
+			$args['show_toggles'] = true;
+		}
+
+		$args['theme_location'] = static::HEADER_DRAWER_NAV_SLUG;
 
 		wp_nav_menu( $args );
 	}
@@ -231,7 +285,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *
 	 * @return bool True if the social navigation menu is active, false otherwise.
 	 */
-	public function is_social_nav_menu_active(): bool {
+	public function is_header_social_nav_menu_active(): bool {
 		return (bool) has_nav_menu( Social_Nav_Menu::SLUG );
 	}
 
@@ -241,7 +295,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param array $args Optional. Array of arguments. See `wp_nav_menu()` documentation for a list of supported
 	 *                    arguments.
 	 */
-	public function display_social_nav_menu( array $args = [] ) {
+	public function display_header_social_nav_menu( array $args = [] ) {
 
 		$social_label = get_theme_mod( 'themesetup_social_nav_menu_label', esc_html__( 'Follow us', 'themesetup' ) );
 		// Defaults to 'Follow us' if empty.

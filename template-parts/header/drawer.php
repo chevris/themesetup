@@ -24,9 +24,9 @@ use function Themesetup\themesetup;
 
 	<div class="drawer-header-inner">
 
-		<?php if ( themesetup()->is_primary_nav_menu_active() ) : ?>
-			<nav class="primary-nav" aria-label="<?php esc_attr_e( 'Primary', 'themesetup' ); ?>" role="navigation">
-				<?php themesetup()->display_primary_nav_menu( 'vertical' ); ?>
+		<?php if ( themesetup()->is_header_drawer_nav_menu_active() ) : ?>
+			<nav class="drawer-nav" aria-label="<?php esc_attr_e( 'Drawer', 'themesetup' ); ?>" role="navigation">
+				<?php themesetup()->display_header_drawer_nav_menu( 'vertical' ); ?>
 			</nav>
 		<?php endif; ?>
 

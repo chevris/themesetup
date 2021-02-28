@@ -218,7 +218,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		$header = [
 			'enabled' => true,
-			'layout' => 'header-1',
+			'layout' => '1',
 			'drawer' => [
 				'enabled' => true,
 			],

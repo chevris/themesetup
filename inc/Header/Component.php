@@ -15,7 +15,7 @@ use function Themesetup\themesetup;
  * Class for managing archive content.
  *
  * Exposes template tags:
- * * `themesetup()->the_template_tags_function()`
+ * * `themesetup()->display_header_layout()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -46,7 +46,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 *               adding support for further arguments in the future.
 	 */
 	public function template_tags(): array {
-		return [];
+		return [
+			'display_header_layout' => [ $this, 'display_header_layout' ],
+		];
 	}
 
 	/**
@@ -96,18 +98,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function action_display_header() {
 
-		if ( ! themesetup()->has_header() ) {
-			return;
+		if ( themesetup()->has_header() ) {
+			get_template_part( 'template-parts/header/header', get_post_type() );
 		}
 
-		$layout = themesetup()->get_context( 'header', 'layout' );
-
-		themesetup()->print_styles( 'themesetup-header' );
-		?>
-		<header id="masthead" class="site-header">
-			<?php get_template_part( 'template-parts/header/' . $layout ); ?>
-		</header>
-		<?php
 	}
 
 	/**
@@ -118,6 +112,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		if ( themesetup()->has_header() && themesetup()->has_header_drawer() ) {
 			get_template_part( 'template-parts/header/drawer' );
 		}
+
+	}
+
+	/**
+	 * Display header layout.
+	 */
+	public function display_header_layout() {
+
+		$layout = themesetup()->get_context( 'header', 'layout' );
+
+		get_template_part( 'template-parts/header/header_' . $layout );
 
 	}
 

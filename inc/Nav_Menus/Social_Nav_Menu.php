@@ -15,7 +15,7 @@ use WP_Post;
  */
 class Social_Nav_Menu {
 
-	const SLUG      = 'social';
+	const SLUG      = 'header-social';
 	const ICON_SIZE = 24;
 
 	/**

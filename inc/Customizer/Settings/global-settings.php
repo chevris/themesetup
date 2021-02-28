@@ -13,7 +13,7 @@ use Themesetup\Customizer\Register_Settings;
 Register_Settings::add_panels(
 	[
 		'themesetup_global_panel' => [
-			'title'    => esc_html__( 'Global', 'themesetup' ),
+			'title'    => esc_html__( 'Global Settings', 'themesetup' ),
 			'priority' => 300,
 		],
 	]
