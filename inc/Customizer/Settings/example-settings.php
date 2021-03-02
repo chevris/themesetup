@@ -245,3 +245,53 @@ Register_Settings::add_settings(
 	]
 );
 
+Register_Settings::add_sections(
+	[
+		'example_section_2' => [
+			'section_args' => [
+				'title'    => esc_html__( 'Example Section 2', 'themesetup' ),
+				'priority' => 301,
+				'panel'    => 'example_panel',
+			],
+			'custom_section' => '',
+		],
+	]
+);
+
+Register_Settings::add_settings(
+	[
+		'example_setting_4' => [
+			'setting_args' => [
+				'default'           => [
+					'desktop' => true,
+					'tablet'  => true,
+					'mobile'  => true,
+				],
+				'sanitize_callback' => [ themesetup(), 'sanitize_icon_checkbox' ],
+				'transport'         => 'postMessage',
+			],
+			'control_args' => [
+				'label'        => esc_html__( 'example visibility', 'themesetup' ),
+				'section'      => 'example_section_2',
+				'priority'     => 10,
+				'input_attrs'  => [
+					'options' => [
+						'desktop' => [
+							'name' => __( 'Desktop', 'themesetup' ),
+							'icon' => 'desktop',
+						],
+						'tablet' => [
+							'name' => __( 'Tablet', 'themesetup' ),
+							'icon' => 'tablet',
+						],
+						'mobile' => [
+							'name' => __( 'Mobile', 'themesetup' ),
+							'icon' => 'smartphone',
+						],
+					],
+				],
+			],
+			'custom_control' => 'Icon_Checkbox',
+		],
+	]
+);

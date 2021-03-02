@@ -1,6 +1,6 @@
 .has-sidebar.has-sidebar--below {
 
-	@include media(wide) {
+	@include media(desktop-plus) {
 
 		.content-area {
 			display: grid;
@@ -24,7 +24,7 @@
 		display: none;
 	}
 
-	@include media(wide) {
+	@include media(desktop-plus) {
 
 		.content-area {
 			display: grid;

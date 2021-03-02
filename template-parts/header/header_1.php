@@ -12,17 +12,17 @@ use function Themesetup\themesetup;
 
 	<?php get_template_part( 'template-parts/header/branding' ); ?>
 
-	<?php if ( themesetup()->is_header_primary_nav_menu_active() ) : ?>
-		<nav class="primary-nav" aria-label="<?php esc_attr_e( 'Primary', 'themesetup' ); ?>" role="navigation">
-			<?php themesetup()->display_header_primary_nav_menu(); ?>
-		</nav>
-	<?php endif; ?>
+	<?php
+	if ( themesetup()->is_header_primary_nav_menu_active() ) {
+		get_template_part( 'template-parts/header/primary-nav' );
+	}
+	?>
 
-	<?php if ( themesetup()->is_header_social_nav_menu_active() ) : ?>
-		<nav class="social-nav hide-label" aria-label="<?php esc_attr_e( 'Social Links Menu', 'themesetup' ); ?>">
-			<?php themesetup()->display_header_social_nav_menu(); ?>
-		</nav>
-	<?php endif; ?>
+	<?php
+	if ( themesetup()->is_header_social_nav_menu_active() ) {
+		get_template_part( 'template-parts/header/social-nav' );
+	}
+	?>
 
 	<?php
 	if ( themesetup()->has_header_drawer() ) {

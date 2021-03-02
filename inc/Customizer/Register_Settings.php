@@ -14,6 +14,7 @@ use Themesetup\Customizer\Controls\Title;
 use Themesetup\Customizer\Controls\Toggle;
 use Themesetup\Customizer\Controls\Presets;
 use Themesetup\Customizer\Controls\Focus_Button;
+use Themesetup\Customizer\Controls\Icon_Checkbox;
 use Themesetup\Customizer\Controls\Expanded_Section;
 use Themesetup\Customizer\Controls\Responsive_Range;
 
@@ -94,6 +95,7 @@ class Register_Settings {
 		$this->customizer->register_control_type( Range::class );
 		$this->customizer->register_control_type( Responsive_Range::class );
 		$this->customizer->register_control_type( Focus_Button::class );
+		$this->customizer->register_control_type( Icon_Checkbox::class );
 	}
 
 	/**

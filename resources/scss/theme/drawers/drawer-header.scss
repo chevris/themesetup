@@ -32,7 +32,7 @@ body.admin-bar .drawer-header-js {
 	width: 100vw; /* 90vw; */
 	max-width: 100vw; /* 90vw; */
 
-	@include media (tablet) {
+	@include media (tablet-plus) {
 		width: 33vw;
 		max-width: 400px;
 	}

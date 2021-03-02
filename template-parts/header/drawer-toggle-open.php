@@ -8,7 +8,7 @@
 use function Themesetup\themesetup;
 ?>
 
-<button id="drawer-header-toggle-open" class="drawer-header-toggle"
+<button id="drawer-header-toggle-open" class="drawer-header-toggle desktop-vis-false"
 	<?php if ( themesetup()->is_amp() ) { ?>
 		on="tap:drawer-header-amp.toggle"
 	<?php } ?>

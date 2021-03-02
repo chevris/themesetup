@@ -1,0 +1,22 @@
+
+.vis-false {
+	display: none !important;
+}
+
+.mobile-vis-false {
+	@include media(mobile) {
+		display: none !important;
+	}
+}
+
+.tablet-vis-false {
+	@include media(tablet) {
+		display: none !important;
+	}
+}
+
+.desktop-vis-false {
+	@include media(desktop) {
+		display: none !important;
+	}
+}

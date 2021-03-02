@@ -20,6 +20,7 @@ use Themesetup\Templating_Component_Interface;
  * * `themesetup()->sanitize_with_basic_html()`
  * * `themesetup()->sanitize_responsive_range()`
  * * `themesetup()->sanitize_checkbox()`
+ * * `themesetup()->sanitize_icon_checkbox()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -50,6 +51,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			'sanitize_with_basic_html' => [ $this, 'sanitize_with_basic_html' ],
 			'sanitize_responsive_range' => [ $this, 'sanitize_responsive_range' ],
 			'sanitize_checkbox' => [ $this, 'sanitize_checkbox' ],
+			'sanitize_icon_checkbox' => [ $this, 'sanitize_icon_checkbox' ],
 		];
 	}
 
@@ -150,6 +152,19 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function sanitize_checkbox( $value ) {
 		return isset( $value ) && true === (bool) $value;
+	}
+
+	/**
+	 * Sanitize icon checkbox output.
+	 *
+	 * @param array $values values to be sanitized.
+	 * @return boolean
+	 */
+	public function sanitize_icon_checkbox( $values ) {
+		foreach ( $values as $key => $value ) {
+			$values[ $key ] = ( ( isset( $value ) && true === $value ) ? true : false );
+		}
+		return $values;
 	}
 
 	/**
