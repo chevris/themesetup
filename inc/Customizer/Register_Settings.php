@@ -14,6 +14,7 @@ use Themesetup\Customizer\Controls\Title;
 use Themesetup\Customizer\Controls\Toggle;
 use Themesetup\Customizer\Controls\Presets;
 use Themesetup\Customizer\Controls\Focus_Button;
+use Themesetup\Customizer\Controls\Nested_Panel;
 use Themesetup\Customizer\Controls\Icon_Checkbox;
 use Themesetup\Customizer\Controls\Expanded_Section;
 use Themesetup\Customizer\Controls\Responsive_Range;
@@ -67,12 +68,27 @@ class Register_Settings {
 	 */
 	public function action_customize_register( $wp_customize ) {
 		$this->customizer = $wp_customize;
+		$this->register_controls(); // Has to be at the top.
 		$this->create_settings_array();
-		$this->register_controls();
 		$this->register_panels();
 		$this->register_sections();
 		$this->register_settings();
 
+	}
+
+	/**
+	 * Register control types.
+	 */
+	public function register_controls() {
+		$this->customizer->register_panel_type( Nested_Panel::class );
+		$this->customizer->register_section_type( Expanded_Section::class );
+		$this->customizer->register_control_type( Title::class );
+		$this->customizer->register_control_type( Presets::class );
+		$this->customizer->register_control_type( Toggle::class );
+		$this->customizer->register_control_type( Range::class );
+		$this->customizer->register_control_type( Responsive_Range::class );
+		$this->customizer->register_control_type( Focus_Button::class );
+		$this->customizer->register_control_type( Icon_Checkbox::class );
 	}
 
 	/**
@@ -84,19 +100,17 @@ class Register_Settings {
 		require_once get_template_directory() . '/inc/Customizer/Settings/global-settings.php';
 	}
 
-	/**
-	 * Register control types.
-	 */
-	public function register_controls() {
-		$this->customizer->register_control_type( Title::class );
-		$this->customizer->register_section_type( Expanded_Section::class );
-		$this->customizer->register_control_type( Presets::class );
-		$this->customizer->register_control_type( Toggle::class );
-		$this->customizer->register_control_type( Range::class );
-		$this->customizer->register_control_type( Responsive_Range::class );
-		$this->customizer->register_control_type( Focus_Button::class );
-		$this->customizer->register_control_type( Icon_Checkbox::class );
-	}
+	// /**
+	//  * Register panels.
+	//  */
+	// private function register_panels() {
+
+	// 	$panels = self::$panels;
+	// 	foreach ( $panels as $panel_key => $panel ) {
+	// 		$this->customizer->add_panel( $panel_key, $panel );
+	// 	}
+
+	// }
 
 	/**
 	 * Register panels.
@@ -105,7 +119,12 @@ class Register_Settings {
 
 		$panels = self::$panels;
 		foreach ( $panels as $panel_key => $panel ) {
-			$this->customizer->add_panel( $panel_key, $panel );
+			if ( isset( $panel['custom_panel'] ) && ! empty( $panel['custom_panel'] ) ) {
+				$panel_class = 'Themesetup\Customizer\Controls\\' . $panel['custom_panel'];
+				$this->customizer->add_panel( new $panel_class( $this->customizer, $panel_key, $panel['panel_args'] ) );
+			} else {
+				$this->customizer->add_panel( $panel_key, $panel['panel_args'] );
+			}
 		}
 
 	}

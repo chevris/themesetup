@@ -1,4 +1,36 @@
+@charset "UTF-8";
 /* stylelint-disable */
+.in-sub-panel #customize-theme-controls .customize-pane-child.current-panel-parent {
+  transform: translateX(-100%);
+}
+
+.control-section-collapse-parent {
+  overflow: hidden !important;
+}
+
+.control-section-collapse {
+  position: static !important;
+  transform: none !important;
+  transition: height 200ms ease !important;
+  border-bottom: none !important;
+  overflow: hidden !important;
+}
+.control-section-collapse.customize-pane-child {
+  padding: 0 12px !important;
+}
+.control-section-collapse.customize-pane-child > li:nth-child(2) {
+  margin-top: 12px;
+}
+.control-section-collapse .accordion-section-title::after {
+  content: "\F132" !important;
+}
+.control-section-collapse.expanded .accordion-section-title::after {
+  content: "\F460" !important;
+}
+.control-section-collapse .customize-section-description-container {
+  display: none;
+}
+
 #customize-theme-controls .control-section-themesetup_expanded_section .accordion-section-title {
   display: none;
 }
