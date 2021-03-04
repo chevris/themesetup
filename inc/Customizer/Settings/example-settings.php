@@ -12,11 +12,25 @@ use Themesetup\Customizer\Register_Settings;
 
 Register_Settings::add_panels(
 	[
+		'example_parent_panel' => [
+			'panel_args' => [
+				'title'    => esc_html__( 'Example Parent Panel', 'themesetup' ),
+				'priority' => 1000,
+			],
+			'custom_panel' => 'Nested_Panel',
+		],
+	]
+);
+
+Register_Settings::add_panels(
+	[
 		'example_panel' => [
 			'panel_args' => [
 				'title'    => esc_html__( 'Example Panel', 'themesetup' ),
-				'priority' => 1000,
+				'panel'    => 'example_parent_panel',
+				'priority' => 1,
 			],
+			'custom_panel' => 'Nested_Panel',
 		],
 	]
 );
@@ -294,67 +308,6 @@ Register_Settings::add_settings(
 				],
 			],
 			'custom_control' => 'Icon_Checkbox',
-		],
-	]
-);
-
-Register_Settings::add_panels(
-	[
-		'example_panel_lvl1' => [
-			'panel_args' => [
-				'title'    => esc_html__( 'Nested Panel lvl1', 'themesetup' ),
-				'priority' => 2000,
-			],
-			'custom_panel' => 'Nested_Panel',
-		],
-	]
-);
-
-Register_Settings::add_panels(
-	[
-		'example_panel_lvl2' => [
-			'panel_args' => [
-				'title'    => esc_html__( 'Nested Panel lvl2', 'themesetup' ),
-				'panel'    => 'example_panel_lvl1',
-				'priority' => 1,
-			],
-			'custom_panel' => 'Nested_Panel',
-		],
-	]
-);
-
-Register_Settings::add_sections(
-	[
-		'example_section_3' => [
-			'section_args' => [
-				'title'    => esc_html__( 'Example Section 3', 'themesetup' ),
-				'priority' => 301,
-				'panel'    => 'example_panel_lvl2',
-				'type'       => 'collapse',
-			],
-		],
-	]
-);
-
-Register_Settings::add_settings(
-	[
-		'example_setting_nested' => [
-			'setting_args' => [
-				'default'           => 'none',
-				'transport'         => 'postMessage',
-			],
-			'control_args' => [
-				'type'     => 'select',
-				'label'    => esc_html__( 'example setting nested', 'themesetup' ),
-				'section'  => 'example_section_3',
-				'priority' => 10,
-				'choices'  => [
-					'none' => esc_html__( 'None', 'themesetup' ),
-					'above' => esc_html__( 'Above', 'themesetup' ),
-					'below' => esc_html__( 'Below', 'themesetup' ),
-					'behind' => esc_html__( 'Behind', 'themesetup' ),
-				],
-			],
 		],
 	]
 );

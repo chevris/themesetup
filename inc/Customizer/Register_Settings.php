@@ -98,6 +98,7 @@ class Register_Settings {
 		require_once get_template_directory() . '/inc/Customizer/Settings/example-settings.php';
 
 		require_once get_template_directory() . '/inc/Customizer/Settings/global-settings.php';
+		require_once get_template_directory() . '/inc/Customizer/Settings/sitewide-header-settings.php';
 	}
 
 	// /**

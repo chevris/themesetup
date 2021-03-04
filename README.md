@@ -6,7 +6,7 @@
 	js : ESLint ( package.json config )
 	css : stylelint ( stylelint-config-wordpress )
 * PHP static analysis : PHPStan
-* Js/css assets bundler : laravel-mix
+* Js/css assets bundler : laravel-mix (not updated to v6)
 * Linting : ESLint, PHP Parallel Lint
 * PHP static analysis : PHPStan-wordpress
 * RTL : rtlcss ( package.json config )
