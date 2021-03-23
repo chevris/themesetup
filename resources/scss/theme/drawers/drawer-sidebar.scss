@@ -16,14 +16,6 @@
 	left: 0;
 }
 
-body.admin-bar .drawer-sidebar-js {
-	top: 46px;
-
-	@include media(admin-bar) {
-		top: 32px;
-	}
-}
-
 /**
  * Common style for amp and js slide-out menu
  */

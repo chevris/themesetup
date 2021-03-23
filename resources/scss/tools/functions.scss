@@ -1,0 +1,16 @@
+// Make staked custom properties more compact
+@function vars($stack...) {
+	$output: null;
+	$close: "";
+	$length: length($stack);
+	@each $var in $stack {
+		@if (str-index("#{$var}", "--") == 1) {
+			$var: "var(#{$var}";
+			$close: "#{$close})";
+		}
+
+		$output: if($output, "#{$output}, #{$var}", $var);
+	}
+
+	@return unquote($output + $close);
+}

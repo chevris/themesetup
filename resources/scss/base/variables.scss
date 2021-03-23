@@ -1,0 +1,150 @@
+/**
+ * Variables
+ */
+
+// Vertical Rhythm Multiplier
+$baseline-unit: 10px;
+
+:root {
+
+	/* Global Font Family */
+	// If not overridden with custom fonts, the theme rely on system fonts for performance reasons.
+	--global-ff-primary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+	--global-ff-secondary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+
+	/* Global Font Size */
+	--global-fs-base: 1.25rem; // 20px / 16px
+	--global-fs-xs: 1rem; // 16px / 16px
+	--global-fs-sm: 1.125rem; // 18px / 16px
+	--global-fs-md: 1.25rem; // 20px / 16px
+	--global-fs-lg: 1.5rem; // 24px / 16px
+	--global-fs-xl: 2.25rem; // 36px / 16px
+	--global-fs-xxl: 4rem; // 64px / 16px
+	--global-fs-xxxl: 5rem; // 80px / 16px
+	--global-letter-spacing: normal;
+
+	/* Global Line Height */
+	--global-lh: 1.7;
+	--global-lh-heading: 1.3;
+
+	/* Global Border Width */
+	--global-border-width: 1px;
+
+	/* Global Colors */
+	--global-cl-black: #000;
+	--global-cl-dark-gray: #28303d;
+	--global-cl-gray: #39414d;
+	--global-cl-light-gray: #f0f0f0;
+	--global-cl-green: #d1e4dd;
+	--global-cl-blue: #d1dfe4;
+	--global-cl-purple: #d1d1e4;
+	--global-cl-red: #e4d1d1;
+	--global-cl-orange: #e4dad1;
+	--global-cl-yellow: #eeeadd;
+	--global-cl-white: #fff;
+	--global-cl-white-50: rgba(255, 255, 255, 0.5); // Used for disabled buttons
+	--global-cl-white-90: rgba(255, 255, 255, 0.9); // Used in form fields.
+
+	--global-cl-bg: #fff;
+	--global-cl-text: #111;
+	--global-cl-surface: #fff;
+	--global-cl-on-surface: #111;
+	--global-cl-primary: #512da8;
+	--global-cl-on-primary: #fff;
+	--global-cl-secondary: #7986cb;
+	--global-cl-on-secondary: #fff;
+	--global-cl-border: var(--global--color-primary);
+
+	/* Global Spacing */
+	--global-spacing-unit: #{2 * $baseline-unit}; // 20px
+	--global-spacing-h: #{2 * $baseline-unit}; // 20px
+	--global-spacing-v: #{2.5 * $baseline-unit}; // 35px.
+
+	/* Global Alignments */
+	--global-content-max-width: 610px;
+	--global-wide-max-width: 1240px;
+	--global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-content-max-width));
+	--global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-wide-max-width));
+	--global-alignright-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
+	--global-alignleft-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
+
+	/* Global Shadows */
+	--global-elevation-1: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+	--global-elevation-2: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+	--global-elevation-3: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
+
+	/* Headings */
+	--heading-ff: var(--global-ff-primary);
+
+	--heading-fs-h1: var(--global-fs-xxl);
+	--heading-fs-h2: var(--global-fs-xl);
+	--heading-fs-h3: var(--global-fs-lg);
+	--heading-fs-h4: var(--global-fs-base);
+	--heading-fs-h5: var(--global-fs-base);
+	--heading-fs-h6: var(--global-fs-base);
+
+	--heading-letter-spacing-h6: 0.05em;
+	--heading-letter-spacing-h5: 0.05em;
+	--heading-letter-spacing-h4: var(--global-letter-spacing);
+	--heading-letter-spacing-h3: var(--global-letter-spacing);
+	--heading-letter-spacing-h2: var(--global-letter-spacing);
+	--heading-letter-spacing-h1: var(--global-letter-spacing);
+
+	--heading-lh-h6: var(--global-lh-heading);
+	--heading-lh-h5: var(--global-lh-heading);
+	--heading-lh-h4: var(--global-lh-heading);
+	--heading-lh-h3: var(--global-lh-heading);
+	--heading-lh-h2: var(--global-lh-heading);
+	--heading-lh-h1: var(--global-lh-heading);
+
+	--heading-fw: normal;
+	--heading-fw-strong: 600;
+
+	/* Forms */
+	--form-fs: var(--global-fs-sm);
+	--form-cl-text: var(--global-cl-dark-gray); // Text color in input fields is always dark over light background.
+	--form-cl-ranged: var(--global-cl-text);
+	--form-weight-label: 500;
+	--form-cl-border: var(--global-cl-text);
+	--form-width-border: 3px;
+	--form-border-radius-top-left: 0;
+	--form-border-radius-top-right: 0;
+	--form-border-radius-bottom-right: 0;
+	--form-border-radius-bottom-left: 0;
+	--form-spacing-unit: calc(0.5 * var(--global-spacing-unit));
+
+	/* Links */
+	--links-cl-text: currentColor;
+
+	/* Admin-bar height */
+	--global-admin-bar-height: 0;
+
+	/* Buttons */
+	// Fonts
+	--button-ff: var(--global-ff-primary);
+	--button-fs: var(--global-fs-base);
+	--button-fw: 500;
+	--button-lh: 1.5;
+	// Borders
+	--button-border-width: 3px;
+	--button-border-radius: 0;
+	// Spacing
+	--button-padding-vertical: 15px;
+	--button-padding-horizontal: calc(2 * var(--button-padding-vertical));
+	// Colors
+	--button-cl-bg: var(--global-cl-primary);
+	--button-cl-text: var(--global-cl-on-primary);
+	// Shadows
+	--button-shadow: var(--global-elevation-1);
+	--button-shadow-hover: var(--global-elevation-2);
+	--button-shadow-active: var(--global-elevation-3);
+
+}
+
+.admin-bar {
+	--global-admin-bar-height: 32px;
+
+	@media only screen and (max-width: 782px) {
+		--global-admin-bar-height: 46px;
+	}
+}

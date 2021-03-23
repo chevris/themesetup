@@ -1,0 +1,47 @@
+// Block Alignments
+.wp-block {
+
+	// Override the editor rule that limits the max width of .wp-block to 580px
+	max-width: var(--global-aligncontent-width);
+
+	&[data-align="wide"],
+	&.alignwide {
+		max-width: var(--global-alignwide-width);
+	}
+
+	&[data-align="full"],
+	&.alignfull {
+		max-width: none;
+	}
+}
+
+.alignleft {
+	margin: 0;
+	margin-right: var(--global-spacing-h);
+}
+
+.alignright {
+	margin: 0;
+	margin-left: var(--global-spacing-h);
+}
+
+.wp-block[data-align="left"] > * {
+	max-width: calc(var(--global-aligncontent-width) * 0.5);
+	margin-right: var(--global-spacing-h);
+}
+
+.wp-block[data-align="right"] > * {
+	max-width: calc(var(--global-aligncontent-width) * 0.5);
+	margin-left: var(--global-spacing-h);
+}
+
+.wp-block[data-align="left"] figcaption,
+.wp-block[data-align="right"] figcaption {
+	margin-bottom: 0;
+}
+
+// Block vertical Spacing
+[data-block] {
+	margin-top: var(--global-spacing-v);
+	margin-bottom: var(--global-spacing-v);
+}

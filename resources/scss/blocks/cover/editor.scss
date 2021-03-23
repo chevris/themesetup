@@ -1,0 +1,28 @@
+.wp-block-cover,
+.wp-block-cover-image {
+
+	&:not(.alignwide):not(.alignfull) {
+		clear: both;
+	}
+
+	padding: 0;
+	margin-top: inherit;
+	margin-bottom: inherit;
+
+	[data-align="full"] & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	[data-align="left"] &,
+	[data-align="right"] & {
+		margin-top: 0;
+	}
+
+	.wp-block-cover__inner-container {
+		margin-top: var(--global-spacing-v);
+		margin-bottom: var(--global-spacing-v);
+	}
+
+	@include editor-innerblock-margin-clear(".wp-block-cover__inner-container");
+}

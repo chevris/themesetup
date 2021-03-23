@@ -1,0 +1,79 @@
+.wp-block-columns {
+
+	&:not(.alignwide):not(.alignfull) {
+		clear: both;
+	}
+
+	.wp-block,
+	.wp-block-column {
+
+		// Let blocks inside the columns have the full width of its column
+		max-width: 100%;
+	}
+
+	@include editor-innerblock-margin-clear(".wp-block-column");
+
+	.wp-block-column:last-child {
+		margin-bottom: 0;
+	}
+
+	// @todo : Remove this margin on screens > 600px (that stay visible on mobile in the preview).
+	.wp-block-column:not(:last-child) {
+		margin-bottom: calc(0.66 * var(--global-spacing-v));
+	}
+
+	.wp-block[data-align="full"] > & {
+
+		p:not(.has-background),
+		h1:not(.has-background),
+		h2:not(.has-background),
+		h3:not(.has-background),
+		h4:not(.has-background),
+		h5:not(.has-background),
+		h6:not(.has-background) {
+			padding-left: var(--global-spacing-unit);
+			padding-right: var(--global-spacing-unit);
+		}
+	}
+
+	&.is-style-themesetup-columns-overlap {
+
+		@include media(tablet-plus) {
+
+			.wp-block-column:nth-child(2n) {
+				margin-left: calc(-2.5 * var(--global-spacing-h));
+				margin-top: calc(2.5 * var(--global-spacing-h));
+				z-index: 2;
+
+				&.is-vertically-aligned-center {
+					margin-top: 0;
+				}
+
+				// // Removed and let users add bg.
+				// // Provide text-based child blocks with a default background color to ensure they're readable.
+				// > p,
+				// > h1,
+				// > h2,
+				// > h3,
+				// > h4,
+				// > h5,
+				// > h6,
+				// > ul,
+				// > ol,
+				// > pre {
+
+				// 	&:not(.has-background) {
+				// 		background-color: var(--global-cl-bg);
+				// 		padding: var(--global-spacing-unit);
+				// 	}
+				// }
+				// // Lists should still have their usual left padding.
+				// > ul:not(.has-background),
+				// > ol:not(.has-background) {
+				// 	padding-left: calc(2 * var(--global-spacing-h));
+				// }
+
+			}
+		}
+	}
+}

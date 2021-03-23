@@ -1,14 +1,28 @@
-@import "tools/variables.scss";
-@import "tools/media-queries.scss";
+@import "tools/sass-variables.scss";
+@import "tools/mixins.scss";
+@import "tools/functions.scss";
 
-@import "base/elements.scss";
+@import "base/fonts.scss";
+@import "base/variables.scss";
+@import "base/normalize.scss";
+@import "base/site-structure.scss";
+@import "base/theme-reset.scss";
+@import "base/clearings.scss";
 @import "base/a11y.scss";
+@import "base/buttons.scss";
+@import "base/forms.scss";
+@import "base/media.scss";
+@import "base/links.scss";
+@import "base/list.scss";
+@import "base/headings.scss";
+@import "base/elements.scss";
 
-@import "theme/layout.scss";
+@import "blocks/blocks.scss";
+
 @import "theme/navigation/menus.scss";
-
 @import "theme/drawers/drawer-header.scss";
 @import "theme/drawers/drawer-sidebar.scss";
 
+@import "utilities/color-palette.scss";
 @import "utilities/visibility.scss";
 @import "utilities/miscellaneous.scss";

@@ -49,7 +49,7 @@ mix.setPublicPath( 'public' );
  * Set Laravel Mix options.
  */
 mix.options( {
-	postCss        : [ require( 'postcss-preset-env' )() ],
+	// postCss        : [ require( 'postcss-preset-env' )() ],
 	processCssUrls : false
 } );
 
@@ -74,6 +74,7 @@ mix.react( `${devPath}/js/customizer-controls.js`, 'js' );
  */
 
 // Compile SASS/CSS.
+mix.sass( `${devPath}/scss/editor.scss`, 'css' );
 mix.sass( `${devPath}/scss/global.scss`, 'css' );
 mix.sass( `${devPath}/scss/in-body/header.scss`, 'css/in-body' );
 mix.sass( `${devPath}/scss/in-body/singular-entry-title.scss`, 'css/in-body' );

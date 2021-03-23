@@ -1,13 +1,19 @@
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-
-img {
-	display: block;
-	height: auto;
-	max-width: 100%;
+/**
+ * Elements
+ */
+b,
+strong {
+	font-weight: 700;
 }
 
-figure {
-	margin: 0;
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+pre {
+	white-space: pre;
+	overflow-x: auto;
 }

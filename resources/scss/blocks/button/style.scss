@@ -1,0 +1,31 @@
+.wp-block-button .wp-block-button__link {
+	@include button-style();
+}
+
+.wp-block-button {
+
+	// Outline Style.
+	&.is-style-outline {
+
+		.wp-block-button__link {
+
+			border-style: solid;
+			border-width: var(--button-border-width);
+			border-color: currentColor;
+			box-shadow: none;
+
+			&:not(.has-background) {
+				background: transparent;
+			}
+
+			&:not(.has-text-color) {
+				color: vars(--button-cl-bg-c, --button-cl-bg);
+			}
+
+			&:focus {
+				outline-offset: 2px;
+				outline: 2px dotted currentColor;
+			}
+		}
+	}
+}

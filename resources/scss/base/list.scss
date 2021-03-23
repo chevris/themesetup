@@ -1,0 +1,22 @@
+ul,
+ol {
+	font-family: var(--global-ff-secondary);
+	margin: 0;
+	padding-left: calc(2 * var(--global-spacing-h));
+}
+
+ul {
+	list-style-type: disc;
+
+	ul {
+		list-style-type: circle;
+	}
+}
+
+ol {
+	list-style-type: decimal;
+
+	ul {
+		list-style-type: circle;
+	}
+}

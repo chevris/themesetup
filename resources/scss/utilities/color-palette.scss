@@ -1,0 +1,277 @@
+// Text color options
+
+.has-black-color[class] {
+	color: var(--global-cl-black);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-black, #000);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-dark-gray-color[class] {
+	color: var(--global-cl-dark-gray);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-dark-gray, #28303d);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-gray-color[class] {
+	color: var(--global-cl-gray);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-gray, #39414d);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-light-gray-color[class] {
+	color: var(--global-cl-light-gray);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-light-gray, #f0f0f0);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-green-color[class] {
+	color: var(--global-cl-green);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-green, #d1e4dd);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-blue-color[class] {
+	color: var(--global-cl-blue);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-blue, #d1dfe4);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-purple-color[class] {
+	color: var(--global-cl-purple);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-purple, #d1d1e4);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-red-color[class] {
+	color: var(--global-cl-red);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-red, #e4d1d1);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-orange-color[class] {
+	color: var(--global-cl-orange);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-orange, #e4dad1);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-yellow-color[class] {
+	color: var(--global-cl-yellow);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-yellow, #eeeadd);
+		color: var(--local-cl-text);
+	}
+}
+
+.has-white-color[class] {
+	color: var(--global-cl-white);
+
+	> [class*="__inner-container"] {
+		--local-cl-text: var(--global-cl-white, #fff);
+		color: var(--local-cl-text);
+	}
+}
+
+// Background-color options
+[class*="has-background"] {
+
+	//a, // Keep theme link color
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: currentColor;
+	}
+}
+
+.has-black-background-color[class] {
+	background-color: var(--global-cl-black);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-black, #000);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-dark-gray-background-color[class] {
+	background-color: var(--global-cl-dark-gray);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-dark-gray, #000);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-gray-background-color[class] {
+	background-color: var(--global-cl-gray);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-gray, #000);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-light-gray-background-color[class] {
+	background-color: var(--global-cl-light-gray);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-light-gray, #000);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-green-background-color[class] {
+	background-color: var(--global-cl-green);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-green, #fff);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-blue-background-color[class] {
+	background-color: var(--global-cl-blue);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-blue, #fff);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-purple-background-color[class] {
+	background-color: var(--global-cl-purple);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-purple, #fff);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-red-background-color[class] {
+	background-color: var(--global-cl-red);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-red, #fff);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-orange-background-color[class] {
+	background-color: var(--global-cl-orange);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-orange, #fff);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-yellow-background-color[class] {
+	background-color: var(--global-cl-yellow);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-yellow, #fff);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+.has-white-background-color[class] {
+	background-color: var(--global-cl-white);
+
+	> [class*="__inner-container"] {
+		--local-cl-bg: var(--global-cl-white, #fff);
+		background-color: var(--local-cl-bg);
+	}
+}
+
+// Force text color for the color palette background colors.
+[class*="has-background"]:not(.has-text-color) {
+
+	&.has-black-background-color[class],
+	&.has-gray-background-color[class],
+	&.has-dark-gray-background-color[class] {
+		color: var(--global-cl-white);
+
+		> [class*="__inner-container"] {
+			--local-cl-text: var(--global-cl-white, #fff);
+			color: var(--local-cl-text);
+		}
+	}
+
+	&.has-green-background-color[class],
+	&.has-blue-background-color[class],
+	&.has-purple-background-color[class],
+	&.has-red-background-color[class],
+	&.has-orange-background-color[class],
+	&.has-yellow-background-color[class],
+	&.has-white-background-color[class] {
+		color: var(--global-cl-dark-gray);
+
+		> [class*="__inner-container"] {
+			--local-cl-text: var(--global-cl-dark-gray, #000);
+			color: var(--local-cl-text);
+		}
+	}
+}
+
+// Custom gradients
+.has-purple-to-yellow-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-purple), var(--global-cl-yellow));
+}
+
+.has-yellow-to-purple-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-yellow), var(--global-cl-purple));
+}
+
+.has-green-to-yellow-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-green), var(--global-cl-yellow));
+}
+
+.has-yellow-to-green-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-yellow), var(--global-cl-green));
+}
+
+.has-red-to-yellow-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-red), var(--global-cl-yellow));
+}
+
+.has-yellow-to-red-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-yellow), var(--global-cl-red));
+}
+
+.has-purple-to-red-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-purple), var(--global-cl-red));
+}
+
+.has-red-to-purple-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-red), var(--global-cl-purple));
+}

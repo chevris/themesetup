@@ -1,0 +1,14 @@
+html {
+	font-family: var(--global-ff-secondary);
+	line-height: var(--global-lh);
+}
+
+body {
+	color: var(--global-cl-text);
+	background-color: var(--global-cl-bg);
+	font-family: var(--global-ff-secondary);
+	font-size: var(--global-fs-base);
+	font-weight: normal;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}

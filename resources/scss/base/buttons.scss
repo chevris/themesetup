@@ -1,0 +1,14 @@
+/**
+ * Buttons
+ */
+
+button {
+	cursor: pointer;
+}
+
+.button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	@include button-style();
+}

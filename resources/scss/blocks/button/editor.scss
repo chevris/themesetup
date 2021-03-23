@@ -1,0 +1,26 @@
+.wp-block-button__link {
+	@include button-style();
+}
+
+// The buttons parent container does not need vertical margins applied.
+// The children should all have vertical margins.
+[data-block].wp-block-buttons {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.wp-block-button {
+
+	// Outline Style.
+	&.is-style-outline {
+
+		.wp-block-button__link {
+			border-style: solid;
+			border-width: var(--button-border-width);
+			border-color: currentColor;
+			box-shadow: none;
+			background: transparent;
+			color: vars(--button-cl-bg-c, --button-cl-bg);
+		}
+	}
+}

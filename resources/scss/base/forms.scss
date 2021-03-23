@@ -1,0 +1,315 @@
+/**
+ * Forms
+ */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+.site textarea {
+	font-size: var(--form-fs);
+	border: var(--form-width-border) solid var(--form-cl-border);
+	border-radius: var(--form-border-radius-top-left) var(--form-border-radius-top-right) var(--form-border-radius-bottom-right) var(--form-border-radius-bottom-left);
+	color: var(--form-cl-text);
+	line-height: var(--global-lh);
+	padding: var(--form-spacing-unit);
+	max-width: 100%;
+	margin: 0 2px;
+
+	&:focus {
+		color: var(--form-cl-text);
+		outline-offset: 2px;
+		outline: 2px dotted var(--form-cl-border);
+	}
+
+	&:disabled {
+		opacity: 0.7;
+	}
+}
+
+input[type="search"] {
+
+	&:focus {
+		outline-offset: -7px;
+	}
+}
+
+input[type="color"] {
+	padding: calc(var(--form-spacing-unit) / 2);
+	height: calc(4 * var(--form-spacing-unit));
+}
+
+input[type="email"],
+input[type="url"] {
+
+	/*rtl:ignore*/
+	direction: ltr;
+}
+
+select {
+	font-size: var(--form-fs);
+	border: var(--form-width-border) solid var(--form-cl-border);
+	color: var(--form-cl-text);
+	appearance: none;
+	line-height: var(--global-lh);
+	padding: var(--form-spacing-unit) calc(3 * var(--form-spacing-unit)) var(--form-spacing-unit) var(--form-spacing-unit);
+	background: var(--global-cl-white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2328303d'><polygon points='0,0 10,0 5,5'/></svg>") no-repeat; // stylelint-disable-line function-url-quotes
+	background-position: right var(--form-spacing-unit) top 60%;
+	border-radius: var(--form-border-radius-top-left) var(--form-border-radius-top-right) var(--form-border-radius-bottom-right) var(--form-border-radius-bottom-left);
+
+	&:focus {
+		outline-offset: 2px;
+		outline: 2px dotted var(--form-cl-border);
+	}
+}
+
+textarea {
+	width: 100%;
+}
+
+label {
+	font-size: var(--form-fs);
+	font-weight: var(--form-weight-label);
+	margin-bottom: calc(var(--global-spacing-v) / 3);
+}
+
+/**
+https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/
+License: MIT.
+*/
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		position: relative;
+		width: 25px;
+		height: 25px;
+		border: var(--form-width-border) solid var(--form-cl-border);
+		background: var(--global-cl-white);
+
+		&:disabled {
+			opacity: 0.7;
+		}
+	}
+
+	input[type="checkbox"] {
+
+		&:focus {
+			outline-offset: 2px;
+			outline: 2px dotted var(--form-cl-border);
+		}
+
+		&:after {
+			content: "";
+			opacity: 0;
+			display: block;
+			left: 5px;
+			top: 2px;
+			position: absolute;
+			width: 7px;
+			height: 13px;
+			border: 3px solid var(--form-cl-text);
+			border-top: 0;
+			border-left: 0;
+			transform: rotate(30deg);
+		}
+
+		&:checked {
+			color: var(--form-color-text);
+
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+
+	input[type="radio"] {
+		border-radius: 50%;
+
+		&:focus {
+			outline-offset: 2px;
+			outline: 2px dotted var(--form-cl-border);
+		}
+
+		&:after {
+			content: "";
+			opacity: 0;
+			display: block;
+			left: 3px;
+			top: 3px;
+			position: absolute;
+			width: 11px;
+			height: 11px;
+			border-radius: 50%;
+			background: var(--form-cl-text);
+		}
+
+		&:checked {
+			border: 4px solid var(--form-cl-border);
+
+			&:after {
+				opacity: 1;
+			}
+
+			// Focus style for checked radio buttons.
+			&:focus {
+				outline-offset: 4px;
+				outline: 2px dotted var(--form-cl-border);
+			}
+		}
+	}
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	display: inline-block;
+	padding-left: 10px;
+	font-size: var(--global-fs-xs);
+	vertical-align: top;
+}
+
+/**
+ * https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+*/
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+
+	input[type="range"] {
+		-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+		width: 100%; /* Specific width is required for Firefox. */
+		height: 6px;
+		background: var(--form-cl-ranged);
+		border-radius: 6px;
+		outline-offset: 10px;
+
+		&:disabled {
+			opacity: 0.7;
+		}
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		border: 3px solid var(--form-cl-ranged);
+		height: 44px;
+		width: 44px;
+		border-radius: 50%;
+		background: var(--global-cl-bg);
+		cursor: pointer;
+	}
+
+	input[type="range"]::-moz-range-thumb {
+		border: 3px solid var(--form-cl-ranged);
+		height: 44px;
+		width: 44px;
+		border-radius: 50%;
+		background: var(--global-cl-bg);
+		cursor: pointer;
+		box-sizing: border-box;
+	}
+}
+
+input[type="range"]::-ms-track {
+	width: 100%;
+	height: 6px;
+	border-radius: 6px;
+	border-width: 19px 0;
+	border-color: var(--global-cl-bg);
+	background: transparent;
+	color: transparent;
+	cursor: pointer;
+}
+
+input[type="range"]::-ms-fill-upper {
+	background: var(--form-cl-ranged);
+	border-radius: 6px;
+}
+
+input[type="range"]::-ms-fill-lower {
+	background: var(--form-cl-ranged);
+	border-radius: 6px;
+}
+
+input[type="range"]::-ms-thumb {
+	border: 3px solid var(--form-cl-ranged);
+	height: 44px;
+	width: 44px;
+	border-radius: 50%;
+	background: var(--global-cl-bg);
+	cursor: pointer;
+}
+
+fieldset {
+	display: grid;
+	border-color: var(--global-cl-text);
+	padding: var(--global-spacing-h);
+
+	legend {
+		font-size: var(--global-fs-lg);
+	}
+
+	input {
+
+		&[type="submit"] {
+			max-width: max-content;
+		}
+
+		&:not([type="submit"]) {
+			margin-bottom: var(--global-spacing-unit);
+		}
+
+		&[type="radio"],
+		&[type="checkbox"] {
+			margin-bottom: 0;
+		}
+
+		&[type="radio"] + label,
+		&[type="checkbox"] + label {
+			font-size: var(--form-fs);
+			padding-left: 0;
+			margin-bottom: var(--global-spacing-unit);
+		}
+	}
+}
+
+::-moz-placeholder { // Firefox 19+
+	opacity: 1;
+}
+
+// Used in the form that retrieve protected post password form content.
+.post-password-message {
+	font-size: var(--global-fs-lg);
+}
+
+.post-password-form {
+	display: flex;
+	flex-wrap: wrap;
+
+	&__label {
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+	input[type="password"] {
+		flex-grow: 1;
+		margin-top: calc(var(--global-spacing-v) / 3);
+		margin-right: calc(0.66 * var(--global-spacing-h));
+	}
+
+	&__submit {
+		margin-top: calc(var(--global-spacing-v) / 3);
+		@include media(tablet) {
+			margin-left: calc(0.4 * var(--global-spacing-h));
+		}
+	}
+}

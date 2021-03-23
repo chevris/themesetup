@@ -142,6 +142,7 @@ class Theme {
 		$components = [
 			new Localization\Component(),
 			new Base_Support\Component(),
+			new Editor\Component(),
 			new Entry_Template_Tags\Component(),
 			new AMP\Component(),
 			new PWA\Component(),
