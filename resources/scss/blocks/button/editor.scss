@@ -20,7 +20,7 @@
 			border-color: currentColor;
 			box-shadow: none;
 			background: transparent;
-			color: vars(--button-cl-bg-c, --button-cl-bg);
+			color: var(--button-cl-bg);
 		}
 	}
 }

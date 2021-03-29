@@ -217,8 +217,8 @@
 [class*="has-background"]:not(.has-text-color) {
 
 	&.has-black-background-color[class],
-	&.has-gray-background-color[class],
-	&.has-dark-gray-background-color[class] {
+	&.has-dark-gray-background-color[class],
+	&.has-gray-background-color[class] {
 		color: var(--global-cl-white);
 
 		> [class*="__inner-container"] {
@@ -227,6 +227,7 @@
 		}
 	}
 
+	&.has-light-gray-background-color[class],
 	&.has-green-background-color[class],
 	&.has-blue-background-color[class],
 	&.has-purple-background-color[class],

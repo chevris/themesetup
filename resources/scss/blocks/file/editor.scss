@@ -1,0 +1,10 @@
+.wp-block-file {
+
+	.wp-block-file__textlink {
+		@include link-style();
+	}
+
+	.wp-block-file__button {
+		@include button-style();
+	}
+}

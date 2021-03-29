@@ -1,28 +1,21 @@
+
 .wp-block-cover,
 .wp-block-cover-image {
+	@include editor-innerblock-margin-clear(".wp-block-cover__inner-container");
 
 	&:not(.alignwide):not(.alignfull) {
 		clear: both;
 	}
 
-	padding: 0;
-	margin-top: inherit;
-	margin-bottom: inherit;
+	&.has-custom-content-position {
 
-	[data-align="full"] & {
-		margin-top: 0;
-		margin-bottom: 0;
+		.wp-block-cover__inner-container {
+			max-width: min(100%, var(--global-content-max-width));
+		}
 	}
 
-	[data-align="left"] &,
-	[data-align="right"] & {
-		margin-top: 0;
+	/* The background color class is used just for the overlay, and does not need to be applied to the inner container. */
+	&[class*="-background-color"][class] .wp-block-cover__inner-container {
+		background-color: unset;
 	}
-
-	.wp-block-cover__inner-container {
-		margin-top: var(--global-spacing-v);
-		margin-bottom: var(--global-spacing-v);
-	}
-
-	@include editor-innerblock-margin-clear(".wp-block-cover__inner-container");
 }

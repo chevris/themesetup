@@ -1,0 +1,29 @@
+.wp-block-image {
+
+	.alignleft:not(.is-resized),
+	.alignright:not(.is-resized) {
+		width: 100%;
+		text-align: center;
+
+		@include media(mobile) {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		@include media(tablet-plus) {
+			max-width: 50%;
+		}
+	}
+
+	.alignright {
+
+		/*rtl:ignore*/
+		margin-left: var(--global-spacing-h);
+	}
+
+	.alignleft {
+
+		/*rtl:ignore*/
+		margin-right: var(--global-spacing-h);
+	}
+}

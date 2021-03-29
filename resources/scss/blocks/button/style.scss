@@ -19,7 +19,7 @@
 			}
 
 			&:not(.has-text-color) {
-				color: vars(--button-cl-bg-c, --button-cl-bg);
+				color: var(--button-cl-bg);
 			}
 
 			&:focus {

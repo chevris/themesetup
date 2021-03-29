@@ -1,0 +1,28 @@
+.wp-block-latest-comments {
+	padding-left: 0;
+
+	.wp-block-latest-comments__comment {
+		font-size: var(--global-fs-sm);
+		line-height: var(--global-lh);
+		margin-top: var(--global-spacing-v);
+		margin-bottom: var(--global-spacing-v);
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.wp-block-latest-comments__comment-meta {
+		font-family: var(--heading-ff);
+	}
+
+	.wp-block-latest-comments__comment-excerpt p {
+		font-size: var(--global-fs-sm);
+		line-height: var(--global-lh);
+		margin: 0;
+	}
+}

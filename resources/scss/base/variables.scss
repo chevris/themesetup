@@ -63,6 +63,7 @@ $baseline-unit: 10px;
 	/* Global Alignments */
 	--global-content-max-width: 610px;
 	--global-wide-max-width: 1240px;
+
 	--global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-content-max-width));
 	--global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-wide-max-width));
 	--global-alignright-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
@@ -138,6 +139,12 @@ $baseline-unit: 10px;
 	--button-shadow: var(--global-elevation-1);
 	--button-shadow-hover: var(--global-elevation-2);
 	--button-shadow-active: var(--global-elevation-3);
+
+	/* Block: Latest posts */
+	--latest-posts-ff-title: var(--heading-ff);
+	--latest-posts-fs-title: var(--heading-fs-h3);
+	--latest-posts-ff-content: var(--global-ff-secondary);
+	--latest-posts-fs-content: var(--global-fs-sm);
 
 }
 

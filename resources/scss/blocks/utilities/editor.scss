@@ -1,8 +1,17 @@
-// Block Alignments
-.wp-block {
 
-	// Override the editor rule that limits the max width of .wp-block to 580px
+// Override the editor rule that limits the max width of .wp-block to 580px
+.wp-block {
+	max-width: 100%;
+}
+
+// 1rst level block alignments
+.block-editor-block-list__layout.is-root-container > * {
 	max-width: var(--global-aligncontent-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.block-editor-block-list__layout.is-root-container > .wp-block {
 
 	&[data-align="wide"],
 	&.alignwide {
@@ -15,23 +24,28 @@
 	}
 }
 
-.alignleft {
-	margin: 0;
-	margin-right: var(--global-spacing-h);
-}
 
-.alignright {
-	margin: 0;
-	margin-left: var(--global-spacing-h);
+// Align left & right
+.wp-block[data-align="left"] > *:not(.is-resized),
+.wp-block[data-align="right"] > *:not(.is-resized) {
+	width: 100%;
+	text-align: center;
+
+	@include media(mobile) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	@include media(tablet-plus) {
+		max-width: 50%;
+	}
 }
 
 .wp-block[data-align="left"] > * {
-	max-width: calc(var(--global-aligncontent-width) * 0.5);
 	margin-right: var(--global-spacing-h);
 }
 
 .wp-block[data-align="right"] > * {
-	max-width: calc(var(--global-aligncontent-width) * 0.5);
 	margin-left: var(--global-spacing-h);
 }
 
@@ -40,8 +54,78 @@
 	margin-bottom: 0;
 }
 
+// Nested blocks
+.wp-block .wp-block {
+	max-width: 100%;
+}
+
 // Block vertical Spacing
 [data-block] {
 	margin-top: var(--global-spacing-v);
 	margin-bottom: var(--global-spacing-v);
+}
+
+//
+// Nested blocks alignment
+//
+
+.wp-block-group.has-background,
+.wp-block-cover,
+.wp-block-cover-image {
+	padding: calc(1.5 * var(--global-spacing-v)) 0;
+}
+
+[class*="has-background"] > [class*="inner-container"] {
+
+
+	> *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [data-align="wide"] {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [data-align="full"] {
+		max-width: none;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Parent is alignwide
+[data-align="wide"] {
+
+	> [data-block] > [class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: min(100%, var(--global-content-max-width));
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [class*="has-background"] [class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Parent is alignfull
+[data-align="full"] {
+
+	[class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	[class*="inner-container"] > [data-align="wide"] {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
 }

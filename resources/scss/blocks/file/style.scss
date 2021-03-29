@@ -1,0 +1,13 @@
+.wp-block-file {
+
+	a.wp-block-file__button {
+		@include button-style();
+
+		// Undo Gutenberg hover defaults
+		&:active,
+		&:focus,
+		&:hover {
+			color: var(--button-cl-text);
+		}
+	}
+}

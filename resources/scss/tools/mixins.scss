@@ -52,6 +52,24 @@
 
 }
 
+// Link style
+@mixin link-style() {
+	cursor: pointer;
+	color: var(--links-cl-text);
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: thin dotted;
+		text-decoration: none;
+	}
+}
+
 // Button style
 @mixin button-style() {
 	line-height: var(--button-lh);
@@ -63,10 +81,20 @@
 	text-decoration: none;
 	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
 	cursor: pointer;
-	background-color: vars(--button-cl-bg-c, --button-cl-bg);
-	color: vars(--button-cl-text-c, --button-cl-text);
+	background-color: var(--button-cl-bg);
+	color: var(--button-cl-text);
 	box-shadow: var(--button-shadow);
-	transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+	transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1), opacity 15ms linear, background-color 15ms linear;
+
+	border-style: solid;
+	border-width: var(--button-border-width);
+	border-color: transparent; // var(--button-cl-bg);
+
+	&:hover,
+	&:active,
+	&:focus {
+		opacity: 0.85;
+	}
 
 	&:hover,
 	&:focus {
