@@ -5,6 +5,7 @@
 // Vertical Rhythm Multiplier
 $baseline-unit: 10px;
 
+// Main CSS variables
 :root {
 
 	/* Global Font Family */
@@ -13,14 +14,15 @@ $baseline-unit: 10px;
 	--global-ff-secondary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
 
 	/* Global Font Size */
-	--global-fs-base: 1.25rem; // 20px / 16px
-	--global-fs-xs: 1rem; // 16px / 16px
-	--global-fs-sm: 1.125rem; // 18px / 16px
-	--global-fs-md: 1.25rem; // 20px / 16px
-	--global-fs-lg: 1.5rem; // 24px / 16px
-	--global-fs-xl: 2.25rem; // 36px / 16px
-	--global-fs-xxl: 4rem; // 64px / 16px
-	--global-fs-xxxl: 5rem; // 80px / 16px
+	--global-fs-xs: 0.875rem; // 14px / 16px
+	--global-fs-sm: 1rem; // 16px / 16px
+	--global-fs-md: 1.125rem; // 18px / 16px
+	--global-fs-lg: 1.25rem; // 20px / 16px
+	--global-fs-xl: 1.5rem; // 24px / 16px
+	--global-fs-xxl: 2.25rem; // 36px / 16px
+	--global-fs-xxxl: 4rem; // 64px / 16px
+
+	--global-fs-base: 1.125rem; // 20px / 16px // Can be overridden but headings, etc... must be ajusted.
 	--global-letter-spacing: normal;
 
 	/* Global Line Height */
@@ -31,7 +33,11 @@ $baseline-unit: 10px;
 	--global-border-width: 1px;
 
 	/* Global Colors */
+	// Palette
 	--global-cl-black: #000;
+	--global-cl-white: #fff;
+	--global-cl-white-50: rgba(255, 255, 255, 0.5); // Used for disabled buttons
+	--global-cl-white-90: rgba(255, 255, 255, 0.9); // Used in form fields.
 	--global-cl-dark-gray: #28303d;
 	--global-cl-gray: #39414d;
 	--global-cl-light-gray: #f0f0f0;
@@ -41,19 +47,28 @@ $baseline-unit: 10px;
 	--global-cl-red: #e4d1d1;
 	--global-cl-orange: #e4dad1;
 	--global-cl-yellow: #eeeadd;
-	--global-cl-white: #fff;
-	--global-cl-white-50: rgba(255, 255, 255, 0.5); // Used for disabled buttons
-	--global-cl-white-90: rgba(255, 255, 255, 0.9); // Used in form fields.
 
-	--global-cl-bg: #fff;
-	--global-cl-text: #111;
-	--global-cl-surface: #fff;
-	--global-cl-on-surface: #111;
-	--global-cl-primary: #512da8;
-	--global-cl-on-primary: #fff;
-	--global-cl-secondary: #7986cb;
-	--global-cl-on-secondary: #fff;
-	--global-cl-border: var(--global--color-primary);
+	--global-cl-bg-light: var(--global-cl-white);
+	--global-cl-text-primary-light: var(--global-cl-dark-gray);
+	--global-cl-text-secondary-light: var(--global-cl-gray);
+	--global-cl-accent-light: #{$theme-color-identity};
+	--global-cl-on-accent-light: var(--global-cl-white);
+	--links-cl-text-light: var(--global-cl-accent-light);
+
+	--global-cl-bg-dark: var(--global-cl-dark-gray);
+	--global-cl-text-primary-dark: var(--global-cl-light-gray);
+	--global-cl-text-secondary-dark: var(--global-cl-light-gray);
+	--global-cl-accent-dark: #{$theme-color-identity-dark};
+	--global-cl-on-accent-dark: var(--global-cl-white);
+	--links-cl-text-dark: currentColor;
+
+	--global-cl-bg: var(--global-cl-bg-light);
+	--global-cl-text-primary: var(--global-cl-text-primary-light);
+	--global-cl-text-secondary: var(--global-cl-text-secondary-light);
+	--global-cl-accent: var(--global-cl-accent-light);
+	--global-cl-on-accent: var(--global-cl-on-accent-light);
+
+	--global-cl-border: var(--global-cl-text-primary);
 
 	/* Global Spacing */
 	--global-spacing-unit: #{2 * $baseline-unit}; // 20px
@@ -80,9 +95,9 @@ $baseline-unit: 10px;
 	--heading-fs-h1: var(--global-fs-xxl);
 	--heading-fs-h2: var(--global-fs-xl);
 	--heading-fs-h3: var(--global-fs-lg);
-	--heading-fs-h4: var(--global-fs-base);
-	--heading-fs-h5: var(--global-fs-base);
-	--heading-fs-h6: var(--global-fs-base);
+	--heading-fs-h4: var(--global-fs-md);
+	--heading-fs-h5: var(--global-fs-md);
+	--heading-fs-h6: var(--global-fs-md);
 
 	--heading-letter-spacing-h6: 0.05em;
 	--heading-letter-spacing-h5: 0.05em;
@@ -103,22 +118,20 @@ $baseline-unit: 10px;
 
 	/* Forms */
 	--form-fs: var(--global-fs-sm);
+	--form-lh: var(--global-lh);
 	--form-cl-text: var(--global-cl-dark-gray); // Text color in input fields is always dark over light background.
-	--form-cl-ranged: var(--global-cl-text);
+	--form-cl-ranged: var(--global-cl-text-primary);
 	--form-weight-label: 500;
-	--form-cl-border: var(--global-cl-text);
+	--form-cl-border: var(--global-cl-text-primary);
 	--form-width-border: 3px;
-	--form-border-radius-top-left: 0;
-	--form-border-radius-top-right: 0;
-	--form-border-radius-bottom-right: 0;
-	--form-border-radius-bottom-left: 0;
+	--form-border-radius: 0;
 	--form-spacing-unit: calc(0.5 * var(--global-spacing-unit));
 
 	/* Links */
-	--links-cl-text: currentColor;
+	--links-cl-text: var(--links-cl-text-light);
 
-	/* Admin-bar height */
-	--global-admin-bar-height: 0;
+	/* Lists */
+	--list-ff: var(--global-ff-secondary);
 
 	/* Buttons */
 	// Fonts
@@ -130,11 +143,11 @@ $baseline-unit: 10px;
 	--button-border-width: 3px;
 	--button-border-radius: 0;
 	// Spacing
-	--button-padding-vertical: 15px;
-	--button-padding-horizontal: calc(2 * var(--button-padding-vertical));
+	--button-padding-v: 15px;
+	--button-padding-h: calc(2 * var(--button-padding-v));
 	// Colors
-	--button-cl-bg: var(--global-cl-primary);
-	--button-cl-text: var(--global-cl-on-primary);
+	--button-cl-bg: var(--global-cl-accent);
+	--button-cl-text: var(--global-cl-on-accent);
 	// Shadows
 	--button-shadow: var(--global-elevation-1);
 	--button-shadow-hover: var(--global-elevation-2);
@@ -146,8 +159,47 @@ $baseline-unit: 10px;
 	--latest-posts-ff-content: var(--global-ff-secondary);
 	--latest-posts-fs-content: var(--global-fs-sm);
 
+	/* Block: Pull quote */
+	--pullquote-ff: var(--global-ff-primary);
+	--pullquote-fs: var(--heading-fs-h3);
+	--pullquote-font-style: normal;
+	--pullquote-letter-spacing: var(--heading-letter-spacing-h3);
+	--pullquote-lh: var(--global-lh-heading);
+	--pullquote-border-width: 3px;
+
+	/* Block: Quote */
+	--quote-fs: var(--global-fs-md);
+	--quote-fs-large: var(--global-fs-xl);
+	--quote-font-style: normal;
+	--quote-font-style-large: normal;
+	--quote-lh: var(--global-lh);
+	--quote-lh-large: 1.35;
+
+	/* Block: Separator */
+	--separator-cl-border: var(--global-cl-border);
+	--separator-height: 1px;
+
+	/* Block: Table */
+	--table-cl-stripes-border: var(--global-cl-light-gray);
+	--table-cl-stripes-background: var(--global-cl-light-gray);
+	--table-cl-has-background-text: var(--global-cl-dark-gray);
+
+	/* Admin-bar height */
+	--global-admin-bar-height: 0;
+
 }
 
+// Dark mode color CSS variables
+.is-dark-theme.is-dark-theme {
+	--global-cl-bg: var(--global-cl-bg-dark);
+	--global-cl-text-primary: var(--global-cl-text-primary-dark);
+	--global-cl-text-secondary: var(--global-cl-text-secondary-dark);
+	--global-cl-accent: var(--global-cl-accent-dark);
+	--global-cl-on-accent: var(--global-cl-on-accent-dark);
+	--links-cl-text: var(--links-cl-text-dark);
+}
+
+// Admin bar
 .admin-bar {
 	--global-admin-bar-height: 32px;
 

@@ -8,7 +8,7 @@
 use function Themesetup\themesetup;
 ?>
 
-<div class="header-2">
+<div class="header-2 alignwide">
 
 	<?php get_template_part( 'template-parts/header/branding' ); ?>
 

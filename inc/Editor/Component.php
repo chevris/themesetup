@@ -165,6 +165,11 @@ class Component implements Component_Interface {
 
 		$editor_color_gradients = [
 			[
+				'name'     => esc_html__( 'Black to gray', 'themesetup' ),
+				'gradient' => 'linear-gradient(160deg, ' . $black . ' 0%, ' . $gray . ' 100%)',
+				'slug'     => 'black-to-gray',
+			],
+			[
 				'name'     => esc_html__( 'Purple to yellow', 'themesetup' ),
 				'gradient' => 'linear-gradient(160deg, ' . $purple . ' 0%, ' . $yellow . ' 100%)',
 				'slug'     => 'purple-to-yellow',
@@ -231,7 +236,50 @@ class Component implements Component_Interface {
 		 */
 		add_theme_support(
 			'editor-font-sizes',
-			[]
+			[
+				[
+					'name'      => esc_html__( 'Extra small', 'themesetup' ),
+					'shortName' => esc_html_x( 'XS', 'Font size', 'themesetup' ),
+					'size'      => 14,
+					'slug'      => 'extra-small',
+				],
+				[
+					'name'      => esc_html__( 'Small', 'themesetup' ),
+					'shortName' => esc_html_x( 'S', 'Font size', 'themesetup' ),
+					'size'      => 16,
+					'slug'      => 'small',
+				],
+				[
+					'name'      => esc_html__( 'Medium', 'themesetup' ),
+					'shortName' => esc_html_x( 'M', 'Font size', 'themesetup' ),
+					'size'      => 18,
+					'slug'      => 'medium',
+				],
+				[
+					'name'      => esc_html__( 'Large', 'themesetup' ),
+					'shortName' => esc_html_x( 'L', 'Font size', 'themesetup' ),
+					'size'      => 20,
+					'slug'      => 'large',
+				],
+				[
+					'name'      => esc_html__( 'Extra large', 'themesetup' ),
+					'shortName' => esc_html_x( 'XL', 'Font size', 'themesetup' ),
+					'size'      => 24,
+					'slug'      => 'extra-large',
+				],
+				[
+					'name'      => esc_html__( 'Huge', 'themesetup' ),
+					'shortName' => esc_html_x( 'XXL', 'Font size', 'themesetup' ),
+					'size'      => 40,
+					'slug'      => 'huge',
+				],
+				[
+					'name'      => esc_html__( 'Gigantic', 'themesetup' ),
+					'shortName' => esc_html_x( 'XXXL', 'Font size', 'themesetup' ),
+					'size'      => 96,
+					'slug'      => 'gigantic',
+				],
+			]
 		);
 	}
 
@@ -248,6 +296,5 @@ class Component implements Component_Interface {
 				'label' => esc_html__( 'Overlap', 'themesetup' ),
 			]
 		);
-
 	}
 }

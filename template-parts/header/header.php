@@ -11,6 +11,6 @@ themesetup()->print_styles( 'themesetup-header' );
 
 ?>
 
-<header id="masthead" class="site-header">
+<header id="masthead" class="site-header align-wrap">
 	<?php themesetup()->display_header_layout(); ?>
 </header>

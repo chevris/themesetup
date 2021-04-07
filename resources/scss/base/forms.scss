@@ -17,32 +17,15 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 .site textarea {
-	font-size: var(--form-fs);
-	border: var(--form-width-border) solid var(--form-cl-border);
-	border-radius: var(--form-border-radius-top-left) var(--form-border-radius-top-right) var(--form-border-radius-bottom-right) var(--form-border-radius-bottom-left);
-	color: var(--form-cl-text);
-	line-height: var(--global-lh);
-	padding: var(--form-spacing-unit);
-	max-width: 100%;
-	margin: 0 2px;
-
-	&:focus {
-		color: var(--form-cl-text);
-		outline-offset: 2px;
-		outline: 2px dotted var(--form-cl-border);
-	}
-
-	&:disabled {
-		opacity: 0.7;
-	}
+	@include input-style();
 }
 
-input[type="search"] {
+// input[type="search"] {
 
-	&:focus {
-		outline-offset: -7px;
-	}
-}
+// 	&:focus {
+// 		outline-offset: -6px;
+// 	}
+// }
 
 input[type="color"] {
 	padding: calc(var(--form-spacing-unit) / 2);
@@ -61,11 +44,11 @@ select {
 	border: var(--form-width-border) solid var(--form-cl-border);
 	color: var(--form-cl-text);
 	appearance: none;
-	line-height: var(--global-lh);
+	line-height: var(--form-lh);
 	padding: var(--form-spacing-unit) calc(3 * var(--form-spacing-unit)) var(--form-spacing-unit) var(--form-spacing-unit);
 	background: var(--global-cl-white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2328303d'><polygon points='0,0 10,0 5,5'/></svg>") no-repeat; // stylelint-disable-line function-url-quotes
 	background-position: right var(--form-spacing-unit) top 60%;
-	border-radius: var(--form-border-radius-top-left) var(--form-border-radius-top-right) var(--form-border-radius-bottom-right) var(--form-border-radius-bottom-left);
+	border-radius: var(--form-border-radius);
 
 	&:focus {
 		outline-offset: 2px;
@@ -251,7 +234,7 @@ input[type="range"]::-ms-thumb {
 
 fieldset {
 	display: grid;
-	border-color: var(--global-cl-text);
+	border-color: var(--global-cl-text-primary);
 	padding: var(--global-spacing-h);
 
 	legend {

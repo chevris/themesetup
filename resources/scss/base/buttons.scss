@@ -11,4 +11,7 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"] {
 	@include button-style();
+
+	background-color: var(--global-cl-accent);
+	color: var(--global-cl-on-accent);
 }

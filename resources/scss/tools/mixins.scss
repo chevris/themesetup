@@ -79,10 +79,10 @@
 	border: none;
 	border-radius: var(--button-border-radius);
 	text-decoration: none;
-	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+	padding: var(--button-padding-v) var(--button-padding-h);
 	cursor: pointer;
-	background-color: var(--button-cl-bg);
-	color: var(--button-cl-text);
+	// background-color: var(--button-cl-bg);
+	// color: var(--button-cl-text);
 	box-shadow: var(--button-shadow);
 	transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1), opacity 15ms linear, background-color 15ms linear;
 
@@ -110,7 +110,49 @@
 	}
 }
 
-@mixin editor-innerblock-margin-clear($container) {
+// Input style ( text, search, ... )
+@mixin input-style() {
+	font-size: var(--form-fs);
+	border: var(--form-width-border) solid var(--form-cl-border);
+	border-radius: var(--form-border-radius);
+	color: var(--form-cl-text);
+	line-height: var(--form-lh);
+	padding: var(--form-spacing-unit);
+	max-width: 100%;
+
+	&:focus {
+		color: var(--form-cl-text);
+		outline-offset: 2px;
+		outline: 1px dotted var(--form-cl-border);
+	}
+
+	&:disabled {
+		opacity: 0.7;
+	}
+}
+
+@mixin front-innerblock-vertical-margins($container) {
+
+	#{$container} > * {
+		margin-top: calc(0.666 * var(--global-spacing-v));
+		margin-bottom: calc(0.666 * var(--global-spacing-v));
+
+		@include media(tablet-plus) {
+			margin-top: var(--global-spacing-v);
+			margin-bottom: var(--global-spacing-v);
+		}
+	}
+
+	#{$container} > *:first-child {
+		margin-top: 0;
+	}
+
+	#{$container} > *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@mixin editor-innerblock-vertical-margins($container) {
 
 	// Clear the top margin for the first-child.
 	> #{$container} > *:first-child {

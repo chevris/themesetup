@@ -72,9 +72,10 @@
 .wp-block-group.has-background,
 .wp-block-cover,
 .wp-block-cover-image {
-	padding: calc(1.5 * var(--global-spacing-v)) 0;
+	padding: var(--global-spacing-v) 0;
 }
 
+// Parent has background
 [class*="has-background"] > [class*="inner-container"] {
 
 

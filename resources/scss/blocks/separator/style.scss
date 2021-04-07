@@ -1,0 +1,36 @@
+hr {
+
+	&.wp-block-separator {
+		border-bottom: var(--separator-height) solid var(--separator-cl-border);
+		opacity: 1;
+
+		[class*="has-background"] & {
+			border-color: currentColor;
+		}
+
+		// &:not(.is-style-dots):not(.alignwide) {
+		// 	max-width: var(--global-aligncontent-width);
+		// }
+
+		&:not(.is-style-dots) {
+
+			&.alignwide {
+				max-width: var(--global-alignwide-width);
+			}
+
+			&.alignfull {
+				max-width: 100%;
+			}
+		}
+
+		&.is-style-dots {
+
+			&:before {
+				font-size: var(--global-fs-xl);
+				letter-spacing: var(--global-fs-sm);
+				padding-left: var(--global-fs-sm);
+			}
+		}
+
+	}
+}

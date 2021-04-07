@@ -20,6 +20,10 @@ video {
 	max-width: 100%;
 }
 
+video {
+	vertical-align: middle;
+}
+
 /* Media captions */
 figcaption,
 .align-wrap figcaption, // Add specificity to override front-end default block styles of captions.

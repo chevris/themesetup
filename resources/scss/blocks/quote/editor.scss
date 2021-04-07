@@ -1,0 +1,85 @@
+.wp-block-quote {
+	position: relative;
+	border-left: none;
+	// margin: var(--global--spacing-vertical) auto var(--global--spacing-vertical) var(--global--spacing-horizontal);
+
+	&:before {
+		content: "\201C";
+		font-size: var(--quote-fs);
+		line-height: var(--quote-lh);
+		position: absolute;
+		left: 8px;
+	}
+
+	p {
+		font-size: var(--quote-fs);
+		font-style: var(--quote-font-style);
+		font-weight: 700;
+		line-height: var(--quote-lh);
+		margin: 0;
+	}
+
+	.wp-block-quote__citation {
+		font-size: var(--global-fs-xs);
+		font-style: var(--quote-font-style);
+		text-transform: none;
+		margin: 0;
+	}
+
+	&.has-text-align-right {
+		padding-right: 0;
+		border-right: none;
+
+		// Hide the left aligned quote.
+		&:before {
+			display: none;
+		}
+
+		// Align the quote left of the text.
+		p:before {
+			content: "\201D";
+			font-size: var(--quote-fs);
+			font-weight: normal;
+			line-height: var(--quote-lh);
+			margin-right: 5px;
+		}
+	}
+
+	&.has-text-align-center {
+
+		&:before {
+			display: none;
+		}
+	}
+
+	&.is-large,
+	&.is-style-large {
+		padding-left: 0;
+		padding-right: 0;
+
+		&:before {
+			font-size: var(--quote-fs-large);
+			line-height: var(--quote-lh-large);
+			left: calc(-1 * var(--global-spacing-h));
+		}
+
+		p {
+			font-size: var(--quote-fs-large);
+			font-style: var(--quote-font-style-large);
+			line-height: var(--quote-lh-large);
+		}
+
+		&.has-text-align-right {
+
+			p:before {
+				font-size: var(--quote-fs-large);
+				line-height: var(--quote-lh-large);
+				margin-right: 10px;
+			}
+		}
+
+		.wp-block-quote__citation {
+			font-size: var(--global-fs-sm);
+		}
+	}
+}

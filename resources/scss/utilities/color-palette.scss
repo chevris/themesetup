@@ -1,4 +1,6 @@
+//
 // Text color options
+//
 
 .has-black-color[class] {
 	color: var(--global-cl-black);
@@ -99,21 +101,9 @@
 	}
 }
 
-// Background-color options
-[class*="has-background"] {
-
-	//a, // Keep theme link color
-	p,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: currentColor;
-	}
-}
-
+//
+// Background color options
+//
 .has-black-background-color[class] {
 	background-color: var(--global-cl-black);
 
@@ -213,38 +203,13 @@
 	}
 }
 
-// Force text color for the color palette background colors.
-[class*="has-background"]:not(.has-text-color) {
-
-	&.has-black-background-color[class],
-	&.has-dark-gray-background-color[class],
-	&.has-gray-background-color[class] {
-		color: var(--global-cl-white);
-
-		> [class*="__inner-container"] {
-			--local-cl-text: var(--global-cl-white, #fff);
-			color: var(--local-cl-text);
-		}
-	}
-
-	&.has-light-gray-background-color[class],
-	&.has-green-background-color[class],
-	&.has-blue-background-color[class],
-	&.has-purple-background-color[class],
-	&.has-red-background-color[class],
-	&.has-orange-background-color[class],
-	&.has-yellow-background-color[class],
-	&.has-white-background-color[class] {
-		color: var(--global-cl-dark-gray);
-
-		> [class*="__inner-container"] {
-			--local-cl-text: var(--global-cl-dark-gray, #000);
-			color: var(--local-cl-text);
-		}
-	}
+//
+// Custom gradients
+//
+.has-black-to-gray-gradient-background {
+	background: linear-gradient(160deg, var(--global-cl-black), var(--global-cl-gray));
 }
 
-// Custom gradients
 .has-purple-to-yellow-gradient-background {
 	background: linear-gradient(160deg, var(--global-cl-purple), var(--global-cl-yellow));
 }
@@ -275,4 +240,79 @@
 
 .has-red-to-purple-gradient-background {
 	background: linear-gradient(160deg, var(--global-cl-red), var(--global-cl-purple));
+}
+
+
+[class*="has-background"] {
+
+	//a, // Keep theme link color
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: currentColor;
+	}
+
+	// Force text color for the color palette background colors.
+	&:not(.has-text-color) {
+
+		&.has-black-background-color[class],
+		&.has-dark-gray-background-color[class],
+		&.has-gray-background-color[class],
+		&.has-black-to-gray-gradient-background {
+			color: var(--global-cl-white);
+
+			> [class*="__inner-container"] {
+				--local-cl-text: var(--global-cl-white, #fff);
+				color: var(--local-cl-text);
+			}
+		}
+
+		&.has-light-gray-background-color[class],
+		&.has-green-background-color[class],
+		&.has-blue-background-color[class],
+		&.has-purple-background-color[class],
+		&.has-red-background-color[class],
+		&.has-orange-background-color[class],
+		&.has-yellow-background-color[class],
+		&.has-white-background-color[class],
+		&.has-purple-to-yellow-gradient-background {
+			color: var(--global-cl-dark-gray, #000);
+
+			> [class*="__inner-container"] {
+				--local-cl-text: var(--global-cl-dark-gray, #000);
+				color: var(--local-cl-text);
+			}
+		}
+	}
+
+	// On dark backgrounds, use dark theme color scheme, even if it's light theme
+	&.has-black-background-color[class],
+	&.has-dark-gray-background-color[class],
+	&.has-gray-background-color[class],
+	&.has-black-to-gray-gradient-background {
+		--global-cl-text-secondary: var(--global-cl-text-secondary-dark);
+		--global-cl-accent: var(--global-cl-accent-dark);
+		--global-cl-on-accent: var(--global-cl-on-accent-dark);
+		--links-cl-text: var(--links-cl-text-dark);
+	}
+
+	// On light backgrounds, restore light color scheme, even if it's dark theme
+	&.has-light-gray-background-color[class],
+	&.has-green-background-color[class],
+	&.has-blue-background-color[class],
+	&.has-purple-background-color[class],
+	&.has-red-background-color[class],
+	&.has-orange-background-color[class],
+	&.has-yellow-background-color[class],
+	&.has-white-background-color[class],
+	&.has-purple-to-yellow-gradient-background {
+		--global-cl-text-secondary: var(--global-cl-text-secondary-light);
+		--global-cl-accent: var(--global-cl-accent-light);
+		--global-cl-on-accent: var(--global-cl-on-accent-light);
+		--links-cl-text: var(--links-cl-text-light);
+	}
 }

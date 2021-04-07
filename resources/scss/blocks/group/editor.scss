@@ -1,7 +1,7 @@
 .wp-block-group {
 	clear: both;
 	display: flow-root;
-	@include editor-innerblock-margin-clear(".wp-block-group__inner-container");
+	@include editor-innerblock-vertical-margins(".wp-block-group__inner-container");
 }
 
 

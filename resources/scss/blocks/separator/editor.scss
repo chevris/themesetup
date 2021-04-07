@@ -1,0 +1,25 @@
+.wp-block-separator {
+	clear: both;
+	border-bottom: var(--separator-height) solid var(--separator-cl-border);
+	opacity: 1;
+
+	[class*="has-background"] & {
+		border-color: currentColor;
+	}
+
+	[data-align="full"] > &,
+	[data-align="wide"] > & {
+		max-width: 100%;
+	}
+
+	&.is-style-dots {
+		border-bottom: none;
+
+		&:before {
+			font-size: var(--global-fs-xl);
+			letter-spacing: var(--global-fs-sm);
+			padding-left: var(--global-fs-sm);
+		}
+	}
+
+}
