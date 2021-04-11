@@ -1,32 +1,36 @@
-// ul,
-// ol {
-// 	font-family: var(--list--font-family);
-// 	margin: var(--global--spacing-vertical) 0;
-// 	padding-left: calc(2 * var(--global--spacing-horizontal));
+// Shared Lists (archives, categories, latest posts, latest comments)
+.wp-block-archives,
+.wp-block-categories > .wp-block-categories__list,
+.wp-block-latest-posts,
+.wp-block-latest-comments {
+	list-style: none;
+	padding-left: 0;
 
-// 	// Utility classes
-// 	&.aligncenter {
-// 		list-style-position: inside;
-// 		padding: 0;
-// 		text-align: center;
-// 	}
+	ul,
+	ol {
+		list-style: inherit;
+	}
+}
 
-// 	&.alignright {
-// 		list-style-position: inside;
-// 		padding: 0;
-// 		text-align: right;
-// 	}
-// }
+.wp-block-archives,
+.wp-block-categories > .wp-block-categories__list {
 
-// li {
+	li {
+		margin-top: calc(0.5 * var(--global-spacing-v));
 
-// 	> ul,
-// 	> ol {
-// 		margin: 0;
-// 	}
-// }
+		> a {
+			font-size: var(--list-fs-title);
+			line-height: var(--global-lh-heading);
+			font-weight: var(--heading-fw);
+			text-decoration: none;
 
-// dt {
-// 	font-family: var(--definition-term--font-family);
-// 	font-weight: bold;
-// }
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	> li:first-child {
+		margin-top: 0;
+	}
+}

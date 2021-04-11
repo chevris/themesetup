@@ -287,8 +287,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			$archive_type = '404';
 		}
 
-		// $sidebar['enabled'] = true;
-		// $sidebar['layout'] = 'toggle';
+		$sidebar['enabled'] = true;
+		$sidebar['layout'] = 'toggle';
 
 		$context_arr = [
 			'header' => $header,

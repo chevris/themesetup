@@ -1,42 +1,38 @@
-// ul,
-// ol {
-// 	font-family: var(--list--font-family);
-// 	margin: 0;
-// 	padding-left: calc(2 * var(--global--spacing-horizontal));
+// Shared Lists (archives, categories, latest posts, latest comments)
+.wp-block-archives,
+.wp-block-categories,
+.wp-block-latest-posts,
+.wp-block-latest-comments {
+	list-style: none;
+	padding-left: 0;
 
-// 	// Utility classes
-// 	&.aligncenter {
-// 		list-style-position: inside;
-// 		padding: 0;
-// 	}
+	ul,
+	ol {
+		list-style: inherit;
+	}
+}
 
-// 	&.alignright {
-// 		list-style-position: inside;
-// 		text-align: right;
-// 		padding: 0;
-// 	}
-// }
+.wp-block-archives,
+.wp-block-categories {
 
-// ul {
-// 	list-style-type: disc;
-// 	ul {
-// 		list-style-type: circle;
-// 	}
-// }
+	li {
+		margin-top: calc(0.5 * var(--global-spacing-v));
 
-// ol {
-// 	list-style-type: decimal;
-// 	ul {
-// 		list-style-type: circle;
-// 	}
-// }
+		> a {
+			font-size: var(--list-fs-title);
+			line-height: var(--global-lh-heading);
+			font-weight: var(--heading-fw);
+			text-decoration: none;
 
-// dt {
-// 	font-family: var(--definition-term--font-family);
-// 	font-weight: bold;
-// }
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 
-// dd {
-// 	margin: 0;
-// 	padding-left: calc(2 * var(--global--spacing-horizontal));
-// }
+	> li:first-child {
+		margin-top: 0;
+	}
+
+}
+

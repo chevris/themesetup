@@ -768,7 +768,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Display metas inside a div with class meta-items.
 		printf(
-			'<ul class="meta-items">%1$s</ul>',
+			'<ul class="meta-items reset-list-style">%1$s</ul>',
 			$metas_string
 		); // phpcs:ignore WP.Security.EscapeOutput -- WPCS: XSS ok
 

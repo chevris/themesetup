@@ -23,7 +23,7 @@
 			border-color: currentColor;
 			box-shadow: none;
 			background: transparent;
-			color: var(--button-cl-bg);
+			color: var(--global-cl-accent) //var(--button-cl-bg);
 		}
 	}
 }

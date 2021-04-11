@@ -1,3 +1,64 @@
+//
+// Editor UI styles
+//
+
+// Post title style
+.wp-block.editor-post-title__block {
+	max-width: var(--global-alignwide-width);
+	font-family: var(--heading-ff);
+
+	.editor-post-title__input {
+		font-size: var(--heading-fs-h1);
+		font-weight: var(--heading-fw);
+		line-height: var(--heading-lh-h1);
+	}
+}
+
+// Make sure the button with the plus sign inside it that opens the UI for inserting a new block in group, column blocks, is visible.
+.block-editor-button-block-appender {
+	color: currentColor;
+	box-shadow: inset 0 0 0 1px currentColor;
+}
+
+// Hightlight innerblocks
+.wp-block-group,
+.wp-block-cover,
+.wp-block-columns {
+
+	// &:hover, // Only innerblocks for now.
+	.wp-block:hover {
+
+		&::before {
+			content: "";
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			border: 1px dashed var(--wp-admin-theme-color-darker-20);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&::after {
+			content: attr(data-title);
+			position: absolute;
+			top: -20px;
+			left: unset;
+			right: 0;
+			padding: 0 8px;
+			font-size: 11px;
+			background: var(--wp-admin-theme-color-darker-20);//#404040;
+			color: #fff;
+			display: inline-block;
+			height: 20px;
+		}
+	}
+}
+
+
+//
+// Alignments
+//
 
 // Override the editor rule that limits the max width of .wp-block to 580px
 .wp-block {

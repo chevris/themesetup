@@ -69,6 +69,9 @@ class Component implements Component_Interface {
 		// This was removed in WordPress 5.6 but is still required to properly support WP 5.5.
 		add_theme_support( 'custom-units' );
 
+		// Add support for experimental link color control.
+		add_theme_support( 'experimental-link-color' );
+
 		// Default editor color palette.
 		$black      = '#000000';
 		$dark_gray  = '#28303D';

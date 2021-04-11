@@ -29,14 +29,27 @@ function initScripts() {
 			const drawer = maskId.split( '-' );
 
 			document.body.classList.remove( drawer[ 1 ] + '-drawer-opened' );
-			document.body.classList.remove( 'scroll-disabled' );
+			document.documentElement.classList.remove( 'scroll-disabled' );
 			removeOverlay( maskId );
 		}
 	});
 
+	initDynamicHeights();
 	initDrawerHeader();
 	initDrawerSidebar();
 	initDropdownVerticalMenu();
+}
+
+/**
+ * Handles dynamic heights.
+ */
+function initDynamicHeights() {
+
+	resizeContentMinHeight();
+
+	window.addEventListener( 'resize', function() {
+		resizeContentMinHeight();
+	});
 }
 
 /**
@@ -151,6 +164,27 @@ function initDropdownVerticalMenu() {
  */
 
 /**
+ * @description Add add a min-height to #content depending on the height of header and footer.
+ */
+function resizeContentMinHeight() {
+	const siteContent = document.getElementById( 'content' );
+	const siteHeader = document.getElementById( 'masthead' );
+	const siteFooter = document.getElementById( 'colophon' );
+	const adminBar = document.getElementById( 'wpadminbar' );
+
+	const windowHeight = window.innerHeight;
+	const headerHeight = siteHeader ? siteHeader.offsetHeight : 0;
+	const headerMarginBottom = siteHeader ? parseInt( getComputedStyle( siteHeader ).marginBottom ) : 0;
+	const footerHeight = siteFooter ? siteFooter.offsetHeight : 0;
+	const footerMarginTop = siteFooter ? parseInt( getComputedStyle( siteFooter ).marginTop ) : 0;
+	const adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
+
+	let contentMinHeight = windowHeight - headerHeight - headerMarginBottom - footerHeight - footerMarginTop - adminBarHeight;
+
+	siteContent.style.minHeight = contentMinHeight + 'px';
+}
+
+/**
  * @description Opens specifed off-canvas menu.
  * @param {string} openingClass  The class to add to the body to toggle menu visibility.
  * @param {object} focusOnOpen The button used to close the menu on which we focus.
@@ -158,7 +192,7 @@ function initDropdownVerticalMenu() {
  */
 function openMenu( openingClass, focusOnOpen, maskId ) {
 	document.body.classList.add( openingClass );
-	document.body.classList.add( 'scroll-disabled' );
+	document.documentElement.classList.add( 'scroll-disabled' );
 	focusOnOpen.focus();
 	createOverlay( maskId );
 }
@@ -171,7 +205,7 @@ function openMenu( openingClass, focusOnOpen, maskId ) {
  */
 function closeMenu( openingClass, focusOnClose, maskId ) {
 	document.body.classList.remove( openingClass );
-	document.body.classList.remove( 'scroll-disabled' );
+	document.documentElement.classList.remove( 'scroll-disabled' );
 	focusOnClose.focus();
 	removeOverlay( maskId );
 }

@@ -3,6 +3,7 @@
  */
 
 img {
+	display: block;
 	height: auto;
 	max-width: 100%;
 }
@@ -29,12 +30,16 @@ figcaption,
 .align-wrap figcaption, // Add specificity to override front-end default block styles of captions.
 .wp-caption,
 .wp-caption-text {
-	color: currentColor;
+	color: var(--global-cl-text-secondary);
 	font-size: var(--global-fs-xs);
 	line-height: var(--global-lh);
 	margin-top: calc(0.5 * var(--global-spacing-unit));
 	margin-bottom: var(--global-spacing-unit);
 	text-align: center;
+}
+
+figcaption a {
+	color: inherit;
 }
 
 .alignleft figcaption,

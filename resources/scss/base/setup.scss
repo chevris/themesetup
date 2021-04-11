@@ -1,0 +1,47 @@
+/**
+ * Apply generic border-box to all elements.
+ * See:
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+html {
+
+	font-family: var(--global-ff-secondary);
+	line-height: var(--global-lh);
+
+	/* Apply border-box across the entire page. */
+	box-sizing: border-box;
+}
+
+* {
+
+	&,
+	&::before,
+	&::after {
+		box-sizing: inherit;
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
+	}
+}
+
+*:focus:not(:focus-visible) {
+	outline: none;
+}
+
+::selection {
+	background: var(--global-cl-accent);
+	color: var(--global-cl-no-accent);
+}
+
+// body resets
+body {
+	font-size: var(--global-fs-base);
+	font-weight: normal;
+	color: var(--global-cl-text-primary);
+	text-align: left;
+	background-color: var(--global-cl-bg);
+}
+
+.site-content {
+	overflow: hidden;
+}

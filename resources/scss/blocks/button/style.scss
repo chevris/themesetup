@@ -12,8 +12,8 @@
 
 		.wp-block-button__link {
 
-			border-style: solid;
-			border-width: var(--button-border-width);
+			// border-style: solid;
+			// border-width: var(--button-border-width);
 			border-color: currentColor;
 			box-shadow: none;
 
@@ -22,7 +22,7 @@
 			}
 
 			&:not(.has-text-color) {
-				color: var(--button-cl-bg);
+				color: var(--global-cl-accent); // var(--button-cl-bg);
 			}
 
 			&:focus {

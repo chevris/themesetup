@@ -52,7 +52,7 @@
   --global-cl-text-secondary: var(--global-cl-text-secondary-light);
   --global-cl-accent: var(--global-cl-accent-light);
   --global-cl-on-accent: var(--global-cl-on-accent-light);
-  --global-cl-border: var(--global-cl-text-primary);
+  --global-cl-border: var(--global-cl-text-secondary);
   /* Global Spacing */
   --global-spacing-unit: 20px;
   --global-spacing-h: 20px;
@@ -82,12 +82,12 @@
   --heading-letter-spacing-h3: var(--global-letter-spacing);
   --heading-letter-spacing-h2: var(--global-letter-spacing);
   --heading-letter-spacing-h1: var(--global-letter-spacing);
-  --heading-lh-h6: var(--global-lh-heading);
-  --heading-lh-h5: var(--global-lh-heading);
-  --heading-lh-h4: var(--global-lh-heading);
-  --heading-lh-h3: var(--global-lh-heading);
-  --heading-lh-h2: var(--global-lh-heading);
   --heading-lh-h1: var(--global-lh-heading);
+  --heading-lh-h2: var(--global-lh-heading);
+  --heading-lh-h3: var(--global-lh-heading);
+  --heading-lh-h4: var(--global-lh-heading);
+  --heading-lh-h5: var(--global-lh-heading);
+  --heading-lh-h6: var(--global-lh-heading);
   --heading-fw: normal;
   --heading-fw-strong: 600;
   /* Forms */
@@ -96,14 +96,15 @@
   --form-cl-text: var(--global-cl-dark-gray);
   --form-cl-ranged: var(--global-cl-text-primary);
   --form-weight-label: 500;
-  --form-cl-border: var(--global-cl-text-primary);
-  --form-width-border: 3px;
+  --form-cl-border: var(--global-cl-border);
+  --form-width-border: 2px;
   --form-border-radius: 0;
   --form-spacing-unit: calc(0.5 * var(--global-spacing-unit));
   /* Links */
   --links-cl-text: var(--links-cl-text-light);
   /* Lists */
   --list-ff: var(--global-ff-secondary);
+  --list-fs-title: var(--heading-fs-h3);
   /* Buttons */
   --button-ff: var(--global-ff-primary);
   --button-fs: var(--global-fs-base);
@@ -113,7 +114,6 @@
   --button-border-radius: 0;
   --button-padding-v: 15px;
   --button-padding-h: calc(2 * var(--button-padding-v));
-  --button-cl-bg: var(--global-cl-accent);
   --button-cl-text: var(--global-cl-on-accent);
   --button-shadow: var(--global-elevation-1);
   --button-shadow-hover: var(--global-elevation-2);
@@ -199,6 +199,7 @@ select {
  * Media
  */
 img {
+  display: block;
   height: auto;
   max-width: 100%;
 }
@@ -225,12 +226,16 @@ figcaption,
 .align-wrap figcaption,
 .wp-caption,
 .wp-caption-text {
-  color: currentColor;
+  color: var(--global-cl-text-secondary);
   font-size: var(--global-fs-xs);
   line-height: var(--global-lh);
   margin-top: calc(0.5 * var(--global-spacing-unit));
   margin-bottom: var(--global-spacing-unit);
   text-align: center;
+}
+
+figcaption a {
+  color: inherit;
 }
 
 .alignleft figcaption,
@@ -254,6 +259,7 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+  transition: all 0.15s linear;
 }
 a:hover {
   text-decoration: none;
@@ -266,8 +272,8 @@ a:focus {
 ul,
 ol {
   font-family: var(--list-ff);
+  padding-left: var(--global-spacing-h);
   margin: 0;
-  padding-left: calc(2 * var(--global-spacing-h));
 }
 
 ul {
@@ -360,39 +366,65 @@ h6,
   line-height: var(--heading-lh-h6);
 }
 
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace;
+  padding: 0.2rem 0.3rem;
+}
+
+code,
+kbd,
+samp {
+  background: var(--global-cl-light-gray);
+  color: var(--global-cl-black);
+  border-radius: 0.2rem;
+}
+
+pre {
+  border-style: solid;
+  border-width: var(--global-border-width);
+  border-color: var(--global-cl-border);
+  padding: var(--global-spacing-unit);
+  overflow: auto;
+  /*rtl:ignore*/
+  text-align: left;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
 .is-dark-theme .wp-block-audio figcaption {
   color: currentColor;
 }
 
 .wp-block-button__link {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   line-height: var(--button-lh);
   font-weight: var(--button-fw);
   font-family: var(--button-ff);
   font-size: var(--button-fs);
-  border: none;
   border-radius: var(--button-border-radius);
-  text-decoration: none;
   padding: var(--button-padding-v) var(--button-padding-h);
   cursor: pointer;
   box-shadow: var(--button-shadow);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear, background-color 15ms linear;
+  text-decoration: none;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   border-style: solid;
   border-width: var(--button-border-width);
   border-color: transparent;
   background-color: var(--global-cl-accent);
   color: var(--global-cl-on-accent);
 }
-.wp-block-button__link:hover, .wp-block-button__link:active, .wp-block-button__link:focus {
-  opacity: 0.85;
-}
 .wp-block-button__link:hover, .wp-block-button__link:focus {
+  text-decoration: underline;
   box-shadow: var(--button-shadow-hover);
-}
-.wp-block-button__link:focus {
-  outline: none;
-}
-.wp-block-button__link:active {
-  box-shadow: var(--button-shadow-active);
 }
 
 [data-block].wp-block-buttons {
@@ -406,18 +438,19 @@ h6,
   border-color: currentColor;
   box-shadow: none;
   background: transparent;
-  color: var(--button-cl-bg);
+  color: var(--global-cl-accent);
 }
 
 .wp-block-code {
-  border-color: var(--global-cl-border);
+  border-color: currentColor;
+  color: currentColor;
   border-radius: 0;
   border-style: solid;
   border-width: var(--global-border-width);
   padding: var(--global-spacing-unit);
 }
 .wp-block-code code {
-  color: var(--global-cl-text-primary);
+  color: currentColor;
   font-size: var(--global-fs-xs);
   white-space: pre !important;
   overflow-x: auto;
@@ -502,6 +535,7 @@ h6,
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+  transition: all 0.15s linear;
 }
 .wp-block-file .wp-block-file__textlink:hover {
   text-decoration: none;
@@ -511,32 +545,27 @@ h6,
   text-decoration: none;
 }
 .wp-block-file .wp-block-file__button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   line-height: var(--button-lh);
   font-weight: var(--button-fw);
   font-family: var(--button-ff);
   font-size: var(--button-fs);
-  border: none;
   border-radius: var(--button-border-radius);
-  text-decoration: none;
   padding: var(--button-padding-v) var(--button-padding-h);
   cursor: pointer;
   box-shadow: var(--button-shadow);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear, background-color 15ms linear;
+  text-decoration: none;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   border-style: solid;
   border-width: var(--button-border-width);
   border-color: transparent;
 }
-.wp-block-file .wp-block-file__button:hover, .wp-block-file .wp-block-file__button:active, .wp-block-file .wp-block-file__button:focus {
-  opacity: 0.85;
-}
 .wp-block-file .wp-block-file__button:hover, .wp-block-file .wp-block-file__button:focus {
+  text-decoration: underline;
   box-shadow: var(--button-shadow-hover);
-}
-.wp-block-file .wp-block-file__button:focus {
-  outline: none;
-}
-.wp-block-file .wp-block-file__button:active {
-  box-shadow: var(--button-shadow-active);
 }
 
 .wp-block-gallery .blocks-gallery-item figcaption {
@@ -624,9 +653,6 @@ h6,
 	margin-right: auto;
 }
 */
-.wp-block-latest-comments {
-  padding-left: 0;
-}
 .wp-block-latest-comments .wp-block-latest-comments__comment {
   font-size: var(--global-fs-sm);
   line-height: var(--global-lh);
@@ -648,9 +674,6 @@ h6,
   margin: 0;
 }
 
-.wp-block-latest-posts {
-  padding-left: 0;
-}
 .wp-block-latest-posts:not(.is-grid) > li {
   margin-top: var(--global-spacing-v);
   margin-bottom: var(--global-spacing-v);
@@ -687,6 +710,10 @@ h6,
   font-size: var(--latest-posts-fs-title);
   font-weight: var(--heading-fw);
   line-height: var(--global-lh-heading);
+  text-decoration: none;
+}
+.wp-block-latest-posts > li > a:hover {
+  text-decoration: underline;
 }
 .wp-block-latest-posts .wp-block-latest-posts__post-author {
   color: currentColor;
@@ -737,6 +764,44 @@ h6,
 
 .gallery-caption {
   display: block;
+}
+
+.wp-block-archives,
+.wp-block-categories > .wp-block-categories__list,
+.wp-block-latest-posts,
+.wp-block-latest-comments {
+  list-style: none;
+  padding-left: 0;
+}
+.wp-block-archives ul,
+.wp-block-archives ol,
+.wp-block-categories > .wp-block-categories__list ul,
+.wp-block-categories > .wp-block-categories__list ol,
+.wp-block-latest-posts ul,
+.wp-block-latest-posts ol,
+.wp-block-latest-comments ul,
+.wp-block-latest-comments ol {
+  list-style: inherit;
+}
+
+.wp-block-archives li,
+.wp-block-categories > .wp-block-categories__list li {
+  margin-top: calc(0.5 * var(--global-spacing-v));
+}
+.wp-block-archives li > a,
+.wp-block-categories > .wp-block-categories__list li > a {
+  font-size: var(--list-fs-title);
+  line-height: var(--global-lh-heading);
+  font-weight: var(--heading-fw);
+  text-decoration: none;
+}
+.wp-block-archives li > a:hover,
+.wp-block-categories > .wp-block-categories__list li > a:hover {
+  text-decoration: underline;
+}
+.wp-block-archives > li:first-child,
+.wp-block-categories > .wp-block-categories__list > li:first-child {
+  margin-top: 0;
 }
 
 .wp-block-media-text > .wp-block-media-text__content > *:first-child {
@@ -958,6 +1023,7 @@ pre.wp-block-preformatted {
   font-size: var(--form-fs);
   border: var(--form-width-border) solid var(--form-cl-border);
   border-radius: var(--form-border-radius);
+  background-color: var(--global-cl-white-90);
   color: var(--form-cl-text);
   line-height: var(--form-lh);
   padding: var(--form-spacing-unit);
@@ -965,9 +1031,7 @@ pre.wp-block-preformatted {
 }
 .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper:focus,
 .wp-block-search .wp-block-search__input:focus {
-  color: var(--form-cl-text);
-  outline-offset: 2px;
-  outline: 1px dotted var(--form-cl-border);
+  outline: none;
 }
 .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper:disabled,
 .wp-block-search .wp-block-search__input:disabled {
@@ -978,33 +1042,28 @@ pre.wp-block-preformatted {
   outline-offset: -6px;
 }
 .wp-block-search .wp-block-search__button.wp-block-search__button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   line-height: var(--button-lh);
   font-weight: var(--button-fw);
   font-family: var(--button-ff);
   font-size: var(--button-fs);
-  border: none;
   border-radius: var(--button-border-radius);
-  text-decoration: none;
   padding: var(--button-padding-v) var(--button-padding-h);
   cursor: pointer;
   box-shadow: var(--button-shadow);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear, background-color 15ms linear;
+  text-decoration: none;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   border-style: solid;
   border-width: var(--button-border-width);
   border-color: transparent;
   line-height: 1;
 }
-.wp-block-search .wp-block-search__button.wp-block-search__button:hover, .wp-block-search .wp-block-search__button.wp-block-search__button:active, .wp-block-search .wp-block-search__button.wp-block-search__button:focus {
-  opacity: 0.85;
-}
 .wp-block-search .wp-block-search__button.wp-block-search__button:hover, .wp-block-search .wp-block-search__button.wp-block-search__button:focus {
+  text-decoration: underline;
   box-shadow: var(--button-shadow-hover);
-}
-.wp-block-search .wp-block-search__button.wp-block-search__button:focus {
-  outline: none;
-}
-.wp-block-search .wp-block-search__button.wp-block-search__button:active {
-  box-shadow: var(--button-shadow-active);
 }
 .wp-block-search .wp-block-search__button.wp-block-search__button.has-icon {
   padding: 6px calc(0.5 * var(--button-padding-h));
@@ -1132,6 +1191,49 @@ table.wp-calendar-table tbody {
 pre.wp-block-verse {
   padding: 0;
   color: currentColor;
+}
+
+.wp-block.editor-post-title__block {
+  max-width: var(--global-alignwide-width);
+  font-family: var(--heading-ff);
+}
+.wp-block.editor-post-title__block .editor-post-title__input {
+  font-size: var(--heading-fs-h1);
+  font-weight: var(--heading-fw);
+  line-height: var(--heading-lh-h1);
+}
+
+.block-editor-button-block-appender {
+  color: currentColor;
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+.wp-block-group .wp-block:hover::before,
+.wp-block-cover .wp-block:hover::before,
+.wp-block-columns .wp-block:hover::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border: 1px dashed var(--wp-admin-theme-color-darker-20);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wp-block-group .wp-block:hover::after,
+.wp-block-cover .wp-block:hover::after,
+.wp-block-columns .wp-block:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  top: -20px;
+  left: unset;
+  right: 0;
+  padding: 0 8px;
+  font-size: 11px;
+  background: var(--wp-admin-theme-color-darker-20);
+  color: #fff;
+  display: inline-block;
+  height: 20px;
 }
 
 .wp-block {
@@ -1499,10 +1601,10 @@ pre.wp-block-verse {
   --local-cl-text: var(--global-cl-white, #fff);
   color: var(--local-cl-text);
 }
-[class*=has-background]:not(.has-text-color).has-light-gray-background-color[class], [class*=has-background]:not(.has-text-color).has-green-background-color[class], [class*=has-background]:not(.has-text-color).has-blue-background-color[class], [class*=has-background]:not(.has-text-color).has-purple-background-color[class], [class*=has-background]:not(.has-text-color).has-red-background-color[class], [class*=has-background]:not(.has-text-color).has-orange-background-color[class], [class*=has-background]:not(.has-text-color).has-yellow-background-color[class], [class*=has-background]:not(.has-text-color).has-white-background-color[class], [class*=has-background]:not(.has-text-color).has-purple-to-yellow-gradient-background {
+[class*=has-background]:not(.has-text-color).has-light-gray-background-color[class], [class*=has-background]:not(.has-text-color).has-green-background-color[class], [class*=has-background]:not(.has-text-color).has-blue-background-color[class], [class*=has-background]:not(.has-text-color).has-purple-background-color[class], [class*=has-background]:not(.has-text-color).has-red-background-color[class], [class*=has-background]:not(.has-text-color).has-orange-background-color[class], [class*=has-background]:not(.has-text-color).has-yellow-background-color[class], [class*=has-background]:not(.has-text-color).has-white-background-color[class], [class*=has-background]:not(.has-text-color).has-purple-to-yellow-gradient-background, [class*=has-background]:not(.has-text-color).has-yellow-to-purple-gradient-background, [class*=has-background]:not(.has-text-color).has-green-to-yellow-gradient-background, [class*=has-background]:not(.has-text-color).has-yellow-to-green-gradient-background, [class*=has-background]:not(.has-text-color).has-red-to-yellow-gradient-background, [class*=has-background]:not(.has-text-color).has-yellow-to-red-gradient-background, [class*=has-background]:not(.has-text-color).has-purple-to-red-gradient-background, [class*=has-background]:not(.has-text-color).has-red-to-purple-gradient-background {
   color: var(--global-cl-dark-gray, #000);
 }
-[class*=has-background]:not(.has-text-color).has-light-gray-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-green-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-blue-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-purple-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-red-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-orange-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-yellow-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-white-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-purple-to-yellow-gradient-background > [class*=__inner-container] {
+[class*=has-background]:not(.has-text-color).has-light-gray-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-green-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-blue-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-purple-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-red-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-orange-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-yellow-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-white-background-color[class] > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-purple-to-yellow-gradient-background > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-yellow-to-purple-gradient-background > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-green-to-yellow-gradient-background > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-yellow-to-green-gradient-background > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-red-to-yellow-gradient-background > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-yellow-to-red-gradient-background > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-purple-to-red-gradient-background > [class*=__inner-container], [class*=has-background]:not(.has-text-color).has-red-to-purple-gradient-background > [class*=__inner-container] {
   --local-cl-text: var(--global-cl-dark-gray, #000);
   color: var(--local-cl-text);
 }
@@ -1517,4 +1619,15 @@ pre.wp-block-verse {
   --global-cl-accent: var(--global-cl-accent-light);
   --global-cl-on-accent: var(--global-cl-on-accent-light);
   --links-cl-text: var(--links-cl-text-light);
+}
+
+.has-drop-cap:not(:focus):first-letter {
+  color: var(--global-cl-accent);
+  font-size: 5.2em;
+  font-weight: 700;
+  margin: 0.09em 1rem 0.5rem 0;
+}
+
+.has-drop-cap.has-text-color:not(:focus):first-letter {
+  color: inherit;
 }

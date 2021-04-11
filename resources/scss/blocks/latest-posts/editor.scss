@@ -1,5 +1,4 @@
 .wp-block-latest-posts {
-	padding-left: 0;
 
 	// Vertical alignments
 	&:not(.is-grid) > li {
@@ -49,6 +48,11 @@
 		font-size: var(--latest-posts-fs-title);
 		font-weight: var(--heading-fw);
 		line-height: var(--global-lh-heading);
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	// Post author

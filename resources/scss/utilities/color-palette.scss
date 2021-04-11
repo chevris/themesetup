@@ -256,7 +256,7 @@
 		color: currentColor;
 	}
 
-	// Force text color for the color palette background colors.
+	// Force text color for the color palette background colors, unless there is a text color defined.
 	&:not(.has-text-color) {
 
 		&.has-black-background-color[class],
@@ -279,7 +279,14 @@
 		&.has-orange-background-color[class],
 		&.has-yellow-background-color[class],
 		&.has-white-background-color[class],
-		&.has-purple-to-yellow-gradient-background {
+		&.has-purple-to-yellow-gradient-background,
+		&.has-yellow-to-purple-gradient-background,
+		&.has-green-to-yellow-gradient-background,
+		&.has-yellow-to-green-gradient-background,
+		&.has-red-to-yellow-gradient-background,
+		&.has-yellow-to-red-gradient-background,
+		&.has-purple-to-red-gradient-background,
+		&.has-red-to-purple-gradient-background {
 			color: var(--global-cl-dark-gray, #000);
 
 			> [class*="__inner-container"] {

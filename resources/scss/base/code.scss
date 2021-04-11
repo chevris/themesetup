@@ -1,0 +1,31 @@
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace;
+	padding: .2rem .3rem;
+}
+
+code,
+kbd,
+samp {
+	background: var(--global-cl-light-gray);
+	color: var(--global-cl-black);
+	border-radius: .2rem;
+}
+
+pre {
+	border-style: solid;
+	border-width: var(--global-border-width);
+	border-color: var(--global-cl-border);
+	padding: var(--global-spacing-unit);
+	overflow: auto;
+
+	/*rtl:ignore*/
+	text-align: left;
+}
+
+pre code {
+	background: transparent;
+	padding: 0;
+}

@@ -1,8 +1,8 @@
 ul,
 ol {
 	font-family: var(--list-ff);
+	padding-left: var(--global-spacing-h);
 	margin: 0;
-	padding-left: calc(2 * var(--global-spacing-h));
 }
 
 ul {

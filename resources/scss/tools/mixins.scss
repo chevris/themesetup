@@ -59,6 +59,7 @@
 	text-decoration: underline;
 	text-decoration-thickness: 2px;
 	text-underline-offset: 3px;
+	transition: all .15s linear;
 
 	&:hover {
 		text-decoration: none;
@@ -72,42 +73,44 @@
 
 // Button style
 @mixin button-style() {
+	-webkit-appearance: none;
+	-moz-appearance: none;
 	line-height: var(--button-lh);
 	font-weight: var(--button-fw);
 	font-family: var(--button-ff);
 	font-size: var(--button-fs);
-	border: none;
 	border-radius: var(--button-border-radius);
-	text-decoration: none;
 	padding: var(--button-padding-v) var(--button-padding-h);
 	cursor: pointer;
-	// background-color: var(--button-cl-bg);
-	// color: var(--button-cl-text);
 	box-shadow: var(--button-shadow);
 	transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1), opacity 15ms linear, background-color 15ms linear;
+	text-decoration: none;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
 
 	border-style: solid;
 	border-width: var(--button-border-width);
 	border-color: transparent; // var(--button-cl-bg);
 
 	&:hover,
-	&:active,
 	&:focus {
-		opacity: 0.85;
-	}
-
-	&:hover,
-	&:focus {
+		text-decoration: underline;
 		box-shadow: var(--button-shadow-hover);
 	}
 
-	&:focus {
-		outline: none;
-	}
+	// &:hover,
+	// &:active,
+	// &:focus {
+	// 	opacity: 0.85;
+	// }
 
-	&:active {
-		box-shadow: var(--button-shadow-active);
-	}
+	// &:focus {
+	// 	outline: none;
+	// }
+
+	// &:active {
+	// 	box-shadow: var(--button-shadow-active);
+	// }
 }
 
 // Input style ( text, search, ... )
@@ -115,15 +118,17 @@
 	font-size: var(--form-fs);
 	border: var(--form-width-border) solid var(--form-cl-border);
 	border-radius: var(--form-border-radius);
+	background-color: var(--global-cl-white-90);
 	color: var(--form-cl-text);
 	line-height: var(--form-lh);
 	padding: var(--form-spacing-unit);
 	max-width: 100%;
 
 	&:focus {
-		color: var(--form-cl-text);
-		outline-offset: 2px;
-		outline: 1px dotted var(--form-cl-border);
+		// color: var(--form-cl-text);
+		// outline-offset: 2px;
+		// outline: 1px dotted var(--form-cl-border);
+		outline: none;
 	}
 
 	&:disabled {

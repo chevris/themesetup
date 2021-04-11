@@ -68,7 +68,7 @@ $baseline-unit: 10px;
 	--global-cl-accent: var(--global-cl-accent-light);
 	--global-cl-on-accent: var(--global-cl-on-accent-light);
 
-	--global-cl-border: var(--global-cl-text-primary);
+	--global-cl-border: var(--global-cl-text-secondary);
 
 	/* Global Spacing */
 	--global-spacing-unit: #{2 * $baseline-unit}; // 20px
@@ -106,12 +106,12 @@ $baseline-unit: 10px;
 	--heading-letter-spacing-h2: var(--global-letter-spacing);
 	--heading-letter-spacing-h1: var(--global-letter-spacing);
 
-	--heading-lh-h6: var(--global-lh-heading);
-	--heading-lh-h5: var(--global-lh-heading);
-	--heading-lh-h4: var(--global-lh-heading);
-	--heading-lh-h3: var(--global-lh-heading);
-	--heading-lh-h2: var(--global-lh-heading);
 	--heading-lh-h1: var(--global-lh-heading);
+	--heading-lh-h2: var(--global-lh-heading);
+	--heading-lh-h3: var(--global-lh-heading);
+	--heading-lh-h4: var(--global-lh-heading);
+	--heading-lh-h5: var(--global-lh-heading);
+	--heading-lh-h6: var(--global-lh-heading);
 
 	--heading-fw: normal;
 	--heading-fw-strong: 600;
@@ -122,8 +122,8 @@ $baseline-unit: 10px;
 	--form-cl-text: var(--global-cl-dark-gray); // Text color in input fields is always dark over light background.
 	--form-cl-ranged: var(--global-cl-text-primary);
 	--form-weight-label: 500;
-	--form-cl-border: var(--global-cl-text-primary);
-	--form-width-border: 3px;
+	--form-cl-border: var(--global-cl-border);
+	--form-width-border: 2px;
 	--form-border-radius: 0;
 	--form-spacing-unit: calc(0.5 * var(--global-spacing-unit));
 
@@ -132,6 +132,7 @@ $baseline-unit: 10px;
 
 	/* Lists */
 	--list-ff: var(--global-ff-secondary);
+	--list-fs-title: var(--heading-fs-h3);
 
 	/* Buttons */
 	// Fonts
@@ -146,7 +147,7 @@ $baseline-unit: 10px;
 	--button-padding-v: 15px;
 	--button-padding-h: calc(2 * var(--button-padding-v));
 	// Colors
-	--button-cl-bg: var(--global-cl-accent);
+	// --button-cl-bg: var(--global-cl-accent);
 	--button-cl-text: var(--global-cl-on-accent);
 	// Shadows
 	--button-shadow: var(--global-elevation-1);
