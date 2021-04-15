@@ -1,10 +1,15 @@
 .wp-block-latest-comments {
 
 	.wp-block-latest-comments__comment {
-		font-size: var(--global-fs-sm);
+		margin-top: calc(0.666 * var(--global-spacing-v));
+		margin-bottom: calc(0.666 * var(--global-spacing-v));
+
+		@include media(tablet-plus) {
+			margin-top: var(--global-spacing-v);
+			margin-bottom: var(--global-spacing-v);
+		}
+
 		line-height: var(--global-lh);
-		margin-top: var(--global-spacing-v);
-		margin-bottom: var(--global-spacing-v);
 
 		&:first-child {
 			margin-top: 0;
@@ -17,11 +22,31 @@
 
 	.wp-block-latest-comments__comment-meta {
 		font-family: var(--heading-ff);
+
+		a {
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
 	}
 
-	.wp-block-latest-comments__comment-excerpt p {
-		font-size: var(--global-fs-sm);
-		line-height: var(--global-lh);
-		margin: 0;
+	time {
+		color: var(--global-cl-text-secondary);
+		font-size: .8em;
+		font-weight: 400;
+		margin-top: .1rem;
+	}
+
+	.wp-block-latest-comments__comment-excerpt {
+		margin-top: .36em;
+
+		p {
+			font-size: 0.9em;
+			line-height: var(--global-lh);
+			margin: 0;
+		}
 	}
 }

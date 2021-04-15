@@ -2,6 +2,16 @@
  * Media
  */
 
+figure {
+	margin: 0;
+}
+
+iframe {
+	border: none;
+	display: block;
+	max-width: 100%;
+}
+
 img {
 	display: block;
 	height: auto;

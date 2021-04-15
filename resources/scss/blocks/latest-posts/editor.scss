@@ -14,40 +14,32 @@
 		}
 	}
 
-	&.is-grid {
-		word-wrap: break-word;
-		word-break: break-word;
+	// Featured image
+	.wp-block-latest-posts__featured-image {
+		margin-top: 0;
+		margin-bottom: calc(0.666 * var(--global-spacing-v));
 
-		> li {
-			margin-bottom: var(--global-spacing-v);
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-
-	// vertical alignment of items elements
-	> li > * {
-		margin-top: calc(0.333 * var(--global-spacing-v));
-		margin-bottom: calc(0.333 * var(--global-spacing-v));
-
-		&:first-child {
-			margin-top: 0;
+		&:not(.alignleft):not(.aligncenter):not(.alignright) a {
+			width: 100%;
 		}
 
-		&:last-child {
-			margin-bottom: 0;
+		&:not(.aligncenter) img {
+			width: 100%;
+		}
+
+		&.alignleft,
+		&.alignright {
+			max-width: 33.33%;
 		}
 	}
 
 	// Post title
 	> li > a {
-		display: inline-block;
-		font-family: var(--latest-posts-ff-title);
+		display: block;
 		font-size: var(--latest-posts-fs-title);
+		font-family: var(--heading-ff);
 		font-weight: var(--heading-fw);
-		line-height: var(--global-lh-heading);
+		line-height: var(--heading-lh);
 		text-decoration: none;
 
 		&:hover {
@@ -55,24 +47,44 @@
 		}
 	}
 
-	// Post author
-	.wp-block-latest-posts__post-author {
-		color: currentColor;
-		font-size: var(--global-fs-md);
-		line-height: var(--global-lh);
-	}
-
-	// Post date
+	// Post author & date
+	.wp-block-latest-posts__post-author,
 	.wp-block-latest-posts__post-date {
-		color: currentColor;
-		font-size: var(--global-fs-xs);
+		color: var(--global-cl-text-secondary);
+		display: inline-block;
+		font-size: 0.9em;
+		margin: 0.6rem 1rem 0 0;
 	}
 
 	// Post content
 	.wp-block-latest-posts__post-excerpt,
 	.wp-block-latest-posts__post-full-content {
-		font-family: var(--latest-posts-ff-content);
 		font-size: var(--latest-posts-fs-content);
-		margin-top: calc(0.666 * var(--global-spacing-v));
+		margin: calc(0.333 * var(--global-spacing-v)) 0 0;
+	}
+
+	// Grid style
+	&.is-grid {
+		word-wrap: break-word;
+		word-break: break-word;
+
+		> li {
+			margin-bottom: var(--global-spacing-v);
+		}
+
+
+		// Remove bottom margins in last row
+		&.columns-2 > li:nth-last-child(-n + 2):nth-child(2n + 1),
+		&.columns-2 > li:nth-last-child(-n + 2):nth-child(2n + 1) ~ li,
+		&.columns-3 > li:nth-last-child(-n + 3):nth-child(3n + 1),
+		&.columns-3 > li:nth-last-child(-n + 3):nth-child(3n + 1) ~ li,
+		&.columns-4 > li:nth-last-child(-n + 4):nth-child(4n + 1),
+		&.columns-4 > li:nth-last-child(-n + 4):nth-child(4n + 1) ~ li,
+		&.columns-5 > li:nth-last-child(-n + 5):nth-child(5n + 1),
+		&.columns-5 > li:nth-last-child(-n + 5):nth-child(5n + 1) ~ li,
+		&.columns-6 > li:nth-last-child(-n + 6):nth-child(6n + 1),
+		&.columns-6 > li:nth-last-child(-n + 6):nth-child(6n + 1) ~ li {
+			margin-bottom: 0;
+		}
 	}
 }

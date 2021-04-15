@@ -27,7 +27,6 @@ $baseline-unit: 10px;
 
 	/* Global Line Height */
 	--global-lh: 1.7;
-	--global-lh-heading: 1.3;
 
 	/* Global Border Width */
 	--global-border-width: 1px;
@@ -106,12 +105,7 @@ $baseline-unit: 10px;
 	--heading-letter-spacing-h2: var(--global-letter-spacing);
 	--heading-letter-spacing-h1: var(--global-letter-spacing);
 
-	--heading-lh-h1: var(--global-lh-heading);
-	--heading-lh-h2: var(--global-lh-heading);
-	--heading-lh-h3: var(--global-lh-heading);
-	--heading-lh-h4: var(--global-lh-heading);
-	--heading-lh-h5: var(--global-lh-heading);
-	--heading-lh-h6: var(--global-lh-heading);
+	--heading-lh: 1.3;
 
 	--heading-fw: normal;
 	--heading-fw-strong: 600;
@@ -137,18 +131,15 @@ $baseline-unit: 10px;
 	/* Buttons */
 	// Fonts
 	--button-ff: var(--global-ff-primary);
-	--button-fs: var(--global-fs-base);
+	--button-fs: var(--global-fs-sm);
 	--button-fw: 500;
 	--button-lh: 1.5;
 	// Borders
-	--button-border-width: 3px;
+	--button-border-width: 2px;
 	--button-border-radius: 0;
 	// Spacing
-	--button-padding-v: 15px;
-	--button-padding-h: calc(2 * var(--button-padding-v));
-	// Colors
-	// --button-cl-bg: var(--global-cl-accent);
-	--button-cl-text: var(--global-cl-on-accent);
+	--button-padding-v: 10px;
+	--button-padding-h: calc(1.25 * var(--button-padding-v));
 	// Shadows
 	--button-shadow: var(--global-elevation-1);
 	--button-shadow-hover: var(--global-elevation-2);
@@ -157,15 +148,14 @@ $baseline-unit: 10px;
 	/* Block: Latest posts */
 	--latest-posts-ff-title: var(--heading-ff);
 	--latest-posts-fs-title: var(--heading-fs-h3);
-	--latest-posts-ff-content: var(--global-ff-secondary);
-	--latest-posts-fs-content: var(--global-fs-sm);
+	--latest-posts-fs-content: var(--global-fs-base);
 
 	/* Block: Pull quote */
 	--pullquote-ff: var(--global-ff-primary);
 	--pullquote-fs: var(--heading-fs-h3);
 	--pullquote-font-style: normal;
 	--pullquote-letter-spacing: var(--heading-letter-spacing-h3);
-	--pullquote-lh: var(--global-lh-heading);
+	--pullquote-lh: var(--heading-lh);
 	--pullquote-border-width: 3px;
 
 	/* Block: Quote */

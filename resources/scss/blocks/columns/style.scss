@@ -4,54 +4,47 @@
 		clear: both;
 	}
 
-	.wp-block-column {
+	// Vertically align blocks inside each column
+	@include front-innerblock-vertical-margins(".wp-block-column");
 
-		> * {
-			margin-top: calc(0.66 * var(--global-spacing-v));
-			margin-bottom: calc(0.66 * var(--global-spacing-v));
+	// Columns spacing
+	@media ( max-width: 599px ) {
 
-			@include media(tablet-plus) {
-				margin-top: var(--global-spacing-v);
-				margin-bottom: var(--global-spacing-v);
-			}
-
-			&:first-child {
-				margin-top: 0;
-			}
-
-			&:last-child {
-				margin-bottom: 0;
-			}
+		.wp-block-column + .wp-block-column {
+			margin-top: calc(0.666 * var(--global-spacing-v));
 		}
 	}
 
-	.wp-block-column:last-child {
-		margin-bottom: 0;
-	}
+	@media ( min-width: 600px ) and ( max-width: 781px ) {
 
-	.wp-block-column:not(:last-child) {
-		margin-bottom: calc(0.66 * var(--global-spacing-v));
+		.wp-block-column:not(:only-child) {
+			flex-basis: calc(50% - var(--global-spacing-h)) !important;
+			flex-grow: 1;
+			margin: 0 0 var(--global-spacing-h);
+		}
 
-		@include media(tablet-plus) {
+		.wp-block-column:nth-child(2n) {
+			margin-left: var(--global-spacing-h);
+		}
+
+		// Last two when they form a full row.
+		.wp-block-column:nth-last-of-type(-n+1):nth-child(even),
+		.wp-block-column:nth-last-of-type(-n+2):nth-child(odd) {
 			margin-bottom: 0;
 		}
+
 	}
 
-	&.alignfull {
+	@media ( min-width: 782px ) {
 
-		.wp-block-column {
-
-			p:not(.has-background),
-			h1:not(.has-background),
-			h2:not(.has-background),
-			h3:not(.has-background),
-			h4:not(.has-background),
-			h5:not(.has-background),
-			h6:not(.has-background) {
-				padding-left: var(--global-spacing-h);
-				padding-right: var(--global-spacing-h);
-			}
+		.wp-block-column:not(:first-child) {
+			margin: 0 0 0 var(--global-spacing-h);
 		}
+	}
+
+	// Add (override) padding when has background
+	&.has-background {
+		padding: var(--global-spacing-v) var(--global-spacing-h);
 	}
 
 	&.is-style-themesetup-columns-overlap {
@@ -69,30 +62,6 @@
 				&.is-vertically-aligned-center {
 					margin-top: 0;
 				}
-
-				// // Removed and let users add bg.
-				// // Provide text-based child blocks with a default background color and some padding to ensure they're readable.
-				// > p,
-				// > h1,
-				// > h2,
-				// > h3,
-				// > h4,
-				// > h5,
-				// > h6,
-				// > ul,
-				// > ol,
-				// > pre {
-
-				// 	&:not(.has-background) {
-				// 		background-color: var(--global-cl-bg);
-				// 		padding: var(--global-spacing-unit);
-				// 	}
-				// }
-				// // Lists should still have their usual left padding.
-				// > ul:not(.has-background),
-				// > ol:not(.has-background) {
-				// 	padding-left: calc(2 * var(--global-spacing-h));
-				// }
 
 			}
 		}

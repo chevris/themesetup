@@ -1,7 +1,15 @@
 //
-// Alignments
+// Block vertical spacing
 //
 
+@include front-innerblock-vertical-margins(".align-wrap");
+@include front-innerblock-vertical-margins("[class*="inner-container"]");
+
+//
+// Horizontal alignments
+//
+
+// 1rst level block alignments
 .align-wrap > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright),
 .content-align-width {
 	max-width: var(--global-aligncontent-width);
@@ -37,6 +45,11 @@
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+
+	img {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .alignleft,
@@ -63,8 +76,12 @@
 		max-width: calc(0.5 * var(--global-aligncontent-width));
 	}
 
-	.alignleft {
+	.alignleft:not(.is-resized),
+	.alignright:not(.is-resized) {
 		width: 100%;
+	}
+
+	.alignleft {
 
 		/*rtl:ignore*/
 		float: left;
@@ -81,7 +98,6 @@
 	}
 
 	.alignright {
-		width: 100%;
 
 		/*rtl:ignore*/
 		float: right;
@@ -103,12 +119,6 @@
 // [class*="inner-container"] > .alignright + * {
 // 	margin-top: 0;
 // }
-
-//
-// Block vertical spacing
-//
-@include front-innerblock-vertical-margins(".align-wrap");
-@include front-innerblock-vertical-margins("[class*="inner-container"]");
 
 //
 // Nested blocks alignment

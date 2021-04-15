@@ -5,6 +5,11 @@
 		width: 100%;
 		text-align: center;
 
+		img {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 		@include media(mobile) {
 			margin-left: 0;
 			margin-right: 0;

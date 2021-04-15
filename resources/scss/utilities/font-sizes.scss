@@ -18,7 +18,7 @@
 	.is-large-text,
 	.has-large-font-size {
 		font-size: var(--global-fs-lg);
-		line-height: var(--global-lh-heading);
+		line-height: var(--heading-lh);
 	}
 
 	.is-larger-text,
@@ -26,18 +26,18 @@
 	.is-extra-large-text,
 	.has-extra-large-font-size {
 		font-size: var(--global-fs-xl);
-		line-height: var(--global-lh-heading);
+		line-height: var(--heading-lh);
 	}
 
 	.is-huge-text,
 	.has-huge-font-size {
 		font-size: var(--global-fs-xxl);
-		line-height: var(--global-lh-heading);
+		line-height: var(--heading-lh);
 	}
 
 	.is-gigantic-text,
 	.has-gigantic-font-size {
 		font-size: var(--global-fs-xxxl);
-		line-height: var(--global-lh-heading);
+		line-height: var(--heading-lh);
 	}
 }

@@ -1,3 +1,7 @@
+.wp-block-buttons .wp-block-button {
+	margin: 0 var(--global-spacing-h) var(--global-spacing-v) 0;
+}
+
 .wp-block-button .wp-block-button__link {
 	@include button-style();
 
@@ -12,8 +16,6 @@
 
 		.wp-block-button__link {
 
-			// border-style: solid;
-			// border-width: var(--button-border-width);
 			border-color: currentColor;
 			box-shadow: none;
 
