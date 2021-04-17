@@ -149,6 +149,8 @@ $baseline-unit: 10px;
 	--latest-posts-ff-title: var(--heading-ff);
 	--latest-posts-fs-title: var(--heading-fs-h3);
 	--latest-posts-fs-content: var(--global-fs-base);
+	--latest-posts-shadow: var(--global-elevation-1);
+	--latest-posts-shadow-hover: var(--global-elevation-2);
 
 	/* Block: Pull quote */
 	--pullquote-ff: var(--global-ff-primary);

@@ -153,7 +153,7 @@ class Theme {
 			new Medias\Component(),
 			new Customizer\Component(),
 			new Styles\Component(),
-			new Scripts\Component(),
+			new Front_Scripts\Component(),
 
 			new Template_Context\Component(),
 			new Sanitize\Component(),

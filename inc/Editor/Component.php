@@ -8,6 +8,7 @@
 namespace Themesetup\Editor;
 
 use Themesetup\Component_Interface;
+use function Themesetup\themesetup;
 
 /**
  * Class for integrating with the block editor.
@@ -31,6 +32,7 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'after_setup_theme', [ $this, 'action_add_editor_support' ] );
 		add_action( 'init', [ $this, 'action_register_block_styles' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'action_enqueue_editor_scripts' ] );
 	}
 
 	/**
@@ -298,6 +300,38 @@ class Component implements Component_Interface {
 				'name'  => 'themesetup-columns-overlap',
 				'label' => esc_html__( 'Overlap', 'themesetup' ),
 			]
+		);
+
+		// Latest posts: Card
+		register_block_style(
+			'core/latest-posts',
+			[
+				'name'  => 'themesetup-latest-posts-card',
+				'label' => esc_html__( 'Card', 'themesetup' ),
+			]
+		);
+
+		// Media-text: Overlap gradient
+		register_block_style(
+			'core/media-text',
+			[
+				'name'  => 'themesetup-media-text-overlap-gradient',
+				'label' => esc_html__( 'Overlap gradient', 'themesetup' ),
+			]
+		);
+	}
+
+	/**
+	 * Enqueue scripts for the editor.
+	 */
+	public function action_enqueue_editor_scripts() {
+
+		wp_enqueue_script(
+			'wp-rig-editor-preview',
+			get_theme_file_uri( '/public/js/editor-preview.js' ),
+			[],
+			themesetup()->get_asset_version( get_theme_file_path( '/public/js/editor-preview.js' ) ),
+			true
 		);
 	}
 }

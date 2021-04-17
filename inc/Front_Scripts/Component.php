@@ -1,19 +1,19 @@
 <?php
 /**
- * Themesetup\Scripts\Component class
+ * Themesetup\Front_Scripts\Component class
  *
  * @package themesetup
  */
 
 declare( strict_types=1 );
 
-namespace Themesetup\Scripts;
+namespace Themesetup\Front_Scripts;
 
 use Themesetup\Component_Interface;
 use function Themesetup\themesetup;
 
 /**
- * Class for managing scripts.
+ * Class for managing front-end scripts.
  */
 class Component implements Component_Interface {
 

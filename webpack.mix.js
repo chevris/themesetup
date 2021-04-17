@@ -67,6 +67,7 @@ mix.js( `${devPath}/js/main.js`, 'js' );
 mix.js( `${devPath}/js/customizer-preview.js`, 'js' );
 mix.js( `${devPath}/js/customizer-pane.js`, 'js' );
 mix.react( `${devPath}/js/customizer-controls.js`, 'js' );
+mix.js( `${devPath}/js/editor-preview.js`, 'js' );
 
 /*
  * Compile CSS.

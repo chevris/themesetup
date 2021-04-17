@@ -66,8 +66,12 @@
 	}
 
 	&:focus {
-		outline: thin dotted;
+		// outline: thin dotted;
 		text-decoration: none;
+		outline-width: 2px;
+		outline-style: dashed;
+		outline-offset: 1px;
+		outline-color: currentColor;
 	}
 }
 

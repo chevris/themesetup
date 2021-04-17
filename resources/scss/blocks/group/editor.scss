@@ -2,6 +2,11 @@
 	clear: both;
 	display: flow-root;
 	@include editor-innerblock-vertical-margins(".wp-block-group__inner-container");
+
+	// Override default default style
+	[data-align="full"] &.has-background > .wp-block-group__inner-container > [data-align="full"] {
+		width: 100%;
+	}
 }
 
 

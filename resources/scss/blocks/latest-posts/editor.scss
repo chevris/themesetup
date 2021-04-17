@@ -2,8 +2,13 @@
 
 	// Vertical alignments
 	&:not(.is-grid) > li {
-		margin-top: var(--global-spacing-v);
-		margin-bottom: var(--global-spacing-v);
+		margin-top: calc(0.666 * var(--global-spacing-v));
+		margin-bottom: calc(0.666 * var(--global-spacing-v));
+
+		@include media(tablet-plus) {
+			margin-top: var(--global-spacing-v);
+			margin-bottom: var(--global-spacing-v);
+		}
 
 		&:first-child {
 			margin-top: 0;
@@ -16,20 +21,42 @@
 
 	// Featured image
 	.wp-block-latest-posts__featured-image {
-		margin-top: 0;
-		margin-bottom: calc(0.666 * var(--global-spacing-v));
+		margin-bottom: calc(0.333 * var(--global-spacing-v));
 
-		&:not(.alignleft):not(.aligncenter):not(.alignright) a {
-			width: 100%;
+		@include media(tablet-plus) {
+			margin-bottom: calc(0.666 * var(--global-spacing-v));
 		}
 
+		&:not(.aligncenter) a,
 		&:not(.aligncenter) img {
 			width: 100%;
 		}
 
 		&.alignleft,
 		&.alignright {
-			max-width: 33.33%;
+			margin-left: 0;
+			margin-right: 0;
+
+			// Override editor float on mobile
+			@include media(mobile) {
+				float: none;
+			}
+
+			@include media(tablet-plus) {
+				width: 100%;
+				max-width: 33.33%;
+			}
+		}
+
+		@include media(tablet-plus) {
+
+			&.alignleft {
+				margin-right: var(--global-spacing-unit);
+			}
+
+			&.alignright {
+				margin-left: var(--global-spacing-unit);
+			}
 		}
 	}
 
@@ -67,6 +94,7 @@
 	&.is-grid {
 		word-wrap: break-word;
 		word-break: break-word;
+		align-items: flex-start; // Prevent equal column height.
 
 		> li {
 			margin-bottom: var(--global-spacing-v);
@@ -85,6 +113,34 @@
 		&.columns-6 > li:nth-last-child(-n + 6):nth-child(6n + 1),
 		&.columns-6 > li:nth-last-child(-n + 6):nth-child(6n + 1) ~ li {
 			margin-bottom: 0;
+		}
+	}
+
+	// Card style
+	&.is-style-themesetup-latest-posts-card {
+
+		li {
+			padding: var(--global-spacing-v) var(--global-spacing-h);
+			box-shadow: var(--latest-posts-shadow);
+
+			&:hover,
+			&:focus-within {
+				box-shadow: var(--latest-posts-shadow-hover);
+			}
+		}
+
+		.wp-block-latest-posts__featured-image {
+			margin-top: calc(-1 * var(--global-spacing-v));
+			margin-left: calc(-1 * var(--global-spacing-h));
+			margin-right: calc(-1 * var(--global-spacing-h));
+
+			// Disable align left/right of the feat image
+			&.alignleft,
+			&.alignright {
+				float: none;
+				width: auto;
+				max-width: none;
+			}
 		}
 	}
 }
