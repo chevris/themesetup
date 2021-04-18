@@ -1,27 +1,27 @@
 .wp-block-pullquote {
-	padding: calc(2 * var(--global-spacing-unit)) 0;
-	border-width: var(--pullquote-border-width);
-	border-color: currentColor;
-	position: relative;
+	border: none;
+	padding: 0;
+	text-align: left;
 
-	blockquote::before {
-		color: currentColor;
-		content: "\201C";
-		display: block;
-		position: relative;
-		left: 0;
-		font-size: 3rem;
-		font-weight: 500;
-		line-height: 1;
+	blockquote {
+		padding: 1.45em 0 0;
+		font-size: 1.5rem;
+
+		&:before {
+			position: absolute;
+			top: 0;
+		}
+
+		&:not(.has-text-color):before {
+			color: var(--global-cl-accent);
+		}
 	}
 
 	p {
 		font-family: var(--pullquote-ff);
 		font-size: var(--pullquote-fs);
-		font-style: var(--pullquote-font-style);
-		font-weight: 700;
-		letter-spacing: var(--pullquote-letter-spacing);
 		line-height: var(--pullquote-lh);
+		font-style: var(--pullquote-font-style);
 		margin: 0;
 	}
 
@@ -29,33 +29,16 @@
 	cite,
 	footer {
 		display: block;
-		font-size: var(--global-fs-xs);
-		font-style: var(--pullquote-font-style);
+		font-size: var(--global-fs-base);
+		font-style: normal;
 		text-transform: none;
+		margin-top: 1rem;
 	}
 
-	&.alignwide blockquote,
-	&.alignfull blockquote {
-		max-width: var(--global-alignwide-width);
-		margin-left: auto;
-		margin-right: auto;
-	}
-
+	// Style: Solid
 	&.is-style-solid-color {
 
-		padding: calc(2.5 * var(--global-spacing-unit));
-
-		@include media(tablet-plus) {
-			padding: calc(5 * var(--global-spacing-unit));
-		}
-
-
-		blockquote::before {
-			text-align: left;
-		}
-
 		blockquote {
-			margin: 0;
 			max-width: 100%;
 
 			p {
@@ -63,9 +46,8 @@
 			}
 		}
 
-		&.alignleft,
-		&.alignright {
-			padding: var(--global-spacing-unit);
+		&.has-background {
+			padding: var(--global-spacing-v) var(--global-spacing-h);
 		}
 	}
 }

@@ -178,7 +178,9 @@
 
 @mixin editor-innerblock-vertical-margins($container) {
 
-	#{$container} > [data-block] {
+	#{$container} > [data-block],
+	#{$container} > [data-align="wide"],
+	#{$container} > [data-align="full"] {
 		margin-top: calc(0.666 * var(--global-spacing-v));
 		margin-bottom: calc(0.666 * var(--global-spacing-v));
 

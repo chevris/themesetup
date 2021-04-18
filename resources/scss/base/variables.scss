@@ -154,17 +154,15 @@ $baseline-unit: 10px;
 
 	/* Block: Pull quote */
 	--pullquote-ff: var(--global-ff-primary);
-	--pullquote-fs: var(--heading-fs-h3);
-	--pullquote-font-style: normal;
-	--pullquote-letter-spacing: var(--heading-letter-spacing-h3);
+	--pullquote-fs: var(--global-fs-xl);
 	--pullquote-lh: var(--heading-lh);
-	--pullquote-border-width: 3px;
+	--pullquote-font-style: italic;
 
 	/* Block: Quote */
-	--quote-fs: var(--global-fs-md);
+	--quote-fs: var(--global-fs-base);
 	--quote-fs-large: var(--global-fs-xl);
-	--quote-font-style: normal;
-	--quote-font-style-large: normal;
+	--quote-font-style: italic;
+	--quote-font-style-large: italic;
 	--quote-lh: var(--global-lh);
 	--quote-lh-large: 1.35;
 
