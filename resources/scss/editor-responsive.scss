@@ -1,0 +1,21 @@
+#start-resizable-editor-section {
+	display: none;
+}
+
+@media (max-width: 600px) {
+
+	// .wp-block-media-text .wp-block-media-text__content {
+	// 	color: rgb(190, 28, 28) !important;
+	// }
+}
+
+@media (min-width: 600px) {
+
+	// .wp-block-media-text .wp-block-media-text__content {
+	// 	text-decoration: underline;
+	// }
+}
+
+#end-resizable-editor-section {
+	display: none;
+}

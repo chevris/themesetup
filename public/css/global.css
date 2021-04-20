@@ -130,8 +130,7 @@
   --quote-lh: var(--global-lh);
   --quote-lh-large: 1.35;
   /* Block: Separator */
-  --separator-cl-border: var(--global-cl-border);
-  --separator-height: 1px;
+  --separator-height: 2px;
   /* Block: Table */
   --table-cl-stripes-border: var(--global-cl-light-gray);
   --table-cl-stripes-background: var(--global-cl-light-gray);
@@ -384,25 +383,6 @@ input[type=reset]:focus {
 /**
  * Forms
  */
-form > * {
-  margin-top: calc(0.666 * var(--global-spacing-v));
-  margin-bottom: calc(0.666 * var(--global-spacing-v));
-}
-@media only screen and (min-width: 600px) {
-  form > * {
-    margin-top: var(--global-spacing-v);
-    margin-bottom: var(--global-spacing-v);
-  }
-}
-
-form > *:first-child {
-  margin-top: 0;
-}
-
-form > *:last-child {
-  margin-bottom: 0;
-}
-
 label {
   display: block;
   font-size: var(--form-fs);
@@ -1901,8 +1881,14 @@ pre.wp-block-preformatted {
 .wp-block-search .wp-block-search__input {
   border: var(--form-width-border) solid var(--form-cl-border);
 }
-.wp-block-search .wp-block-search__input:focus {
-  outline-offset: -6px;
+.wp-block-search .wp-block-search__input::-moz-placeholder {
+  color: var(--global-cl-gray);
+}
+.wp-block-search .wp-block-search__input:-ms-input-placeholder {
+  color: var(--global-cl-gray);
+}
+.wp-block-search .wp-block-search__input::placeholder {
+  color: var(--global-cl-gray);
 }
 .wp-block-search button.wp-block-search__button {
   -webkit-appearance: none;
@@ -1924,7 +1910,8 @@ pre.wp-block-preformatted {
   border-style: solid;
   border-width: var(--button-border-width);
   border-color: transparent;
-  line-height: 1;
+  background: var(--global-cl-accent);
+  color: var(--global-cl-on-accent);
 }
 .wp-block-search button.wp-block-search__button:hover, .wp-block-search button.wp-block-search__button:focus {
   text-decoration: underline;
@@ -1934,8 +1921,8 @@ pre.wp-block-preformatted {
   padding: 6px calc(0.5 * var(--button-padding-h));
 }
 .wp-block-search button.wp-block-search__button.has-icon svg {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   fill: currentColor;
 }
 .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper {
@@ -1957,15 +1944,14 @@ pre.wp-block-preformatted {
 }
 
 hr.wp-block-separator {
-  border-bottom: var(--separator-height) solid var(--separator-cl-border);
+  border-bottom: var(--separator-height) solid currentColor;
   opacity: 1;
-}
-[class*=has-background] hr.wp-block-separator {
-  border-color: currentColor;
 }
 hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
   width: 100px;
-  max-width: 100px;
+}
+hr.wp-block-separator.is-style-wide {
+  border-bottom-width: var(--separator-height);
 }
 hr.wp-block-separator:not(.is-style-dots).alignwide {
   max-width: var(--global-alignwide-width);
@@ -1979,67 +1965,79 @@ hr.wp-block-separator.is-style-dots:before {
   padding-left: var(--global-fs-sm);
 }
 
-table,
-.wp-block-table {
-  width: 100%;
-  min-width: 240px;
-  border-collapse: collapse;
-  overflow: hidden;
+.wp-block-social-links[class*=is-style-logos-only] .wp-social-link {
+  background: none;
+  padding: 0;
 }
+.wp-block-social-links.is-style-logos-only-monochrome .wp-social-link {
+  color: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+table caption,
 table thead,
-table tfoot,
-.wp-block-table thead,
-.wp-block-table tfoot {
+table th,
+table td,
+table tfoot {
+  border-color: var(--global-cl-border);
+}
+table caption,
+table th,
+table td {
+  padding: 0.75rem;
+  line-height: 1.4;
+}
+table th,
+table td {
+  border: 1px solid var(--global-cl-border);
+  overflow: visible;
+}
+table th {
+  font-weight: 700;
+}
+table caption {
+  font-weight: 700;
   text-align: center;
 }
-table th,
-.wp-block-table th {
-  font-family: var(--heading-ff);
+table thead {
+  border-bottom: 3px solid var(--global-cl-border);
 }
-table td,
-table th,
-.wp-block-table td,
-.wp-block-table th {
-  padding: calc(0.5 * var(--global-spacing-unit));
-  border: 1px solid;
+table tfoot {
+  border-top: 3px solid var(--global-cl-border);
 }
-table .has-background,
-table .has-background thead tr,
-table .has-background tfoot tr,
-table .has-background tbody tr,
+
 .wp-block-table .has-background,
 .wp-block-table .has-background thead tr,
 .wp-block-table .has-background tfoot tr,
 .wp-block-table .has-background tbody tr {
   color: var(--table-cl-has-background-text);
 }
-table.is-style-stripes,
 .wp-block-table.is-style-stripes {
   border-color: var(--table-cl-stripes-border);
 }
-table.is-style-stripes th,
-table.is-style-stripes td,
 .wp-block-table.is-style-stripes th,
 .wp-block-table.is-style-stripes td {
   border-width: 0;
 }
-table.is-style-stripes tbody tr:nth-child(odd),
 .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
   background-color: var(--table-cl-stripes-background);
 }
-table.is-style-stripes .has-background tbody tr:nth-child(odd),
 .wp-block-table.is-style-stripes .has-background tbody tr:nth-child(odd) {
   background-color: var(--global-cl-white-90);
 }
 
-table.wp-calendar-table caption {
-  font-weight: bold;
-  text-align: left;
-  margin-bottom: var(--global-spacing-unit);
+.wp-block-calendar .wp-calendar-table caption {
   color: currentColor;
 }
-table.wp-calendar-table td,
-table.wp-calendar-table th {
+.wp-block-calendar .wp-calendar-table td,
+.wp-block-calendar .wp-calendar-table th {
   background: transparent;
   border: 0;
   text-align: center;
@@ -2047,28 +2045,19 @@ table.wp-calendar-table th {
   vertical-align: middle;
   word-break: normal;
 }
-table.wp-calendar-table th {
+.wp-block-calendar .wp-calendar-table th {
   font-weight: bold;
 }
-table.wp-calendar-table thead,
-table.wp-calendar-table tbody {
+.wp-block-calendar .wp-calendar-table thead,
+.wp-block-calendar .wp-calendar-table tbody {
   color: currentColor;
   border: 1px solid;
 }
 
 .wp-calendar-nav {
-  text-align: left;
-  margin-top: calc(var(--global-spacing-unit) / 2);
-}
-.wp-calendar-nav svg {
-  height: 1em;
-  vertical-align: middle;
-}
-.wp-calendar-nav svg path {
-  fill: currentColor;
-}
-.wp-calendar-nav .wp-calendar-nav-next {
-  float: right;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.75rem 0 0;
 }
 
 .align-wrap > * {

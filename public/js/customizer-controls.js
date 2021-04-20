@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -432,7 +432,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var prop
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!***************************************************!*\
   !*** multi ./resources/js/customizer-controls.js ***!
   \***************************************************/

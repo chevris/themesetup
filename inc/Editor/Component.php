@@ -32,7 +32,7 @@ class Component implements Component_Interface {
 	public function initialize() {
 		add_action( 'after_setup_theme', [ $this, 'action_add_editor_support' ] );
 		add_action( 'init', [ $this, 'action_register_block_styles' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'action_enqueue_editor_scripts' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'action_enqueue_editor_styles' ] );
 	}
 
 	/**
@@ -55,7 +55,7 @@ class Component implements Component_Interface {
 
 		// Add support for default slightly more opinionated block styles for the front end.
 		// @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#default-block-styles.
-		add_theme_support( 'wp-block-styles' );
+		// add_theme_support( 'wp-block-styles' );
 
 		// Adjust the color of the UI to work on dark backgrounds.
 		// @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#dark-backgrounds.
@@ -319,19 +319,30 @@ class Component implements Component_Interface {
 				'label' => esc_html__( 'Overlap gradient', 'themesetup' ),
 			]
 		);
+
+		// Social-links: Logo only monochrome
+		register_block_style(
+			'core/social-links',
+			[
+				'name'  => 'logos-only-monochrome',
+				'label' => esc_html__( 'Logos Only Monochrome', 'themesetup' ),
+			]
+		);
 	}
 
 	/**
 	 * Enqueue scripts for the editor.
 	 */
-	public function action_enqueue_editor_scripts() {
+	public function action_enqueue_editor_styles() {
 
-		wp_enqueue_script(
-			'wp-rig-editor-preview',
-			get_theme_file_uri( '/public/js/editor-preview.js' ),
+		// Enqueue editor styles.
+		$editor_css_uri = get_theme_file_uri( '/public/css/editor-responsive.css' );
+		$editor_css_dir = get_theme_file_path( '/public/css/editor-responsive.css' );
+		wp_enqueue_style(
+			'wp-rig-editor-customizer',
+			$editor_css_uri,
 			[],
-			themesetup()->get_asset_version( get_theme_file_path( '/public/js/editor-preview.js' ) ),
-			true
+			themesetup()->get_asset_version( $editor_css_dir )
 		);
 	}
 }

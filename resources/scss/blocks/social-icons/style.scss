@@ -1,1 +1,19 @@
-.wp-block-social-links {}
+.wp-block-social-links {
+
+	// Style: Logo only & Logo only monochrome
+	&[class*="is-style-logos-only"] {
+
+		.wp-social-link {
+			background: none;
+			padding: 0;
+		}
+	}
+
+	// Style: Logo only monochrome
+	&.is-style-logos-only-monochrome {
+
+		.wp-social-link {
+			color: inherit;
+		}
+	}
+}

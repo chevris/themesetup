@@ -1,24 +1,52 @@
-table,
-.wp-block-table {
-	width: 100%;
-	min-width: 240px;
+table {
 	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+	max-width: 100%;
 	overflow: hidden;
+	width: 100%;
 
+	caption,
 	thead,
+	th,
+	td,
 	tfoot {
+		border-color: var(--global-cl-border);
+	}
+
+	caption,
+	th,
+	td {
+		padding: 0.75rem;
+		line-height: 1.4;
+	}
+
+	th,
+	td {
+		border: 1px solid var(--global-cl-border);
+		overflow: visible;
+	}
+
+	th {
+		font-weight: 700;
+	}
+
+	caption {
+		font-weight: 700;
 		text-align: center;
 	}
 
-	th {
-		font-family: var(--heading-ff);
+	thead {
+		border-bottom: 3px solid var(--global-cl-border);
 	}
 
-	td,
-	th {
-		padding: calc(0.5 * var(--global-spacing-unit));
-		border: 1px solid;
+	tfoot {
+		border-top: 3px solid var(--global-cl-border);
 	}
+}
+
+// Block: Table
+.wp-block-table {
 
 	.has-background,
 	.has-background thead tr,
@@ -45,50 +73,39 @@ table,
 	}
 }
 
-table.wp-calendar-table {
+// Block: Calendar
+.wp-block-calendar {
 
-	caption {
-		font-weight: bold;
-		text-align: left;
-		margin-bottom: var(--global-spacing-unit);
-		color: currentColor;
-	}
+	.wp-calendar-table {
 
-	td,
-	th {
-		background: transparent;
-		border: 0;
-		text-align: center;
-		line-height: 2;
-		vertical-align: middle;
-		word-break: normal;
-	}
+		caption {
+			color: currentColor;
+		}
 
-	th {
-		font-weight: bold;
-	}
+		td,
+		th {
+			background: transparent;
+			border: 0;
+			text-align: center;
+			line-height: 2;
+			vertical-align: middle;
+			word-break: normal;
+		}
 
-	thead,
-	tbody {
-		color: currentColor;
-		border: 1px solid;
+		th {
+			font-weight: bold;
+		}
+
+		thead,
+		tbody {
+			color: currentColor;
+			border: 1px solid;
+		}
 	}
 }
 
 .wp-calendar-nav {
-	text-align: left;
-	margin-top: calc(var(--global-spacing-unit) / 2);
-
-	svg {
-		height: 1em;
-		vertical-align: middle;
-
-		path {
-			fill: currentColor;
-		}
-	}
-
-	.wp-calendar-nav-next {
-		float: right;
-	}
+	display: flex;
+	justify-content: space-between;
+	margin: 0.75rem 0 0;
 }

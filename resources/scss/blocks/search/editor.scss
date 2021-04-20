@@ -11,26 +11,22 @@
 	.wp-block-search__input {
 
 		@include input-style();
-
-		&:focus {
-			outline-offset: -6px;
-		}
+		color: var(--global-cl-gray);
 	}
 
 	.wp-block-search__button.wp-block-search__button {
 
 		@include button-style();
-		// box-shadow: none;
-		// margin-left: 0;
-		line-height: 1;
+		background: var(--global-cl-accent);
+		color: var(--global-cl-on-accent);
 
 		&.has-icon {
 			padding: 6px calc(0.5 * var(--button-padding-h));
 			display: inherit;
 
 			svg {
-				width: 40px;
-				height: 40px;
+				width: 32px;
+				height: 32px;
 			}
 		}
 	}

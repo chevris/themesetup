@@ -67,7 +67,6 @@ mix.js( `${devPath}/js/main.js`, 'js' );
 mix.js( `${devPath}/js/customizer-preview.js`, 'js' );
 mix.js( `${devPath}/js/customizer-pane.js`, 'js' );
 mix.react( `${devPath}/js/customizer-controls.js`, 'js' );
-mix.js( `${devPath}/js/editor-preview.js`, 'js' );
 
 /*
  * Compile CSS.
@@ -76,6 +75,7 @@ mix.js( `${devPath}/js/editor-preview.js`, 'js' );
 
 // Compile SASS/CSS.
 mix.sass( `${devPath}/scss/editor.scss`, 'css' );
+mix.sass( `${devPath}/scss/editor-responsive.scss`, 'css' );
 mix.sass( `${devPath}/scss/global.scss`, 'css' );
 mix.sass( `${devPath}/scss/in-body/header.scss`, 'css/in-body' );
 mix.sass( `${devPath}/scss/in-body/singular-entry-title.scss`, 'css/in-body' );
