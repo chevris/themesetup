@@ -227,6 +227,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file'   => 'global.css',
 				'global' => true,
 			],
+			'themesetup-front' => [
+				'file'   => 'front.css',
+				'global' => true,
+			],
 			'themesetup-widgets' => [
 				'file'             => 'in-body/widgets.css',
 				'preload_callback' => function() {

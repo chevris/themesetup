@@ -1,0 +1,9 @@
+.wp-block-search {
+
+	.wp-block-search__button.wp-block-search__button {
+		@include button-style();
+
+		background-color: var(--global-cl-accent);
+		color: var(--global-cl-on-accent);
+	}
+}

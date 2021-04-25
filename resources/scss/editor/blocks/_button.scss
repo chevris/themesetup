@@ -1,0 +1,6 @@
+.wp-block-button__link {
+	@include button-style();
+
+	background-color: var(--global-cl-accent);
+	color: var(--global-cl-on-accent);
+}

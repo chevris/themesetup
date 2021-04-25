@@ -1,0 +1,126 @@
+// Override default rule that limits the max width of all .wp-block
+.wp-block {
+	max-width: 100%;
+}
+
+// Override default max-width of align-wide blocks
+.wp-block[data-align="wide"] {
+	max-width: none;
+}
+
+//
+// 1rst level block alignments
+//
+
+.block-editor-block-list__layout.is-root-container > * {
+	max-width: var(--global-aligncontent-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.block-editor-block-list__layout.is-root-container > .wp-block {
+
+	&[data-align="wide"],
+	&.alignwide {
+		max-width: var(--global-alignwide-width);
+	}
+
+	&[data-align="full"],
+	&.alignfull {
+		max-width: none;
+	}
+}
+
+.aligncenter img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-block[data-align="left"] > *:not(.is-resized),
+.wp-block[data-align="right"] > *:not(.is-resized) {
+	width: 100%;
+	text-align: center;
+	max-width: 50%;
+}
+
+.wp-block[data-align="left"] > * {
+	margin-right: var(--global-spacing-h);
+}
+
+.wp-block[data-align="right"] > * {
+	margin-left: var(--global-spacing-h);
+}
+
+.wp-block[data-align="left"] figcaption,
+.wp-block[data-align="right"] figcaption {
+	margin-bottom: 0;
+}
+
+//
+// Nested blocks alignment
+//
+
+[class*="inner-container"] {
+
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+}
+
+// Parent has background
+[class*="has-background"] > [class*="inner-container"] {
+
+
+	> *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [data-align="wide"] {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [data-align="full"] {
+		max-width: none;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Parent is alignwide
+[data-align="wide"] {
+
+	> [data-block] > [class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: min(100%, var(--global-content-max-width));
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [class*="has-background"] [class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Parent is alignfull
+[data-align="full"] {
+
+	[class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	[class*="inner-container"] > [data-align="wide"] {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

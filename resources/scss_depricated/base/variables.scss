@@ -1,0 +1,205 @@
+/**
+ * Variables
+ */
+
+// Vertical Rhythm Multiplier
+$baseline-unit: 10px;
+
+// Main CSS variables
+:root {
+
+	/* Global Font Family */
+	// If not overridden with custom fonts, the theme rely on system fonts for performance reasons.
+	--global-ff-primary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+	--global-ff-secondary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+
+	/* Global Font Size */
+	// --global-fs-xs: 0.875rem; // 14px / 16px
+	// --global-fs-sm: 1rem; // 16px / 16px
+	// --global-fs-md: 1.125rem; // 18px / 16px
+	// --global-fs-lg: 1.25rem; // 20px / 16px
+	// --global-fs-xl: 1.5rem; // 24px / 16px
+	// --global-fs-xxl: 2.25rem; // 36px / 16px
+	// --global-fs-xxxl: 4rem; // 64px / 16px
+
+	// --global-fs-base: 1.125rem; // 18px / 16px // Can be overridden but headings, etc... must be ajusted.
+	--global-fs-base: 18px;
+	--global-letter-spacing: normal;
+	--global-lh: 1.7;
+
+	// Match font size utility classes
+	--global-fs-small: .882em;
+	--global-fs-normal: 1em;
+	--global-fs-large: 1.176em;
+	--global-fs-larger: 1.294em;
+
+	/* Global Border Width */
+	--global-border-width: 1px;
+
+	/* Global Colors */
+	// Palette
+	--global-cl-black: #000;
+	--global-cl-white: #fff;
+	--global-cl-white-50: rgba(255, 255, 255, 0.5); // Used for disabled buttons
+	--global-cl-white-90: rgba(255, 255, 255, 0.9); // Used in form fields.
+	--global-cl-dark-gray: #28303d;
+	--global-cl-gray: #39414d;
+	--global-cl-light-gray: #f0f0f0;
+	--global-cl-green: #d1e4dd;
+	--global-cl-blue: #d1dfe4;
+	--global-cl-purple: #d1d1e4;
+	--global-cl-red: #e4d1d1;
+	--global-cl-orange: #e4dad1;
+	--global-cl-yellow: #eeeadd;
+
+	--global-cl-bg-light: var(--global-cl-white);
+	--global-cl-text-primary-light: var(--global-cl-dark-gray);
+	--global-cl-text-secondary-light: var(--global-cl-gray);
+	--global-cl-accent-light: #{$theme-color-identity};
+	--global-cl-on-accent-light: var(--global-cl-white);
+	--links-cl-text-light: var(--global-cl-accent-light);
+
+	--global-cl-bg-dark: var(--global-cl-dark-gray);
+	--global-cl-text-primary-dark: var(--global-cl-light-gray);
+	--global-cl-text-secondary-dark: var(--global-cl-light-gray);
+	--global-cl-accent-dark: #{$theme-color-identity-dark};
+	--global-cl-on-accent-dark: var(--global-cl-white);
+	--links-cl-text-dark: currentColor;
+
+	--global-cl-bg: var(--global-cl-bg-light);
+	--global-cl-text-primary: var(--global-cl-text-primary-light);
+	--global-cl-text-secondary: var(--global-cl-text-secondary-light);
+	--global-cl-accent: var(--global-cl-accent-light);
+	--global-cl-on-accent: var(--global-cl-on-accent-light);
+
+	--global-cl-border: var(--global-cl-text-secondary);
+
+	/* Global Spacing */
+	--global-spacing-unit: #{2 * $baseline-unit}; // 20px
+	--global-spacing-h: #{2 * $baseline-unit}; // 20px
+	--global-spacing-v: #{2.5 * $baseline-unit}; // 35px.
+
+	/* Global Alignments */
+	--global-content-max-width: 610px;
+	--global-wide-max-width: 1240px;
+
+	--global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-content-max-width));
+	--global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-wide-max-width));
+	--global-alignright-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
+	--global-alignleft-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
+
+	/* Global Shadows */
+	--global-elevation-1: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+	--global-elevation-2: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+	--global-elevation-3: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
+
+	/* Headings */
+	--heading-ff: var(--global-ff-primary);
+
+	--heading-fs-h1: var(--global-fs-larger);
+	--heading-fs-h2: var(--global-fs-larger);
+	--heading-fs-h3: var(--global-fs-large);
+	--heading-fs-h4: var(--global-fs-normal);
+	--heading-fs-h5: var(--global-fs-normal);
+	--heading-fs-h6: var(--global-fs-normal);
+
+	--heading-letter-spacing-h6: 0.05em;
+	--heading-letter-spacing-h5: 0.05em;
+	--heading-letter-spacing-h4: var(--global-letter-spacing);
+	--heading-letter-spacing-h3: var(--global-letter-spacing);
+	--heading-letter-spacing-h2: var(--global-letter-spacing);
+	--heading-letter-spacing-h1: var(--global-letter-spacing);
+
+	--heading-lh: 1.3;
+
+	--heading-fw: normal;
+	--heading-fw-strong: 600;
+
+	/* Forms */
+	--form-fs: var(--global-fs-small);
+	--form-lh: var(--global-lh);
+	--form-cl-text: var(--global-cl-dark-gray); // Text color in input fields is always dark over light background.
+	--form-cl-ranged: var(--global-cl-text-primary);
+	--form-weight-label: 500;
+	--form-cl-border: var(--global-cl-border);
+	--form-width-border: 2px;
+	--form-border-radius: 0;
+	--form-spacing-unit: calc(0.5 * var(--global-spacing-unit));
+
+	/* Links */
+	--links-cl-text: var(--links-cl-text-light);
+
+	/* Lists */
+	--list-ff: var(--global-ff-secondary);
+	--list-fs-title: var(--heading-fs-h3);
+
+	/* Buttons */
+	// Fonts
+	--button-ff: var(--global-ff-primary);
+	--button-fs: var(--global-fs-small);
+	--button-fw: 500;
+	--button-lh: 1.5;
+	// Borders
+	--button-border-width: 2px;
+	--button-border-radius: 0;
+	// Spacing
+	--button-padding-v: 10px;
+	--button-padding-h: calc(1.25 * var(--button-padding-v));
+	// Shadows
+	--button-shadow: var(--global-elevation-1);
+	--button-shadow-hover: var(--global-elevation-2);
+	--button-shadow-active: var(--global-elevation-3);
+
+	/* Block: Latest posts */
+	--latest-posts-ff-title: var(--heading-ff);
+	--latest-posts-fs-title: var(--heading-fs-h3);
+	--latest-posts-fs-content: var(--global-fs-base);
+	--latest-posts-shadow: var(--global-elevation-1);
+	--latest-posts-shadow-hover: var(--global-elevation-2);
+
+	/* Block: Pull quote */
+	--pullquote-ff: var(--global-ff-primary);
+	--pullquote-fs: var(--global-fs-larger);
+	--pullquote-lh: var(--heading-lh);
+	--pullquote-font-style: italic;
+
+	/* Block: Quote */
+	--quote-fs: var(--global-fs-base);
+	--quote-fs-large: var(--global-fs-larger);
+	--quote-font-style: italic;
+	--quote-font-style-large: italic;
+	--quote-lh: var(--global-lh);
+	--quote-lh-large: 1.35;
+
+	/* Block: Separator */
+	// --separator-cl-border: var(--global-cl-border);
+	--separator-height: 2px;
+
+	/* Block: Table */
+	--table-cl-stripes-border: var(--global-cl-light-gray);
+	--table-cl-stripes-background: var(--global-cl-light-gray);
+	--table-cl-has-background-text: var(--global-cl-dark-gray);
+
+	/* Admin-bar height */
+	--global-admin-bar-height: 0;
+
+}
+
+// Dark mode color CSS variables
+.is-dark-theme.is-dark-theme {
+	--global-cl-bg: var(--global-cl-bg-dark);
+	--global-cl-text-primary: var(--global-cl-text-primary-dark);
+	--global-cl-text-secondary: var(--global-cl-text-secondary-dark);
+	--global-cl-accent: var(--global-cl-accent-dark);
+	--global-cl-on-accent: var(--global-cl-on-accent-dark);
+	--links-cl-text: var(--links-cl-text-dark);
+}
+
+// Admin bar
+.admin-bar {
+	--global-admin-bar-height: 32px;
+
+	@media only screen and (max-width: 782px) {
+		--global-admin-bar-height: 46px;
+	}
+}

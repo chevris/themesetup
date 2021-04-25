@@ -1,0 +1,23 @@
+.wp-block-gallery {
+
+	.blocks-gallery-item {
+
+		figure {
+			justify-content: center;
+		}
+
+		figcaption {
+			// Text color is always white to account for default gradient background
+			color: var(--global-cl-white);
+			font-size: var(--global-fs-small);
+
+			a {
+				color: var(--global-cl-white);
+			}
+		}
+	}
+
+	.blocks-gallery-caption {
+		margin-top: 0;
+	}
+}

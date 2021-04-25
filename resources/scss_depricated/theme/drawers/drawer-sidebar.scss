@@ -1,0 +1,52 @@
+.drawer-sidebar-js {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index: 999999;
+	overflow: auto;
+
+	/* Hidden in the left */
+	right: auto;
+	left: -200%;
+	transition: left 0.2s;
+}
+
+/* Open from the left */
+.sidebar-drawer-opened .drawer-sidebar-js {
+	left: 0;
+}
+
+/**
+ * Common style for amp and js slide-out menu
+ */
+.drawer-sidebar {
+	background-color: #fff;
+	width: 100%; /* 90vw; */
+	max-width: 100vw; /* 90vw; */
+}
+
+/**
+ * Drawer sidebar toggle
+ */
+
+.drawer-sidebar-toggle {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	color: inherit;
+
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline-offset: 0;
+	}
+
+	svg {
+		margin-right: 0.25rem;
+	}
+}

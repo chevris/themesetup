@@ -130,17 +130,6 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 
 /***/ }),
 
-/***/ "./resources/scss/editor-responsive.scss":
-/*!***********************************************!*\
-  !*** ./resources/scss/editor-responsive.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9lZGl0b3ItcmVzcG9uc2l2ZS5zY3NzPzhjM2MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Nzcy9lZGl0b3ItcmVzcG9uc2l2ZS5zY3NzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gcmVtb3ZlZCBieSBleHRyYWN0LXRleHQtd2VicGFjay1wbHVnaW4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/scss/editor-responsive.scss\n");
-
-/***/ }),
-
 /***/ "./resources/scss/editor.scss":
 /*!************************************!*\
   !*** ./resources/scss/editor.scss ***!
@@ -152,6 +141,17 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 
 /***/ }),
 
+/***/ "./resources/scss/front.scss":
+/*!***********************************!*\
+  !*** ./resources/scss/front.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9mcm9udC5zY3NzPzEyZmEiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Nzcy9mcm9udC5zY3NzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gcmVtb3ZlZCBieSBleHRyYWN0LXRleHQtd2VicGFjay1wbHVnaW4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/scss/front.scss\n");
+
+/***/ }),
+
 /***/ "./resources/scss/global.scss":
 /*!************************************!*\
   !*** ./resources/scss/global.scss ***!
@@ -159,7 +159,7 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9nbG9iYWwuc2Nzcz9mNjQyIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3Njc3MvZ2xvYmFsLnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/scss/global.scss\n");
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Nzcy9nbG9iYWwuc2Nzcz85OWI0Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3Njc3MvZ2xvYmFsLnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/scss/global.scss\n");
 
 /***/ }),
 
@@ -230,16 +230,16 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/main.js ./resources/scss/editor.scss ./resources/scss/editor-responsive.scss ./resources/scss/global.scss ./resources/scss/in-body/header.scss ./resources/scss/in-body/singular-entry-title.scss ./resources/scss/in-body/archive-content-title.scss ./resources/scss/in-body/archive-loop.scss ./resources/scss/in-body/widgets.scss ./resources/scss/in-body/comments.scss ./resources/scss/customizer-preview.scss ./resources/scss/customizer-pane.scss ./resources/scss/customizer-controls.scss ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/main.js ./resources/scss/editor.scss ./resources/scss/global.scss ./resources/scss/front.scss ./resources/scss/in-body/header.scss ./resources/scss/in-body/singular-entry-title.scss ./resources/scss/in-body/archive-content-title.scss ./resources/scss/in-body/archive-loop.scss ./resources/scss/in-body/widgets.scss ./resources/scss/in-body/comments.scss ./resources/scss/customizer-preview.scss ./resources/scss/customizer-pane.scss ./resources/scss/customizer-controls.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/js/main.js */"./resources/js/main.js");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/editor.scss */"./resources/scss/editor.scss");
-__webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/editor-responsive.scss */"./resources/scss/editor-responsive.scss");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/global.scss */"./resources/scss/global.scss");
+__webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/front.scss */"./resources/scss/front.scss");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/in-body/header.scss */"./resources/scss/in-body/header.scss");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/in-body/singular-entry-title.scss */"./resources/scss/in-body/singular-entry-title.scss");
 __webpack_require__(/*! /home/teva/Local Sites/devsite/app/public/wp-content/themes/themesetup/resources/scss/in-body/archive-content-title.scss */"./resources/scss/in-body/archive-content-title.scss");

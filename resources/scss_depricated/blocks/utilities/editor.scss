@@ -1,0 +1,201 @@
+//
+// Editor UI styles
+//
+
+// Post title style
+.wp-block.editor-post-title__block {
+	max-width: var(--global-alignwide-width);
+	font-family: var(--heading-ff);
+
+	.editor-post-title__input {
+		font-size: var(--heading-fs-h1);
+		font-weight: var(--heading-fw);
+		line-height: var(--heading-lh);
+	}
+}
+
+// Make sure the button with the plus sign inside it that opens the UI for inserting a new block in group, column blocks, is visible.
+.block-editor-button-block-appender {
+	color: currentColor;
+	box-shadow: inset 0 0 0 1px currentColor;
+}
+
+// Hightlight innerblocks
+.wp-block-group,
+.wp-block-cover,
+.wp-block-columns {
+
+	// &:hover, // Only innerblocks for now.
+	.wp-block:hover {
+
+		&::before {
+			content: "";
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			border: 1px dashed var(--wp-admin-theme-color-darker-20);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&::after {
+			content: attr(data-title);
+			position: absolute;
+			top: -20px;
+			left: unset;
+			right: 0;
+			padding: 0 8px;
+			font-size: 11px;
+			background: var(--wp-admin-theme-color-darker-20);//#404040;
+			color: #fff;
+			display: inline-block;
+			height: 20px;
+		}
+	}
+}
+
+// Override the editor rule that limits the max width of .wp-block to 580px
+.wp-block {
+	max-width: 100%;
+}
+
+//
+// Block vertical spacing
+//
+
+// [data-block] {
+// 	margin-top: var(--global-spacing-v);
+// 	margin-bottom: var(--global-spacing-v);
+// }
+@include editor-innerblock-vertical-margins(".block-editor-block-list__layout.is-root-container");
+
+//
+// Horizontal Alignments
+//
+
+// 1rst level block alignments
+.block-editor-block-list__layout.is-root-container > * {
+	max-width: var(--global-aligncontent-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.block-editor-block-list__layout.is-root-container > .wp-block {
+
+	&[data-align="wide"],
+	&.alignwide {
+		max-width: var(--global-alignwide-width);
+	}
+
+	&[data-align="full"],
+	&.alignfull {
+		max-width: none;
+	}
+}
+
+// Align center
+.aligncenter img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+// Align left & right
+.wp-block[data-align="left"] > *:not(.is-resized),
+.wp-block[data-align="right"] > *:not(.is-resized) {
+	width: 100%;
+	text-align: center;
+
+	@include media(mobile) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	@include media(tablet-plus) {
+		max-width: 50%;
+	}
+}
+
+.wp-block[data-align="left"] > * {
+	margin-right: var(--global-spacing-h);
+}
+
+.wp-block[data-align="right"] > * {
+	margin-left: var(--global-spacing-h);
+}
+
+.wp-block[data-align="left"] figcaption,
+.wp-block[data-align="right"] figcaption {
+	margin-bottom: 0;
+}
+
+//
+// Nested blocks alignment
+//
+
+.wp-block .wp-block {
+	max-width: 100%;
+}
+
+// .wp-block-group.has-background,
+// .wp-block-cover,
+// .wp-block-cover-image {
+// 	padding: var(--global-spacing-v) 0;
+// }
+
+// Parent has background
+[class*="has-background"] > [class*="inner-container"] {
+
+
+	> *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [data-align="wide"] {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [data-align="full"] {
+		max-width: none;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Parent is alignwide
+[data-align="wide"] {
+
+	> [data-block] > [class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: min(100%, var(--global-content-max-width));
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [class*="has-background"] [class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Parent is alignfull
+[data-align="full"] {
+
+	[class*="inner-container"] > *:not([data-align="wide"]):not([data-align="full"]) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	[class*="inner-container"] > [data-align="wide"] {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

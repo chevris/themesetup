@@ -1,0 +1,284 @@
+//
+// Block vertical spacing
+//
+
+@include front-innerblock-vertical-margins(".align-wrap");
+@include front-innerblock-vertical-margins("[class*="inner-container"]");
+
+//
+// Horizontal alignments
+//
+
+// 1rst level block alignments
+.align-wrap > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright),
+.content-align-width {
+	max-width: var(--global-aligncontent-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.align-wrap > .alignwide,
+.wide-align-width {
+	max-width: var(--global-alignwide-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.alignfull,
+.full-align-width {
+	max-width: 100%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	float: none;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+
+	img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.alignleft,
+.alignright {
+	margin-top: 0;
+}
+
+// Do not float left/right on mobile.
+@include media(mobile) {
+
+	// Targeting the .align-wrap class is to ensure these styles only apply when the block isn't nested.
+	.align-wrap > .alignleft,
+	.align-wrap > .alignright {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@include media(tablet-plus) {
+
+	.align-wrap > .alignleft,
+	.align-wrap > .alignright {
+		max-width: calc(0.5 * var(--global-aligncontent-width));
+	}
+
+	.alignleft:not(.is-resized),
+	.alignright:not(.is-resized) {
+		width: 100%;
+	}
+
+	.alignleft {
+
+		/*rtl:ignore*/
+		float: left;
+
+		/*rtl:ignore*/
+		margin-right: var(--global-spacing-h);
+		margin-bottom: var(--global-spacing-v);
+	}
+
+	.align-wrap > .alignleft {
+
+		/*rtl:ignore*/
+		margin-left: var(--global-alignleft-margin);
+	}
+
+	.alignright {
+
+		/*rtl:ignore*/
+		float: right;
+
+		/*rtl:ignore*/
+		margin-left: var(--global-spacing-h);
+		margin-bottom: var(--global-spacing-v);
+	}
+
+	.align-wrap > .alignright {
+
+		/*rtl:ignore*/
+		margin-right: var(--global-alignright-margin);
+	}
+}
+
+// // Make sure siblings of floated elements are top-aligned when nested
+// [class*="inner-container"] > .alignleft + *,
+// [class*="inner-container"] > .alignright + * {
+// 	margin-top: 0;
+// }
+
+//
+// Nested blocks alignment
+//
+
+// .wp-block-group.has-background,
+// .wp-block-cover,
+// .wp-block-cover-image {
+// 	padding: var(--global-spacing-v) 0;
+// }
+
+[class*="inner-container"] {
+
+	> .alignleft,
+	> .alignright {
+		max-width: 100%;
+	}
+
+	@include media(tablet-plus) {
+
+		> .alignleft,
+		> .alignright {
+			max-width: 50%;
+		}
+	}
+}
+
+// Parent has background
+[class*="has-background"] > [class*="inner-container"] {
+
+
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> .alignwide {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> .alignleft,
+	> .alignright {
+
+		@include media(mobile) {
+			max-width: var(--global-aligncontent-width);
+		}
+	}
+
+	> .alignleft {
+
+		/*rtl:ignore*/
+		margin-left: var(--global-spacing-h);
+	}
+
+	> .alignright {
+
+		/*rtl:ignore*/
+		margin-right: var(--global-spacing-h);
+	}
+}
+
+// Parent is alignwide
+.alignwide {
+
+	> [class*="inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+		max-width: min(100%, var(--global-content-max-width));
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&[class*="has-background"] > [class*="inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [class*="inner-container"] > .alignleft {
+		// max-width: 100%;
+		@include media(tablet-plus) {
+			max-width: calc(0.5 * min(100%, var(--global-content-max-width)));
+
+			/*rtl:ignore*/
+			margin-left: calc(0.5 * (100% - min(100%, var(--global-content-max-width))));
+		}
+	}
+
+	> [class*="inner-container"] > .alignright {
+		// max-width: 100%;
+		@include media(tablet-plus) {
+			max-width: calc(0.5 * min(100%, var(--global-content-max-width)));
+
+			/*rtl:ignore*/
+			margin-right: calc(0.5 * (100% - min(100%, var(--global-content-max-width))));
+		}
+	}
+
+	&[class*="has-background"] > [class*="inner-container"] > .alignleft {
+		@include media(tablet-plus) {
+
+			/*rtl:ignore*/
+			margin-left: var(--global-alignleft-margin);
+		}
+	}
+
+	&[class*="has-background"] > [class*="inner-container"] > .alignright {
+		@include media(tablet-plus) {
+
+			/*rtl:ignore*/
+			margin-right: var(--global-alignright-margin);
+		}
+	}
+}
+
+// Parent is alignfull
+.alignfull {
+
+	[class*="inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	[class*="inner-container"] > .alignwide {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	[class*="inner-container"] > .alignleft {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+
+		@include media(tablet-plus) {
+			max-width: calc(0.5 * min(100%, var(--global-content-max-width)));
+
+			/*rtl:ignore*/
+			margin-left: var(--global-alignleft-margin);
+
+			/*rtl:ignore*/
+			margin-right: var(--global-spacing-h);
+		}
+	}
+
+	[class*="inner-container"] > .alignright {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+
+		@include media(tablet-plus) {
+			max-width: calc(0.5 * min(100%, var(--global-content-max-width)));
+
+			/*rtl:ignore*/
+			margin-right: var(--global-alignright-margin);
+
+			/*rtl:ignore*/
+			margin-left: var(--global-spacing-h);
+		}
+	}
+}

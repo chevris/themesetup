@@ -1,0 +1,81 @@
+abbr,
+acronym {
+	cursor: help;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+pre {
+	white-space: pre;
+	overflow-x: auto;
+}
+
+hr {
+	clear: both;
+	border-style: none;
+	border-bottom: var(--separator-height) solid var(--separator-cl-border);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+blockquote {
+	quotes: "" "";
+	position: relative;
+	font-style: italic;
+
+	&:before {
+		content: "\201D";
+		font-family: serif;
+		display: block;
+		font-weight: 700;
+		font-style: normal;
+		color: currentColor;
+
+		font-size: 3em;
+		height: .4em;
+		line-height: .75;
+	}
+
+	cite {
+		display: block;
+		margin-top: 0.5rem;
+		font-style: normal;
+		color: var(--global-cl-text-secondary);
+
+		&:before {
+			content: "";
+			display: inline-block;
+			vertical-align: middle;
+			height: 1px;
+			width: 32px;
+			margin-right: 8px;
+			background-color: currentColor;
+		}
+	}
+}

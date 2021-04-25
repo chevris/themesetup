@@ -1,0 +1,56 @@
+ul,
+ol {
+	font-family: var(--list-ff);
+	padding-left: var(--global-spacing-h);
+	margin: 0;
+}
+
+ul {
+	list-style-type: disc;
+
+	ul {
+		list-style-type: circle;
+	}
+}
+
+ol {
+	list-style-type: decimal;
+
+	ul {
+		list-style-type: circle;
+	}
+}
+
+// Shared with list blocks (archives, categories, latest posts, latest comments)
+.wp-block-archives,
+.wp-block-categories,
+// Include editor markup
+.wp-block-categories > .wp-block-categories__list,
+.wp-block-latest-posts,
+.wp-block-latest-comments {
+	list-style: none;
+	padding-left: 0;
+
+	ul,
+	ol {
+		list-style: inherit;
+	}
+}
+
+.wp-block-archives,
+.wp-block-categories,
+// Include editor markup
+.wp-block-categories > .wp-block-categories__list {
+
+	li {
+		padding: .25em 0;
+
+		> a {
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

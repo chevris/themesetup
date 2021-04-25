@@ -1,0 +1,56 @@
+/**
+ * Site Structure
+ */
+
+.site-content {
+	overflow: hidden;
+}
+
+.entry-content:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+// Sidebar
+.has-sidebar {
+
+	@include media(sidebar-hidden) {
+
+		.site-sidebar {
+			max-width: var(--global-alignwide-width);
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	@include media(sidebar-expanded) {
+
+		.content-area {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) 300px;
+			grid-gap: var(--global-spacing-h);
+			max-width: var(--global-alignwide-width);
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	&.has-sidebar--toggle {
+
+		.site-sidebar {
+			display: none;
+		}
+
+		@include media(sidebar-expanded) {
+
+			.drawer-sidebar-toggle {
+				display: none;
+			}
+
+			.site-sidebar {
+				display: block;
+			}
+		}
+	}
+}

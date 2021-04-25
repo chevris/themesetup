@@ -1,0 +1,18 @@
+@import "../global/variables";
+
+@import "base/_index";
+
+div.editor-styles-wrapper {
+
+	@import "../global/elements/base";
+	@import "../global/elements/media";
+	@import "../global/elements/links";
+	@import "../global/elements/lists";
+	@import "../global/elements/headings";
+	@import "../global/elements/code";
+	@import "../global/blocks/_index";
+	@import "../global/utilities/_index";
+
+}
+
+@import "blocks/_index";

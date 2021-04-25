@@ -1,0 +1,190 @@
+
+// Media queries
+@mixin media( $res ) {
+
+	// Mobile only
+	@if mobile == $res {
+		@media (max-width: $mobile-max) {
+			@content;
+		}
+	}
+
+	// Tablet only
+	@if tablet == $res {
+		@media (min-width: $tablet-min) and (max-width: $tablet-max) {
+			@content;
+		}
+	}
+
+	// Desktop only
+	@if desktop == $res {
+		@media (min-width: $desktop-min) {
+			@content;
+		}
+	}
+
+	// Tablet and plus
+	@if tablet-plus == $res {
+		@media (min-width: $tablet-min) {
+			@content;
+		}
+	}
+
+	// Desktop and plus
+	@if desktop-plus == $res {
+		@media (min-width: $desktop-min) {
+			@content;
+		}
+	}
+
+	// The sidebar is expanded next to main content
+	@if sidebar-expanded == $res {
+		@media (min-width: $sidebar-expanded) {
+			@content;
+		}
+	}
+	// The sidebar is hidden
+	@if sidebar-hidden == $res {
+		@media (max-width: $sidebar-hidden) {
+			@content;
+		}
+	}
+
+}
+
+// Link styles
+@mixin link-style() {
+	cursor: pointer;
+	color: var(--links-cl-text);
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+	transition: all .15s linear;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:focus {
+		text-decoration: none;
+		// outline-offset: 1px;
+		// outline: 2px dashed currentColor;
+	}
+}
+
+@mixin link-naked-style() {
+	cursor: pointer;
+	color: currentColor;
+	text-decoration: none;
+	transition: all .15s linear;
+
+	&:hover {
+		text-decoration: underline;
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
+	}
+}
+
+// Button style
+@mixin button-style() {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: inline-flex;
+	justify-content: center;
+	line-height: var(--button-lh);
+	font-weight: var(--button-fw);
+	font-family: var(--button-ff);
+	font-size: var(--button-fs);
+	border-radius: var(--button-border-radius);
+	padding: var(--button-padding-v) var(--button-padding-h);
+	cursor: pointer;
+	box-shadow: var(--button-shadow);
+	transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1), opacity 15ms linear, background-color 15ms linear;
+	text-decoration: none;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+
+	border-style: solid;
+	border-width: var(--button-border-width);
+	border-color: transparent; // var(--button-cl-bg);
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+		box-shadow: var(--button-shadow-hover);
+	}
+
+	&:active {
+		box-shadow: var(--button-shadow-active);
+	}
+}
+
+// Input style ( text, search, ... )
+@mixin input-style() {
+	font-size: var(--form-fs);
+	border: var(--form-width-border) solid var(--form-cl-border);
+	border-radius: var(--form-border-radius);
+	background-color: var(--global-cl-white-90);
+	color: var(--form-cl-text);
+	line-height: var(--form-lh);
+	padding: var(--form-spacing-unit);
+	max-width: 100%;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:disabled {
+		opacity: 0.7;
+	}
+}
+
+@mixin front-innerblock-vertical-margins($container) {
+
+	#{$container} > * {
+		margin-top: calc(0.666 * var(--global-spacing-v));
+		margin-bottom: calc(0.666 * var(--global-spacing-v));
+
+		@include media(tablet-plus) {
+			margin-top: var(--global-spacing-v);
+			margin-bottom: var(--global-spacing-v);
+		}
+	}
+
+	#{$container} > *:first-child {
+		margin-top: 0;
+	}
+
+	#{$container} > *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@mixin editor-innerblock-vertical-margins($container) {
+
+	#{$container} > [data-block],
+	#{$container} > [data-align="wide"],
+	#{$container} > [data-align="full"] {
+		margin-top: calc(0.666 * var(--global-spacing-v));
+		margin-bottom: calc(0.666 * var(--global-spacing-v));
+
+		@include media(tablet-plus) {
+			margin-top: var(--global-spacing-v);
+			margin-bottom: var(--global-spacing-v);
+		}
+	}
+
+	> #{$container} > [data-block]:first-child {
+		margin-top: 0;
+	}
+
+	> #{$container} > [data-block]:last-child:not(.block-list-appender) {
+		margin-bottom: 0;
+	}
+
+	// // When selected, the last item becomes the second last because of the appender.
+	// .has-child-selected > #{$container} > *:nth-last-child(2),
+	// .is-selected > #{$container} > *:nth-last-child(2) {
+	// 	margin-bottom: 0;
+	// }
+}

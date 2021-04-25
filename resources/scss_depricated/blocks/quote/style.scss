@@ -1,0 +1,37 @@
+.wp-block-quote {
+	border-left: none;
+	font-size: 1rem;
+
+	p {
+		font-size: var(--quote-fs);
+		font-style: var(--quote-font-style);
+		line-height: var(--quote-lh);
+	}
+
+	cite {
+		font-size: var(--global-fs-small);
+		color: var(--global-cl-text-secondary);
+	}
+
+	&.has-text-align-right {
+		border-right: none;
+	}
+
+	&.is-large,
+	&.is-style-large {
+		padding-left: 0;
+		padding-right: 0;
+
+		p {
+			font-size: var(--quote-fs-large);
+			font-style: var(--quote-font-style-large);
+			line-height: var(--quote-lh-large);
+		}
+
+		cite,
+		footer {
+			font-size: var(--global-fs-small);
+			text-align: inherit;
+		}
+	}
+}

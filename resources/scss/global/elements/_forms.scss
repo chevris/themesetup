@@ -1,0 +1,117 @@
+label {
+	display: block;
+	font-size: var(--form-fs);
+	font-weight: var(--form-weight-label);
+	margin-bottom: calc(var(--global-spacing-unit) / 4);
+}
+
+fieldset {
+	border: var(--form-width-border) solid var(--form-cl-border);
+	border-radius: var(--form-border-radius);
+	padding: var(--form-spacing-unit);
+
+	legend {
+		font-size: .85em;
+		font-weight: 700;
+		padding: 0 0.5rem;
+	}
+
+	input {
+
+		&[type="submit"] {
+			max-width: max-content;
+		}
+
+		&:not([type="submit"]) {
+			margin-bottom: var(--global-spacing-unit);
+		}
+
+		&[type="radio"],
+		&[type="checkbox"] {
+			margin-bottom: 0;
+		}
+
+		&[type="radio"] + label,
+		&[type="checkbox"] + label {
+			font-size: var(--form-fs);
+			padding-left: 0;
+			margin-bottom: var(--global-spacing-unit);
+		}
+	}
+}
+
+input,
+textarea,
+select {
+	font-family: inherit;
+}
+
+select {
+	font-size: var(--form-fs);
+	border: var(--form-width-border) solid var(--form-cl-border);
+	color: var(--form-cl-text);
+	appearance: none;
+	line-height: var(--form-lh);
+	padding: var(--form-spacing-unit) calc(3 * var(--form-spacing-unit)) var(--form-spacing-unit) var(--form-spacing-unit);
+	background: var(--global-cl-white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2328303d'><polygon points='0,0 10,0 5,5'/></svg>") no-repeat; // stylelint-disable-line function-url-quotes
+	background-position: right var(--form-spacing-unit) top 60%;
+	border-radius: var(--form-border-radius);
+
+	&:focus {
+		outline-offset: 2px;
+		outline: 2px dotted var(--form-cl-border);
+	}
+}
+
+textarea {
+	width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+.site textarea {
+	@include input-style();
+}
+
+input[type="search"] {
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+}
+
+input[type="color"] {
+	padding: calc(var(--form-spacing-unit) / 2);
+	height: calc(4 * var(--form-spacing-unit));
+}
+
+input[type="email"],
+input[type="url"] {
+
+	/*rtl:ignore*/
+	direction: ltr;
+}
+
+// @todo: cf twenty twenty one & https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	display: inline-block;
+	padding-left: 10px;
+	font-size: var(--global-fs-small);
+	vertical-align: top;
+}

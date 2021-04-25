@@ -1,0 +1,9 @@
+.wp-block-file {
+
+	.wp-block-file__button {
+		@include button-style();
+
+		background: var(--global-cl-accent);
+		color: var(--global-cl-on-accent);
+	}
+}

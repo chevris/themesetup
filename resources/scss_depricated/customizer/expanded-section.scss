@@ -1,0 +1,26 @@
+#customize-theme-controls {
+
+	.control-section-themesetup_expanded_section {
+
+		.accordion-section-title {
+			display: none;
+		}
+
+		.customize-section-back {
+			display: none;
+		}
+	}
+
+	.customize-pane-child.control-section-themesetup_expanded_section {
+
+		position: relative;
+		visibility: visible;
+		height: auto;
+		margin-left: -100%;
+
+		h3 .customize-action {
+			display: none;
+		}
+	}
+
+}

@@ -1,0 +1,32 @@
+// Theme identity color
+$theme-color-identity: #5c6bc0;
+$theme-color-identity-dark: #8c9eff;
+
+// Breakpoints
+$mobile-max: 599px; // 719px;
+$tablet-min: 600px; // 720px;
+$tablet-max: 1024px;
+$desktop-min: 1025px;
+
+$sidebar-expanded: 800px;
+$sidebar-hidden: 799px;
+
+// Vertical Rhythm Multiplier
+$baseline-unit: 10px;
+
+
+// Elements to apply vertical spacing
+// @note: Headings need to be handled separately
+$selectors_margin_bottom: (
+	"p",
+	"ol", "ul", "dl",
+	"hr",
+	"form",
+	"blockquote",
+	"table",
+	"figure",
+	"iframe",
+	"address",
+	"pre",
+	'[class^="wp-block-"]',
+);

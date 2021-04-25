@@ -1,0 +1,60 @@
+// Font-size utility classes
+:root {
+
+	.has-small-font-size {
+		font-size: .882em;
+	}
+
+	.has-regular-font-size,
+	.has-normal-font-size {
+		font-size: 1em;
+	}
+
+	.has-large-font-size {
+		font-size: 1.176em;
+	}
+
+	.has-larger-font-size {
+		font-size: 1.294em;
+	}
+
+	// .is-extra-small-text,
+	// .has-extra-small-font-size {
+	// 	font-size: var(--global-fs-xs);
+	// }
+
+	// .is-small-text,
+	// .has-small-font-size {
+	// 	font-size: var(--global-fs-sm);
+	// }
+
+	// .has-medium-font-size {
+	// 	font-size: var(--global-fs-md);
+	// }
+
+	// .is-large-text,
+	// .has-large-font-size {
+	// 	font-size: var(--global-fs-lg);
+	// 	line-height: var(--heading-lh);
+	// }
+
+	// .is-larger-text,
+	// .has-larger-font-size,
+	// .is-extra-large-text,
+	// .has-extra-large-font-size {
+	// 	font-size: var(--global-fs-xl);
+	// 	line-height: var(--heading-lh);
+	// }
+
+	// .is-huge-text,
+	// .has-huge-font-size {
+	// 	font-size: var(--global-fs-xxl);
+	// 	line-height: var(--heading-lh);
+	// }
+
+	// .is-gigantic-text,
+	// .has-gigantic-font-size {
+	// 	font-size: var(--global-fs-xxxl);
+	// 	line-height: var(--heading-lh);
+	// }
+}

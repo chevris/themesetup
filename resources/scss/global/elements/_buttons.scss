@@ -1,0 +1,16 @@
+button {
+	cursor: pointer;
+}
+
+.button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.wp-block-button__link,
+.wp-block-file a.wp-block-file__button,
+.wp-block-search .wp-block-search__button {
+	@include button-style();
+
+	background-color: var(--global-cl-accent);
+	color: var(--global-cl-on-accent);
+}

@@ -1,0 +1,45 @@
+html {
+
+	font-family: var(--global-ff-secondary);
+	line-height: var(--global-lh);
+	overscroll-behavior: none;
+	scroll-behavior: smooth;
+
+	/* Apply border-box across the entire page. */
+	box-sizing: border-box;
+}
+
+* {
+
+	&,
+	&::before,
+	&::after {
+		box-sizing: inherit;
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
+	}
+}
+
+// Keep default focus style for tab navigation. Elements handle focus styles.
+*:focus:focus:not(:focus-visible) {
+	outline: none;
+}
+
+*:focus {
+	outline-offset: 1px;
+	outline: 2px dashed currentColor;
+}
+
+::selection {
+	background: var(--global-cl-accent);
+	color: var(--global-cl-on-accent);
+}
+
+// body resets
+body {
+	font-size: var(--global-fs-base);
+	text-align: left;
+	background-color: var(--global-cl-bg);
+	color: var(--global-cl-text-primary);
+	font-weight: normal;
+}

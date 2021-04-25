@@ -40,22 +40,22 @@ class Component implements Component_Interface {
 	 */
 	public function action_add_editor_support() {
 
+		/*
 		// Add support for editor styles.
 		// @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles.
 		add_theme_support( 'editor-styles' );
 
-		/**
-		 * Enqueue block editor stylesheet.
-		 * Automatically transform editor styles by selectively rewriting certain CSS selectors. This also
-		 * allows the block editor to leverage editor style in block variation previews.
-		 *
-		 * @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles.
-		 */
+		 // Enqueue block editor stylesheet.
+		 // Automatically transform editor styles by selectively rewriting certain CSS selectors. This also
+		 // allows the block editor to leverage editor style in block variation previews.
+		 //
+		 // @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles.
 		add_editor_style( 'public/css/editor.css' );
 
 		// Add support for default slightly more opinionated block styles for the front end.
 		// @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#default-block-styles.
 		// add_theme_support( 'wp-block-styles' );
+		*/
 
 		// Adjust the color of the UI to work on dark backgrounds.
 		// @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#dark-backgrounds.
@@ -239,51 +239,77 @@ class Component implements Component_Interface {
 		 * Add the line below to disable the custom color picker in the editor.
 		 * add_theme_support( 'disable-custom-font-sizes' );
 		 */
+		$base_font_size = 18; // Must match --global-fs-base
 		add_theme_support(
 			'editor-font-sizes',
 			[
 				[
-					'name'      => esc_html__( 'Extra small', 'themesetup' ),
-					'shortName' => esc_html_x( 'XS', 'Font size', 'themesetup' ),
-					'size'      => 14,
-					'slug'      => 'extra-small',
-				],
-				[
-					'name'      => esc_html__( 'Small', 'themesetup' ),
-					'shortName' => esc_html_x( 'S', 'Font size', 'themesetup' ),
-					'size'      => 16,
+					'name'      => esc_html_x( 'Small', 'Name of the small font size in Gutenberg', 'themesetup' ),
+					'shortName' => esc_html_x( 'S', 'Short name of the small font size in the Gutenberg editor.', 'themesetup' ),
+					'size'      => round( $base_font_size * .882 ),
 					'slug'      => 'small',
 				],
 				[
-					'name'      => esc_html__( 'Medium', 'themesetup' ),
-					'shortName' => esc_html_x( 'M', 'Font size', 'themesetup' ),
-					'size'      => 18,
-					'slug'      => 'medium',
+					'name'      => esc_html_x( 'Regular', 'Name of the regular font size in Gutenberg', 'themesetup' ),
+					'shortName' => esc_html_x( 'M', 'Short name of the regular font size in the Gutenberg editor.', 'themesetup' ),
+					'size'      => $base_font_size,
+					'slug'      => 'normal',
 				],
 				[
-					'name'      => esc_html__( 'Large', 'themesetup' ),
-					'shortName' => esc_html_x( 'L', 'Font size', 'themesetup' ),
-					'size'      => 20,
+					'name'      => esc_html_x( 'Large', 'Name of the large font size in Gutenberg', 'themesetup' ),
+					'shortName' => esc_html_x( 'L', 'Short name of the large font size in the Gutenberg editor.', 'themesetup' ),
+					'size'      => round( $base_font_size * 1.176 ),
 					'slug'      => 'large',
 				],
 				[
-					'name'      => esc_html__( 'Extra large', 'themesetup' ),
-					'shortName' => esc_html_x( 'XL', 'Font size', 'themesetup' ),
-					'size'      => 24,
-					'slug'      => 'extra-large',
+					'name'      => esc_html_x( 'Larger', 'Name of the larger font size in Gutenberg', 'themesetup' ),
+					'shortName' => esc_html_x( 'XL', 'Short name of the larger font size in the Gutenberg editor.', 'themesetup' ),
+					'size'      => round( $base_font_size * 1.294 ),
+					'slug'      => 'larger',
 				],
-				[
-					'name'      => esc_html__( 'Huge', 'themesetup' ),
-					'shortName' => esc_html_x( 'XXL', 'Font size', 'themesetup' ),
-					'size'      => 40,
-					'slug'      => 'huge',
-				],
-				[
-					'name'      => esc_html__( 'Gigantic', 'themesetup' ),
-					'shortName' => esc_html_x( 'XXXL', 'Font size', 'themesetup' ),
-					'size'      => 96,
-					'slug'      => 'gigantic',
-				],
+
+				// [
+				// 	'name'      => esc_html__( 'Extra small', 'themesetup' ),
+				// 	'shortName' => esc_html_x( 'XS', 'Font size', 'themesetup' ),
+				// 	'size'      => 14,
+				// 	'slug'      => 'extra-small',
+				// ],
+				// [
+				// 	'name'      => esc_html__( 'Small', 'themesetup' ),
+				// 	'shortName' => esc_html_x( 'S', 'Font size', 'themesetup' ),
+				// 	'size'      => 16,
+				// 	'slug'      => 'small',
+				// ],
+				// [
+				// 	'name'      => esc_html__( 'Medium', 'themesetup' ),
+				// 	'shortName' => esc_html_x( 'M', 'Font size', 'themesetup' ),
+				// 	'size'      => 18,
+				// 	'slug'      => 'medium',
+				// ],
+				// [
+				// 	'name'      => esc_html__( 'Large', 'themesetup' ),
+				// 	'shortName' => esc_html_x( 'L', 'Font size', 'themesetup' ),
+				// 	'size'      => 20,
+				// 	'slug'      => 'large',
+				// ],
+				// [
+				// 	'name'      => esc_html__( 'Extra large', 'themesetup' ),
+				// 	'shortName' => esc_html_x( 'XL', 'Font size', 'themesetup' ),
+				// 	'size'      => 24,
+				// 	'slug'      => 'extra-large',
+				// ],
+				// [
+				// 	'name'      => esc_html__( 'Huge', 'themesetup' ),
+				// 	'shortName' => esc_html_x( 'XXL', 'Font size', 'themesetup' ),
+				// 	'size'      => 40,
+				// 	'slug'      => 'huge',
+				// ],
+				// [
+				// 	'name'      => esc_html__( 'Gigantic', 'themesetup' ),
+				// 	'shortName' => esc_html_x( 'XXXL', 'Font size', 'themesetup' ),
+				// 	'size'      => 96,
+				// 	'slug'      => 'gigantic',
+				// ],
 			]
 		);
 	}
@@ -336,10 +362,10 @@ class Component implements Component_Interface {
 	public function action_enqueue_editor_styles() {
 
 		// Enqueue editor styles.
-		$editor_css_uri = get_theme_file_uri( '/public/css/editor-responsive.css' );
-		$editor_css_dir = get_theme_file_path( '/public/css/editor-responsive.css' );
+		$editor_css_uri = get_theme_file_uri( '/public/css/editor.css' );
+		$editor_css_dir = get_theme_file_path( '/public/css/editor.css' );
 		wp_enqueue_style(
-			'wp-rig-editor-customizer',
+			'themesetup-editor',
 			$editor_css_uri,
 			[],
 			themesetup()->get_asset_version( $editor_css_dir )

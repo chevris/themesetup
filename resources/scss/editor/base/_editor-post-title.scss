@@ -1,0 +1,10 @@
+.wp-block.editor-post-title__block {
+	max-width: var(--global-alignwide-width);
+	font-family: var(--heading-ff);
+
+	.editor-post-title__input {
+		font-size: 2.5em;
+		font-weight: var(--heading-fw);
+		line-height: var(--heading-lh);
+	}
+}

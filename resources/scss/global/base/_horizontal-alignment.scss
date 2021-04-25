@@ -1,0 +1,180 @@
+//
+// 1rst level block alignments
+//
+
+.align-wrap > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright),
+.content-align-width {
+	max-width: var(--global-aligncontent-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignwide,
+.alignfull {
+	clear: both;
+}
+
+.align-wrap > .alignwide,
+.wide-align-width {
+	max-width: var(--global-alignwide-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.alignfull,
+.full-align-width {
+	max-width: 100%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	float: none;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+
+	img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.align-wrap > .alignleft,
+.align-wrap > .alignright {
+	max-width: calc(0.5 * var(--global-aligncontent-width));
+}
+
+.alignleft:not(.is-resized),
+.alignright:not(.is-resized) {
+	width: 100%;
+}
+
+.alignleft {
+	float: left;
+	margin-right: var(--global-spacing-h);
+	margin-bottom: var(--global-spacing-v);
+}
+
+.align-wrap > .alignleft {
+	margin-left: var(--global-alignleft-margin);
+}
+
+.alignright {
+	float: right;
+	margin-left: var(--global-spacing-h);
+	margin-bottom: var(--global-spacing-v);
+}
+
+.align-wrap > .alignright {
+	margin-right: var(--global-alignright-margin);
+}
+
+//
+// Nested blocks alignment
+//
+
+[class*="inner-container"] {
+
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+
+	> .alignleft,
+	> .alignright {
+		max-width: 50%;
+	}
+}
+
+// Parent has background
+[class*="has-background"] > [class*="inner-container"] {
+
+
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> .alignwide {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> .alignleft {
+		margin-left: var(--global-spacing-h);
+	}
+
+	> .alignright {
+		margin-right: var(--global-spacing-h);
+	}
+}
+
+// Parent is alignwide
+.alignwide {
+
+	> [class*="inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+		max-width: min(100%, var(--global-content-max-width));
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&[class*="has-background"] > [class*="inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	> [class*="inner-container"] > .alignleft {
+		max-width: calc(0.5 * min(100%, var(--global-content-max-width)));
+		margin-left: calc(0.5 * (100% - min(100%, var(--global-content-max-width))));
+	}
+
+	> [class*="inner-container"] > .alignright {
+		max-width: calc(0.5 * min(100%, var(--global-content-max-width)));
+		margin-right: calc(0.5 * (100% - min(100%, var(--global-content-max-width))));
+	}
+
+	&[class*="has-background"] > [class*="inner-container"] > .alignleft {
+		margin-left: var(--global-alignleft-margin);
+	}
+
+	&[class*="has-background"] > [class*="inner-container"] > .alignright {
+		margin-right: var(--global-alignright-margin);
+	}
+}
+
+// Parent is alignfull
+.alignfull {
+
+	[class*="inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+		max-width: var(--global-aligncontent-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	[class*="inner-container"] > .alignwide {
+		max-width: var(--global-alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	[class*="inner-container"] > .alignleft {
+		max-width: calc(0.5 * min(100%, var(--global-content-max-width)));
+		margin-left: var(--global-alignleft-margin);
+		margin-right: var(--global-spacing-h);
+	}
+
+	[class*="inner-container"] > .alignright {
+		max-width: calc(0.5 * min(100%, var(--global-content-max-width)));
+		margin-right: var(--global-alignright-margin);
+		margin-left: var(--global-spacing-h);
+	}
+}

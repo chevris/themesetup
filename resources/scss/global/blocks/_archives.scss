@@ -1,0 +1,10 @@
+.wp-block-archives {
+
+	li {
+
+		&::before {
+			content: "\2014"; // &mdash;
+			margin-#{$right}: .25em;
+		}
+	}
+}
