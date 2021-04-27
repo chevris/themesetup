@@ -79,3 +79,14 @@ blockquote {
 		}
 	}
 }
+
+table {
+	width: 100%;
+	color: inherit; // Required for Chrome browser, for example.
+	border: 1px solid;
+	border-collapse: collapse;
+}
+
+caption {
+	text-align: $left;
+}

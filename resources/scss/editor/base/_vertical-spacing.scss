@@ -1,7 +1,3 @@
-#start-resizable-editor-section {
-	display: none;
-}
-
 div.editor-styles-wrapper {
 
 	.block-editor-block-list__layout.is-root-container,
@@ -13,11 +9,7 @@ div.editor-styles-wrapper {
 		> [data-align="wide"],
 		> [data-align="full"] {
 			margin-top: 0;
-			margin-bottom: calc(0.666 * var(--global-spacing-v));
-
-			@include media(tablet-plus) {
-				margin-bottom: var(--global-spacing-v);
-			}
+			margin-bottom: var(--global-spacing-v-responsive);
 		}
 
 		> [data-block]:last-child:not(.block-list-appender) {
@@ -31,8 +23,4 @@ div.editor-styles-wrapper {
 		// }
 	}
 
-}
-
-#end-resizable-editor-section {
-	display: none;
 }

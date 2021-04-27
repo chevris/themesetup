@@ -1,0 +1,45 @@
+.wp-block-buttons {
+
+	.wp-block-button {
+		margin: .5em;
+		margin-#{$left}: 0;
+
+		&:last-child {
+			margin-#{$right}: 0;
+		}
+
+		&:first-child:last-child {
+			margin: 0;
+		}
+
+		&:not(.is-style-outline) {
+
+			.wp-block-button__link {
+
+				&:not(.has-text-color):not(.has-background) {
+
+					&:hover,
+					&:focus,
+					&:active,
+					&:visited {
+						color: var(--global-cl-on-accent);
+					}
+				}
+			}
+		}
+
+		// Style: Outline.
+		&.is-style-outline {
+
+			.wp-block-button__link {
+				border-color: currentColor;
+				box-shadow: none;
+				border: var(--button-border-width) solid; // override default editor style
+
+				&:not(.has-text-color) {
+					color: var(--global-cl-accent); // var(--button-cl-bg);
+				}
+			}
+		}
+	}
+}

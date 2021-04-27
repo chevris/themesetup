@@ -1,31 +1,37 @@
+pre,
 code,
 kbd,
-pre,
-samp {
-	font-family: monospace;
-	padding: .2rem .3rem;
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: 400;
+	text-transform: none;
+	text-decoration: none;
+	letter-spacing: 0;
 }
 
-code,
-kbd,
-samp {
+pre,
+pre code {
+	word-wrap: normal;
+	white-space: pre-wrap; // https://css-tricks.com/almanac/properties/w/whitespace
+	line-height: 1.5;
+}
+
+code {
 	background: var(--global-cl-light-gray);
 	color: var(--global-cl-black);
 	border-radius: .2rem;
 }
 
 pre {
-	border-style: solid;
-	border-width: var(--global-border-width);
-	border-color: var(--global-cl-border);
-	padding: var(--global-spacing-unit);
 	overflow: auto;
 
-	/*rtl:ignore*/
-	text-align: left;
+	code {
+		background: transparent;
+		color: inherit;
+		padding: 0;
+	}
 }
 
-pre code {
-	background: transparent;
-	padding: 0;
-}

@@ -1,4 +1,8 @@
 @charset "UTF-8";
+#start-resizable-editor-section {
+  display: none;
+}
+
 :root {
   --global-ff-primary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --global-ff-secondary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
@@ -43,16 +47,18 @@
   --global-spacing-unit: 20px;
   --global-spacing-h: 20px;
   --global-spacing-v: 25px;
+  --global-spacing-v-responsive: calc(0.666 * var(--global-spacing-v));
+  --global-spacing-h-responsive: calc(0.666 * var(--global-spacing-h));
   --global-content-max-width: 610px;
   --global-wide-max-width: 1240px;
-  --global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-content-max-width));
-  --global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-wide-max-width));
+  --global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h-responsive)), var(--global-content-max-width));
+  --global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h-responsive)), var(--global-wide-max-width));
   --global-alignright-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
   --global-alignleft-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
   --global-content-max-width: 610px;
   --global-wide-max-width: 1240px;
-  --global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-content-max-width));
-  --global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-wide-max-width));
+  --global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h-responsive)), var(--global-content-max-width));
+  --global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h-responsive)), var(--global-wide-max-width));
   --global-alignright-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
   --global-alignleft-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
   --global-elevation-1: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
@@ -75,7 +81,7 @@
   --heading-ls-h2: var(--global-ls);
   --heading-ls-h1: var(--global-ls);
   --button-ff: var(--global-ff-primary);
-  --button-fs: var(--global-fs-small);
+  --button-fs: var(--global-fs-normal);
   --button-fw: 500;
   --button-lh: 1.5;
   --button-border-width: 2px;
@@ -122,6 +128,16 @@
   --table-cl-has-background-text: var(--global-cl-dark-gray);
   /* Admin-bar height */
   --global-admin-bar-height: 0;
+}
+@media (min-width: 600px) {
+  :root {
+    --global-spacing-v-responsive: var(--global-spacing-v);
+    --global-spacing-h-responsive: var(--global-spacing-h);
+  }
+}
+
+#end-resizable-editor-section {
+  display: none;
 }
 
 .block-editor-button-block-appender {
@@ -176,10 +192,6 @@
   line-height: var(--heading-lh);
 }
 
-#start-resizable-editor-section {
-  display: none;
-}
-
 div.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > [data-block],
 div.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > [data-align=wide],
 div.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > [data-align=full],
@@ -193,33 +205,13 @@ div.editor-styles-wrapper .wp-block-media-text__content > [data-block],
 div.editor-styles-wrapper .wp-block-media-text__content > [data-align=wide],
 div.editor-styles-wrapper .wp-block-media-text__content > [data-align=full] {
   margin-top: 0;
-  margin-bottom: calc(0.666 * var(--global-spacing-v));
-}
-@media (min-width: 600px) {
-  div.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > [data-block],
-div.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > [data-align=wide],
-div.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > [data-align=full],
-div.editor-styles-wrapper [class*=inner-container] > [data-block],
-div.editor-styles-wrapper [class*=inner-container] > [data-align=wide],
-div.editor-styles-wrapper [class*=inner-container] > [data-align=full],
-div.editor-styles-wrapper .wp-block-column > [data-block],
-div.editor-styles-wrapper .wp-block-column > [data-align=wide],
-div.editor-styles-wrapper .wp-block-column > [data-align=full],
-div.editor-styles-wrapper .wp-block-media-text__content > [data-block],
-div.editor-styles-wrapper .wp-block-media-text__content > [data-align=wide],
-div.editor-styles-wrapper .wp-block-media-text__content > [data-align=full] {
-    margin-bottom: var(--global-spacing-v);
-  }
+  margin-bottom: var(--global-spacing-v-responsive);
 }
 div.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > [data-block]:last-child:not(.block-list-appender),
 div.editor-styles-wrapper [class*=inner-container] > [data-block]:last-child:not(.block-list-appender),
 div.editor-styles-wrapper .wp-block-column > [data-block]:last-child:not(.block-list-appender),
 div.editor-styles-wrapper .wp-block-media-text__content > [data-block]:last-child:not(.block-list-appender) {
   margin-bottom: 0;
-}
-
-#end-resizable-editor-section {
-  display: none;
 }
 
 .wp-block {
@@ -256,11 +248,11 @@ div.editor-styles-wrapper .wp-block-media-text__content > [data-block]:last-chil
 }
 
 .wp-block[data-align=left] > * {
-  margin-right: var(--global-spacing-h);
+  margin-right: var(--global-spacing-h-responsive);
 }
 
 .wp-block[data-align=right] > * {
-  margin-left: var(--global-spacing-h);
+  margin-left: var(--global-spacing-h-responsive);
 }
 
 .wp-block[data-align=left] figcaption,
@@ -387,6 +379,47 @@ div.editor-styles-wrapper blockquote cite:before {
   margin-right: 8px;
   background-color: currentColor;
 }
+div.editor-styles-wrapper table {
+  width: 100%;
+  color: inherit;
+  border: 1px solid;
+  border-collapse: collapse;
+}
+div.editor-styles-wrapper caption {
+  text-align: left;
+}
+div.editor-styles-wrapper pre,
+div.editor-styles-wrapper code,
+div.editor-styles-wrapper kbd,
+div.editor-styles-wrapper tt,
+div.editor-styles-wrapper var {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+div.editor-styles-wrapper pre,
+div.editor-styles-wrapper pre code {
+  word-wrap: normal;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+div.editor-styles-wrapper code {
+  background: var(--global-cl-light-gray);
+  color: var(--global-cl-black);
+  border-radius: 0.2rem;
+}
+div.editor-styles-wrapper pre {
+  overflow: auto;
+}
+div.editor-styles-wrapper pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
 div.editor-styles-wrapper figure {
   margin: 0;
 }
@@ -443,16 +476,13 @@ div.editor-styles-wrapper a {
   text-underline-offset: 3px;
   transition: all 0.15s linear;
 }
-div.editor-styles-wrapper a:hover {
-  text-decoration: none;
-}
-div.editor-styles-wrapper a:focus {
+div.editor-styles-wrapper a:hover, div.editor-styles-wrapper a:focus {
   text-decoration: none;
 }
 div.editor-styles-wrapper ul,
 div.editor-styles-wrapper ol {
   font-family: var(--list-ff);
-  padding-left: var(--global-spacing-h);
+  padding-left: var(--global-spacing-h-responsive);
   margin: 0;
 }
 div.editor-styles-wrapper ul {
@@ -566,36 +596,121 @@ div.editor-styles-wrapper .h6 {
   font-weight: var(--heading-fw-strong);
   letter-spacing: var(--heading-letter-spacing-h6);
 }
-div.editor-styles-wrapper code,
-div.editor-styles-wrapper kbd,
-div.editor-styles-wrapper pre,
-div.editor-styles-wrapper samp {
-  font-family: monospace;
-  padding: 0.2rem 0.3rem;
-}
-div.editor-styles-wrapper code,
-div.editor-styles-wrapper kbd,
-div.editor-styles-wrapper samp {
-  background: var(--global-cl-light-gray);
-  color: var(--global-cl-black);
-  border-radius: 0.2rem;
-}
-div.editor-styles-wrapper pre {
-  border-style: solid;
-  border-width: var(--global-border-width);
-  border-color: var(--global-cl-border);
-  padding: var(--global-spacing-unit);
-  overflow: auto;
-  /*rtl:ignore*/
-  text-align: left;
-}
-div.editor-styles-wrapper pre code {
-  background: transparent;
-  padding: 0;
-}
 div.editor-styles-wrapper .wp-block-archives li::before {
   content: "\2014";
   margin-right: 0.25em;
+}
+div.editor-styles-wrapper .wp-block-buttons .wp-block-button {
+  margin: 0.5em;
+  margin-left: 0;
+}
+div.editor-styles-wrapper .wp-block-buttons .wp-block-button:last-child {
+  margin-right: 0;
+}
+div.editor-styles-wrapper .wp-block-buttons .wp-block-button:first-child:last-child {
+  margin: 0;
+}
+div.editor-styles-wrapper .wp-block-buttons .wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-text-color):not(.has-background):hover, div.editor-styles-wrapper .wp-block-buttons .wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-text-color):not(.has-background):focus, div.editor-styles-wrapper .wp-block-buttons .wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-text-color):not(.has-background):active, div.editor-styles-wrapper .wp-block-buttons .wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-text-color):not(.has-background):visited {
+  color: var(--global-cl-on-accent);
+}
+div.editor-styles-wrapper .wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link {
+  border-color: currentColor;
+  box-shadow: none;
+  border: var(--button-border-width) solid;
+}
+div.editor-styles-wrapper .wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color) {
+  color: var(--global-cl-accent);
+}
+div.editor-styles-wrapper .wp-block-calendar {
+  text-align: inherit;
+}
+div.editor-styles-wrapper .wp-block-calendar caption {
+  font-size: var(--global-fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  caption-side: top;
+  margin-bottom: 0.5em;
+}
+div.editor-styles-wrapper .wp-block-calendar table {
+  text-align: center;
+}
+div.editor-styles-wrapper .wp-block-calendar table caption,
+div.editor-styles-wrapper .wp-block-calendar table tbody {
+  color: inherit;
+}
+div.editor-styles-wrapper .wp-block-calendar th,
+div.editor-styles-wrapper .wp-block-calendar td {
+  width: auto;
+  height: 2em;
+  padding: 0;
+  vertical-align: middle;
+}
+div.editor-styles-wrapper .wp-block-calendar thead th {
+  font-size: var(--global-fs-small);
+  font-weight: 700;
+  background: var(--global-cl-accent);
+  color: var(--global-cl-on-accent);
+}
+div.editor-styles-wrapper .wp-block-calendar tbody a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  line-height: 2;
+  background: var(--global-cl-accent);
+  color: var(--global-cl-on-accent);
+  transition: background 0.3s;
+}
+div.editor-styles-wrapper .wp-block-calendar tbody a:focus {
+  outline-color: var(--global-cl-accent);
+}
+div.editor-styles-wrapper .wp-block-calendar .wp-calendar-nav {
+  margin-top: 0.5em;
+  font-size: var(--global-fs-small);
+  font-weight: 700;
+  text-align: inherit;
+  text-transform: uppercase;
+}
+div.editor-styles-wrapper .wp-block-calendar .wp-calendar-nav a {
+  text-decoration: none;
+  transition: all 0.15s linear;
+}
+div.editor-styles-wrapper .wp-block-calendar .wp-calendar-nav a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+div.editor-styles-wrapper .wp-block-calendar.is-style-themesetup-calendar-separate table {
+  border-collapse: separate;
+  border-width: 0;
+}
+div.editor-styles-wrapper .wp-block-calendar.is-style-themesetup-calendar-separate thead th {
+  border-width: 0;
+}
+div.editor-styles-wrapper .wp-block-calendar.is-style-themesetup-calendar-separate .pad {
+  visibility: hidden;
+}
+div.editor-styles-wrapper .wp-block-categories {
+  font-size: 0.875em;
+}
+div.editor-styles-wrapper .wp-block-categories a {
+  text-transform: uppercase;
+  color: inherit;
+}
+div.editor-styles-wrapper .wp-block-code {
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: currentColor;
+}
+div.editor-styles-wrapper .wp-block-code code,
+div.editor-styles-wrapper .wp-block-code textarea {
+  display: block;
+  padding: 22px 21px 20px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  background-image: repeating-linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 21px, rgba(255, 255, 255, 0.1) 21px, rgba(255, 255, 255, 0.1) 42px);
 }
 div.editor-styles-wrapper .has-black-color[class] {
   color: var(--global-cl-black);
@@ -851,8 +966,6 @@ div.editor-styles-wrapper .has-larger-font-size {
   box-shadow: var(--button-shadow);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear, background-color 15ms linear;
   text-decoration: none;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
   border-style: solid;
   border-width: var(--button-border-width);
   border-color: transparent;
@@ -861,7 +974,12 @@ div.editor-styles-wrapper .has-larger-font-size {
 }
 .wp-block-button__link:hover, .wp-block-button__link:focus {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   box-shadow: var(--button-shadow-hover);
+}
+.wp-block-button__link:focus-visible {
+  outline-offset: -5px;
 }
 .wp-block-button__link:active {
   box-shadow: var(--button-shadow-active);
@@ -882,8 +1000,6 @@ div.editor-styles-wrapper .has-larger-font-size {
   box-shadow: var(--button-shadow);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear, background-color 15ms linear;
   text-decoration: none;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
   border-style: solid;
   border-width: var(--button-border-width);
   border-color: transparent;
@@ -892,7 +1008,12 @@ div.editor-styles-wrapper .has-larger-font-size {
 }
 .wp-block-file .wp-block-file__button:hover, .wp-block-file .wp-block-file__button:focus {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   box-shadow: var(--button-shadow-hover);
+}
+.wp-block-file .wp-block-file__button:focus-visible {
+  outline-offset: -5px;
 }
 .wp-block-file .wp-block-file__button:active {
   box-shadow: var(--button-shadow-active);
@@ -913,8 +1034,6 @@ div.editor-styles-wrapper .has-larger-font-size {
   box-shadow: var(--button-shadow);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear, background-color 15ms linear;
   text-decoration: none;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
   border-style: solid;
   border-width: var(--button-border-width);
   border-color: transparent;
@@ -923,7 +1042,12 @@ div.editor-styles-wrapper .has-larger-font-size {
 }
 .wp-block-search .wp-block-search__button.wp-block-search__button:hover, .wp-block-search .wp-block-search__button.wp-block-search__button:focus {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   box-shadow: var(--button-shadow-hover);
+}
+.wp-block-search .wp-block-search__button.wp-block-search__button:focus-visible {
+  outline-offset: -5px;
 }
 .wp-block-search .wp-block-search__button.wp-block-search__button:active {
   box-shadow: var(--button-shadow-active);

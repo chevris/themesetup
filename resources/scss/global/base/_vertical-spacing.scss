@@ -5,11 +5,7 @@
 
 	> * {
 		margin-top: 0;
-		margin-bottom: calc(0.666 * var(--global-spacing-v));
-
-		@include media(tablet-plus) {
-			margin-bottom: var(--global-spacing-v);
-		}
+		margin-bottom: var(--global-spacing-v-responsive);
 	}
 
 	> *:last-child {

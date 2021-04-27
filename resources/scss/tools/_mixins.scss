@@ -61,20 +61,14 @@
 	text-underline-offset: 3px;
 	transition: all .15s linear;
 
-	&:hover {
-		text-decoration: none;
-	}
-
+	&:hover,
 	&:focus {
 		text-decoration: none;
-		// outline-offset: 1px;
-		// outline: 2px dashed currentColor;
 	}
 }
 
-@mixin link-naked-style() {
-	cursor: pointer;
-	color: currentColor;
+@mixin link-modifier-naked() {
+	// color: currentColor;
 	text-decoration: none;
 	transition: all .15s linear;
 
@@ -101,9 +95,6 @@
 	box-shadow: var(--button-shadow);
 	transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1), opacity 15ms linear, background-color 15ms linear;
 	text-decoration: none;
-	text-decoration-thickness: 2px;
-	text-underline-offset: 3px;
-
 	border-style: solid;
 	border-width: var(--button-border-width);
 	border-color: transparent; // var(--button-cl-bg);
@@ -111,80 +102,16 @@
 	&:hover,
 	&:focus {
 		text-decoration: underline;
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
 		box-shadow: var(--button-shadow-hover);
+	}
+
+	&:focus-visible {
+		outline-offset: -5px;
 	}
 
 	&:active {
 		box-shadow: var(--button-shadow-active);
 	}
-}
-
-// Input style ( text, search, ... )
-@mixin input-style() {
-	font-size: var(--form-fs);
-	border: var(--form-width-border) solid var(--form-cl-border);
-	border-radius: var(--form-border-radius);
-	background-color: var(--global-cl-white-90);
-	color: var(--form-cl-text);
-	line-height: var(--form-lh);
-	padding: var(--form-spacing-unit);
-	max-width: 100%;
-
-	&:focus {
-		outline: none;
-	}
-
-	&:disabled {
-		opacity: 0.7;
-	}
-}
-
-@mixin front-innerblock-vertical-margins($container) {
-
-	#{$container} > * {
-		margin-top: calc(0.666 * var(--global-spacing-v));
-		margin-bottom: calc(0.666 * var(--global-spacing-v));
-
-		@include media(tablet-plus) {
-			margin-top: var(--global-spacing-v);
-			margin-bottom: var(--global-spacing-v);
-		}
-	}
-
-	#{$container} > *:first-child {
-		margin-top: 0;
-	}
-
-	#{$container} > *:last-child {
-		margin-bottom: 0;
-	}
-}
-
-@mixin editor-innerblock-vertical-margins($container) {
-
-	#{$container} > [data-block],
-	#{$container} > [data-align="wide"],
-	#{$container} > [data-align="full"] {
-		margin-top: calc(0.666 * var(--global-spacing-v));
-		margin-bottom: calc(0.666 * var(--global-spacing-v));
-
-		@include media(tablet-plus) {
-			margin-top: var(--global-spacing-v);
-			margin-bottom: var(--global-spacing-v);
-		}
-	}
-
-	> #{$container} > [data-block]:first-child {
-		margin-top: 0;
-	}
-
-	> #{$container} > [data-block]:last-child:not(.block-list-appender) {
-		margin-bottom: 0;
-	}
-
-	// // When selected, the last item becomes the second last because of the appender.
-	// .has-child-selected > #{$container} > *:nth-last-child(2),
-	// .is-selected > #{$container} > *:nth-last-child(2) {
-	// 	margin-bottom: 0;
-	// }
 }

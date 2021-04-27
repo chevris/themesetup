@@ -74,6 +74,13 @@
 	--global-spacing-h: #{2 * $baseline-unit}; // 20px
 	--global-spacing-v: #{2.5 * $baseline-unit}; // 35px.
 
+	--global-spacing-v-responsive: calc(0.666 * var(--global-spacing-v));
+	--global-spacing-h-responsive: calc(0.666 * var(--global-spacing-h));
+	@include media(tablet-plus) {
+		--global-spacing-v-responsive: var(--global-spacing-v);
+		--global-spacing-h-responsive: var(--global-spacing-h);
+	}
+
 	//
 	// --Global Alignments--
 	//
@@ -81,8 +88,8 @@
 	--global-content-max-width: 610px;
 	--global-wide-max-width: 1240px;
 
-	--global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-content-max-width));
-	--global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-wide-max-width));
+	--global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h-responsive)), var(--global-content-max-width));
+	--global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h-responsive)), var(--global-wide-max-width));
 	--global-alignright-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
 	--global-alignleft-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
 
@@ -93,8 +100,8 @@
 	--global-content-max-width: 610px;
 	--global-wide-max-width: 1240px;
 
-	--global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-content-max-width));
-	--global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h)), var(--global-wide-max-width));
+	--global-aligncontent-width: min(calc(100% - 2 * var(--global-spacing-h-responsive)), var(--global-content-max-width));
+	--global-alignwide-width: min(calc(100% - 2 * var(--global-spacing-h-responsive)), var(--global-wide-max-width));
 	--global-alignright-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
 	--global-alignleft-margin: calc(0.5 * (100% - var(--global-aligncontent-width)));
 
@@ -135,7 +142,7 @@
 
 	// Fonts
 	--button-ff: var(--global-ff-primary);
-	--button-fs: var(--global-fs-small);
+	--button-fs: var(--global-fs-normal);
 	--button-fw: 500;
 	--button-lh: 1.5;
 	// Borders

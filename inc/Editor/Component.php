@@ -319,6 +319,39 @@ class Component implements Component_Interface {
 	 */
 	public function action_register_block_styles() {
 
+		// Buttons: Large.
+		register_block_style(
+			'core/buttons',
+			[
+				'name'  => 'themesetup-buttons-large',
+				'label' => esc_html__( 'Large buttons', 'themesetup' ),
+				'inline_style' => '.is-style-themesetup-buttons-large {
+					font-size: var(--global-fs-larger);
+				}',
+			]
+		);
+
+		// Buttons: Small.
+		register_block_style(
+			'core/buttons',
+			[
+				'name'  => 'themesetup-buttons-small',
+				'label' => esc_html__( 'Small buttons', 'themesetup' ),
+				'inline_style' => '.is-style-themesetup-buttons-small {
+					font-size: var(--global-fs-small);
+				}',
+			]
+		);
+
+		// Calendar: Separate.
+		register_block_style(
+			'core/calendar',
+			[
+				'name'  => 'themesetup-calendar-separate',
+				'label' => esc_html__( 'Separate', 'themesetup' ),
+			]
+		);
+
 		// Columns: Overlap.
 		register_block_style(
 			'core/columns',

@@ -1,0 +1,89 @@
+.wp-block-calendar {
+	text-align: inherit;
+
+	caption {
+		font-size: var(--global-fs-small);
+		font-weight: 700;
+		text-transform: uppercase;
+		caption-side: top;
+		margin-bottom: 0.5em;
+	}
+
+	table {
+		text-align: center;
+
+		caption,
+		tbody {
+			color: inherit;
+		}
+	}
+
+	th,
+	td {
+		width: auto;
+		height: 2em;
+		padding: 0;
+		vertical-align: middle;
+	}
+
+	thead {
+
+		th {
+			font-size: var(--global-fs-small);
+			font-weight: 700;
+			background: var(--global-cl-accent);
+			color: var(--global-cl-on-accent);
+		}
+	}
+
+	tbody {
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-decoration: none;
+			line-height: 2;
+			background: var(--global-cl-accent);
+			color: var(--global-cl-on-accent);
+			transition: background .3s;
+
+			&:focus {
+				outline-color: var(--global-cl-accent);
+			}
+		}
+	}
+
+	.wp-calendar-nav {
+		margin-top: .5em;
+		font-size: var(--global-fs-small);
+		font-weight: 700;
+		text-align: inherit;
+		text-transform: uppercase;
+
+		a {
+			@include link-modifier-naked();
+		}
+
+	}
+
+	// Style : Separate
+	&.is-style-themesetup-calendar-separate {
+
+		table {
+			border-collapse: separate;
+			border-width: 0;
+		}
+
+		thead {
+
+			th {
+				border-width: 0;
+			}
+		}
+
+		.pad {
+			visibility: hidden;
+		}
+	}
+}

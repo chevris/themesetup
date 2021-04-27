@@ -44,11 +44,11 @@
 }
 
 .wp-block[data-align="left"] > * {
-	margin-right: var(--global-spacing-h);
+	margin-right: var(--global-spacing-h-responsive);
 }
 
 .wp-block[data-align="right"] > * {
-	margin-left: var(--global-spacing-h);
+	margin-left: var(--global-spacing-h-responsive);
 }
 
 .wp-block[data-align="left"] figcaption,

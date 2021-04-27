@@ -29,7 +29,7 @@
 		.content-area {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr) 300px;
-			grid-gap: var(--global-spacing-h);
+			grid-gap: var(--global-spacing-h-responsive);
 			max-width: var(--global-alignwide-width);
 			margin-left: auto;
 			margin-right: auto;

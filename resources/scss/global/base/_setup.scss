@@ -21,11 +21,11 @@ html {
 }
 
 // Keep default focus style for tab navigation. Elements handle focus styles.
-*:focus:focus:not(:focus-visible) {
+*:focus:not(:focus-visible) {
 	outline: none;
 }
 
-*:focus {
+:focus-visible {
 	outline-offset: 1px;
 	outline: 2px dashed currentColor;
 }

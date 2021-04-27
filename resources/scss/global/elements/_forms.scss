@@ -82,7 +82,22 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 .site textarea {
-	@include input-style();
+	font-size: var(--form-fs);
+	border: var(--form-width-border) solid var(--form-cl-border);
+	border-radius: var(--form-border-radius);
+	background-color: var(--global-cl-white-90);
+	color: var(--form-cl-text);
+	line-height: var(--form-lh);
+	padding: var(--form-spacing-unit);
+	max-width: 100%;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:disabled {
+		opacity: 0.7;
+	}
 }
 
 input[type="search"] {

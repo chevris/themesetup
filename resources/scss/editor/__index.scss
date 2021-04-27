@@ -1,15 +1,23 @@
+#start-resizable-editor-section {
+	display: none;
+}
+
 @import "../global/variables";
+
+#end-resizable-editor-section {
+	display: none;
+}
 
 @import "base/_index";
 
 div.editor-styles-wrapper {
 
 	@import "../global/elements/base";
+	@import "../global/elements/code";
 	@import "../global/elements/media";
 	@import "../global/elements/links";
 	@import "../global/elements/lists";
 	@import "../global/elements/headings";
-	@import "../global/elements/code";
 	@import "../global/blocks/_index";
 	@import "../global/utilities/_index";
 

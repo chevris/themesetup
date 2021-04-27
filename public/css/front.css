@@ -23,7 +23,7 @@
   .has-sidebar .content-area {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 300px;
-    grid-gap: var(--global-spacing-h);
+    grid-gap: var(--global-spacing-h-responsive);
     max-width: var(--global-alignwide-width);
     margin-left: auto;
     margin-right: auto;
@@ -55,15 +55,15 @@
 }
 .post-password-form input[type=password] {
   flex-grow: 1;
-  margin-top: calc(var(--global-spacing-v) / 3);
-  margin-right: calc(0.66 * var(--global-spacing-h));
+  margin-top: calc(var(--global-spacing-v-responsive) / 3);
+  margin-right: calc(0.66 * var(--global-spacing-h-responsive));
 }
 .post-password-form__submit {
-  margin-top: calc(var(--global-spacing-v) / 3);
+  margin-top: calc(var(--global-spacing-v-responsive) / 3);
 }
 @media (min-width: 600px) and (max-width: 1024px) {
   .post-password-form__submit {
-    margin-left: calc(0.4 * var(--global-spacing-h));
+    margin-left: calc(0.4 * var(--global-spacing-h-responsive));
   }
 }
 
