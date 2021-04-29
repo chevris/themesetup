@@ -352,12 +352,30 @@ class Component implements Component_Interface {
 			]
 		);
 
+		// Columns: No gaps.
+		register_block_style(
+			'core/columns',
+			[
+				'name'  => 'themesetup-columns-no-gaps',
+				'label' => esc_html__( 'No gaps', 'themesetup' ),
+			]
+		);
+
 		// Columns: Overlap.
 		register_block_style(
 			'core/columns',
 			[
 				'name'  => 'themesetup-columns-overlap',
 				'label' => esc_html__( 'Overlap', 'themesetup' ),
+			]
+		);
+
+		// Gallery: No gaps.
+		register_block_style(
+			'core/gallery',
+			[
+				'name'  => 'themesetup-gallery-no-gaps',
+				'label' => esc_html__( 'No gaps', 'themesetup' ),
 			]
 		);
 

@@ -1,0 +1,89 @@
+.wp-block-columns {
+
+	&:not(.alignwide):not(.alignfull) {
+		clear: both;
+	}
+
+	.wp-block-column {
+
+		&:after {
+			clear: both;
+			content: "";
+			display: block;
+		}
+	}
+
+	// Columns spacing
+	@include media(mobile) {
+
+		.wp-block-column + .wp-block-column:not(:empty) {
+			margin-top: var(--global-spacing-v-responsive);
+		}
+
+		// // Remove top margin of a col with empty col before.
+		// .wp-block-column:empty + .wp-block-column:not(:empty) {
+		// 	margin-top: 0;
+		// }
+	}
+
+	@media ( min-width: 600px ) and ( max-width: 781px ) {
+
+		.wp-block-column:not(:only-child) {
+			flex-basis: calc(50% - var(--global-spacing-h)) !important;
+			flex-grow: 1;
+			margin: 0 0 var(--global-spacing-h);
+		}
+
+		.wp-block-column:nth-child(2n) {
+			margin-left: var(--global-spacing-h);
+		}
+
+		// Last two when they form a full row.
+		.wp-block-column:nth-last-of-type(-n+1):nth-child(even),
+		.wp-block-column:nth-last-of-type(-n+2):nth-child(odd) {
+			margin-bottom: 0;
+		}
+	}
+
+	@media ( min-width: 782px ) {
+
+		.wp-block-column:not(:first-child) {
+			margin: 0 0 0 var(--global-spacing-h);
+		}
+	}
+
+	// Override padding when has background (add more specificity for editor)
+	&.has-background[class] {
+		padding: var(--global-spacing-v-responsive) var(--global-spacing-h-responsive);
+	}
+
+	// Style : No gaps
+	&.is-style-themesetup-columns-no-gaps {
+		padding: 0;
+
+		.wp-block-column.wp-block-column {
+			margin: 0;
+		}
+	}
+
+	// Style : Overlap
+	&.is-style-themesetup-columns-overlap {
+
+		justify-content: space-around;
+
+		@include media(tablet-plus) {
+
+			.wp-block-column:nth-child(2n) {
+
+				margin-left: calc(-2.5 * var(--global-spacing-h));
+				margin-top: calc(2.5 * var(--global-spacing-h));
+				z-index: 2;
+
+				&.is-vertically-aligned-center {
+					margin-top: 0;
+				}
+
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+div.editor-styles-wrapper .wp-block-gallery {
+
+	.blocks-gallery-item {
+
+		figcaption {
+			pointer-events: inherit; // Caption should be clickable in the editor
+		}
+
+	}
+}

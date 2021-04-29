@@ -34,8 +34,8 @@ figcaption,
 	color: var(--global-cl-text-secondary);
 	font-size: var(--global-fs-small);
 	line-height: var(--global-lh);
-	margin-top: calc(0.5 * var(--global-spacing-unit));
-	margin-bottom: var(--global-spacing-unit);
+	margin-top: calc(0.333 * var(--global-spacing-unit));
+	// margin-bottom: var(--global-spacing-unit);
 	text-align: center;
 }
 

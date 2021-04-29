@@ -1,0 +1,8 @@
+.wp-block-group {
+	clear: both;
+	display: flow-root;
+
+	&.has-background {
+		padding: var(--global-spacing-v-responsive) 0;
+	}
+}

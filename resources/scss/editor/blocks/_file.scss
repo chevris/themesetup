@@ -1,9 +1,61 @@
-.wp-block-file {
+.editor-styles-wrapper .wp-block-file {
+
+	.wp-block-file__content-wrapper {
+		@include media(tablet-plus) {
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	.wp-block-file__textlink {
+		@include link-modifier-naked();
+		color: var(--links-cl-text);
+		font-weight: bold;
+	}
 
 	.wp-block-file__button {
 		@include button-style();
 
 		background: var(--global-cl-accent);
 		color: var(--global-cl-on-accent);
+	}
+
+	// Override default spacing of link wrapper
+	.wp-block-file__button-richtext-wrapper {
+		// margin: 0;
+
+		@include media(mobile) {
+			margin: calc(0.5 * var(--global-spacing-unit)) 0 0;
+			width: 100%;
+
+			.wp-block-file__button {
+				width: 100%;
+			}
+		}
+	}
+
+	[data-align="center"] & {
+
+		.wp-block-file__content-wrapper {
+			justify-content: center;
+		}
+	}
+
+	[data-align="left"] &,
+	[data-align="right"] & {
+
+		.wp-block-file__content-wrapper {
+			display: block;
+		}
+
+		.wp-block-file__button-richtext-wrapper {
+			margin: 0;
+			width: 100%;
+		}
+
+		.wp-block-file__button {
+			margin: calc(0.5 * var(--global-spacing-unit)) 0 0;
+			width: 100%;
+		}
 	}
 }

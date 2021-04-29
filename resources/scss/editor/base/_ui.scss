@@ -4,7 +4,14 @@
 	box-shadow: inset 0 0 0 1px currentColor;
 }
 
+// Remove default editor margins
+.block-editor-block-list__block {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 // Hightlight innerblocks
+/*
 .wp-block-group,
 .wp-block-cover,
 .wp-block-columns {
@@ -38,3 +45,4 @@
 		}
 	}
 }
+*/

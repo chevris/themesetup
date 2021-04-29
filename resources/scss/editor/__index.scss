@@ -4,10 +4,6 @@
 
 @import "../global/variables";
 
-#end-resizable-editor-section {
-	display: none;
-}
-
 @import "base/_index";
 
 div.editor-styles-wrapper {
@@ -24,3 +20,7 @@ div.editor-styles-wrapper {
 }
 
 @import "blocks/_index";
+
+#end-resizable-editor-section {
+	display: none;
+}

@@ -1,0 +1,21 @@
+.wp-block-cover {
+
+	padding: var(--global-spacing-v-responsive) 0;
+
+	&:not(.alignwide):not(.alignfull) {
+		clear: both;
+	}
+
+	/* The background color class is used just for the overlay, and does not need to be applied to the inner container. */
+	&[class*="-background-color"][class] .wp-block-cover__inner-container {
+		background-color: unset;
+	}
+
+	&.has-custom-content-position.has-custom-content-position {
+
+		.wp-block-cover__inner-container {
+			// max-width: min(100%, var(--global-content-max-width));
+			width: 75%;
+		}
+	}
+}

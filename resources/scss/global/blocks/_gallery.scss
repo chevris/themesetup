@@ -1,0 +1,28 @@
+.wp-block-gallery {
+
+	.blocks-gallery-grid {
+		width: 100%;
+	}
+
+	.blocks-gallery-item {
+
+		figure {
+			justify-content: center;
+		}
+
+		figcaption {
+			color: var(--global-cl-white); // Text color is always white to account for default gradient background
+			font-size: var(--global-fs-small);
+			pointer-events: none; // Caption background should not prevent clicking image
+		}
+
+	}
+
+	// Style : No gaps
+	&.is-style-themesetup-gallery-no-gaps {
+
+		.blocks-gallery-item {
+			margin: 0;
+		}
+	}
+}

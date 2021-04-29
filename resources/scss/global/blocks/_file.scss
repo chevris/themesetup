@@ -1,0 +1,54 @@
+.wp-block-file {
+	display: block;
+	// padding: var(--global-spacing-v-responsive) var(--global-spacing-h-responsive);
+
+	@include media(tablet-plus) {
+		display: flex;
+		align-items: center;
+	}
+
+	a:not(.wp-block-file__button) {
+		@include link-modifier-naked();
+		font-weight: bold;
+	}
+
+	a.wp-block-file__button {
+		// flex-shrink: 0;
+		// margin: calc(0.5 * var(--global-spacing-unit)) 0 0;
+		// width: 100%;
+
+		@include media(mobile) {
+			margin: calc(0.5 * var(--global-spacing-unit)) 0 0;
+			width: 100%;
+		}
+
+		// Undo Gutenberg hover defaults
+		&:active,
+		&:focus,
+		&:hover {
+			color: var(--global-cl-on-accent);
+			opacity: 1;
+		}
+
+		@include media(tablet-plus) {
+			// width: auto;
+			// margin: 0 0 0 var(--global-spacing-h);
+		}
+	}
+
+	&.aligncenter {
+		justify-content: center;
+	}
+
+	&.alignleft,
+	&.alignright {
+		display: block;
+		text-align: center;
+
+		a.wp-block-file__button {
+			margin: calc(0.5 * var(--global-spacing-unit)) 0 0;
+			width: 100%;
+		}
+	}
+}
+

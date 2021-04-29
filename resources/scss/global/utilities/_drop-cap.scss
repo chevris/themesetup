@@ -2,7 +2,8 @@
 	color: var(--global-cl-accent);
 	font-size: 5.2em;
 	font-weight: 700;
-	margin: .09em 1rem .5rem 0;
+	margin: .09em 0 .5rem 0;
+	margin-#{$right}: 1rem;
 }
 
 .has-drop-cap.has-text-color:not(:focus):first-letter {
