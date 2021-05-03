@@ -1,0 +1,25 @@
+.wp-block-quote {
+
+	p {
+		font-family: var(--quote-ff);
+		font-size: var(--quote-fs);
+		line-height: var(--quote-lh);
+		margin: 0 0 0.5em;
+	}
+
+	&.is-large,
+	&.is-style-large {
+		padding: 0;
+
+		p {
+			font-style: inherit;
+			font-size: var(--quote-fs-large);
+			line-height: var(--quote-lh-large);
+		}
+
+		cite {
+			font-size: inherit;
+			text-align: inherit;
+		}
+	}
+}

@@ -1,6 +1,6 @@
 :root {
 
-	// Abbr: ff = font-family, ls = letter-spacing, lh = line-height
+	// Abbr: cl=color, fs=font-size, ff=font-family, ls=letter-spacing, lh=line-height
 
 
 	//
@@ -16,6 +16,9 @@
 	//
 
 	--global-fs-base: 18px;
+	@include media(mobile) {
+		--global-fs-base: 16px;
+	}
 	--global-ls: normal;
 	--global-lh: 1.7;
 
@@ -182,24 +185,31 @@
 
 	--list-ff: var(--global-ff-secondary);
 
-	/* Block: Latest posts */
-	--latest-posts-ff-title: var(--heading-ff);
+	//
+	// Block: Latest posts
+	//
+
+	--latest-posts-cl-title: currentColor;
 	--latest-posts-fs-title: var(--heading-fs-h3);
 	--latest-posts-fs-content: var(--global-fs-base);
 	--latest-posts-shadow: var(--global-elevation-1);
 	--latest-posts-shadow-hover: var(--global-elevation-2);
 
-	/* Block: Pull quote */
-	--pullquote-ff: var(--global-ff-primary);
-	--pullquote-fs: var(--global-fs-larger);
-	--pullquote-lh: var(--heading-lh);
-	--pullquote-font-style: italic;
+	//
+	// Block: Pull quote
+	//
 
-	/* Block: Quote */
+	--pullquote-ff: var(--global-ff-primary);
+	--pullquote-fs: var(--global-fs-large);
+	--pullquote-lh: var(--heading-lh);
+
+	//
+	// Block: Quote
+	//
+
+	--quote-ff: var(--global-ff-primary);
 	--quote-fs: var(--global-fs-base);
-	--quote-fs-large: var(--global-fs-larger);
-	--quote-font-style: italic;
-	--quote-font-style-large: italic;
+	--quote-fs-large: var(--global-fs-large);
 	--quote-lh: var(--global-lh);
 	--quote-lh-large: 1.35;
 

@@ -48,10 +48,13 @@ div.editor-styles-wrapper {
 	margin-right: auto;
 }
 
+.alignleft:not(.is-resized),
+.alignright:not(.is-resized),
 .wp-block[data-align="left"] > *:not(.is-resized),
 .wp-block[data-align="right"] > *:not(.is-resized) {
-	width: 100%;
-	text-align: center;
+	// width: 100%;
+	// text-align: center;
+
 	max-width: 50%;
 }
 

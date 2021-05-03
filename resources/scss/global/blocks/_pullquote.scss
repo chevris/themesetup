@@ -1,0 +1,33 @@
+.wp-block-pullquote {
+	padding: 2em 0;
+
+	&:not(.is-style-solid-color) {
+		border-top: 2px solid;
+		border-bottom: 2px solid;
+	}
+
+	p {
+		font-family: var(--pullquote-ff);
+		font-size: var(--pullquote-fs);
+		line-height: var(--pullquote-lh);
+		margin: 0 0 0.5em;
+	}
+
+	// Style : Solide color
+	&.is-style-solid-color {
+
+		blockquote {
+			max-width: none;
+			text-align: center;
+
+			p {
+				font-size: 1em;
+			}
+		}
+
+		&.has-background {
+			padding-left: var(--global-spacing-h-responsive);
+			padding-right: var(--global-spacing-h-responsive);
+		}
+	}
+}

@@ -47,7 +47,8 @@ sub {
 blockquote {
 	quotes: "" "";
 	position: relative;
-	font-style: italic;
+	border: 0;
+	padding: 0;
 
 	&:before {
 		content: "\201D";
@@ -56,17 +57,21 @@ blockquote {
 		font-weight: 700;
 		font-style: normal;
 		color: currentColor;
+		margin-bottom: 0.5rem;
 
 		font-size: 3em;
 		height: .4em;
 		line-height: .75;
 	}
 
-	cite {
+	cite,
+	.wp-block-quote__citation,
+	.wp-block-pullquote__citation {
 		display: block;
-		margin-top: 0.5rem;
 		font-style: normal;
-		color: var(--global-cl-text-secondary);
+		text-transform: none;
+		font-size: var(--global-fs-small);
+		margin-top: 0.5em;
 
 		&:before {
 			content: "";

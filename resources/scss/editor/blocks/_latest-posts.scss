@@ -1,0 +1,10 @@
+div.editor-styles-wrapper .wp-block-latest-posts {
+	margin-bottom: var(--global-spacing-v-responsive);
+
+	&__post-excerpt {
+
+		a:last-child {
+			display: none;
+		}
+	}
+}

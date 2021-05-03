@@ -51,7 +51,8 @@
 
 .alignleft:not(.is-resized),
 .alignright:not(.is-resized) {
-	width: 100%;
+	// width: 100%;
+	// max-width: 50%;
 }
 
 .alignleft {

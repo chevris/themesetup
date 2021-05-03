@@ -1,1 +1,5 @@
-
+// Override default editor style
+[data-align="full"] .wp-block-group > .wp-block-group__inner-container > .wp-block {
+	padding-left: 0;
+	padding-right: 0;
+}

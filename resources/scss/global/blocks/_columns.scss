@@ -85,5 +85,12 @@
 
 			}
 		}
+
+		@media ( min-width: 782px ) {
+
+			.wp-block-column:nth-child(2n):not(:last-child) {
+				margin-right: calc(-2.5 * var(--global-spacing-h));
+			}
+		}
 	}
 }

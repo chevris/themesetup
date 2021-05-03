@@ -1,0 +1,31 @@
+.wp-block-latest-comments {
+
+	.wp-block-latest-comments__comment {
+		line-height: var(--global-lh);
+		margin-bottom: 1em;
+	}
+
+	.wp-block-latest-comments__comment-meta {
+		font-family: var(--heading-ff);
+
+		a {
+			@include link-modifier-naked();
+		}
+	}
+
+	time {
+		color: var(--global-cl-text-secondary);
+		font-size: .8em;
+		margin-top: .1rem;
+	}
+
+	.wp-block-latest-comments__comment-excerpt {
+		margin-top: .36em;
+
+		p {
+			font-size: 0.9em;
+			line-height: var(--global-lh);
+			margin: 0;
+		}
+	}
+}

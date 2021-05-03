@@ -1,0 +1,9 @@
+.wp-block-pullquote {
+
+	blockquote {
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+}

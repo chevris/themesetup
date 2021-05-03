@@ -1,0 +1,18 @@
+.wp-block-image {
+
+	// Do not constrain img width when resized
+	&.is-resized {
+
+		> img {
+			max-width: none;
+		}
+	}
+
+	.alignleft {
+		margin-right: var(--global-spacing-h-responsive);
+	}
+
+	.alignright {
+		margin-left: var(--global-spacing-h-responsive);
+	}
+}
